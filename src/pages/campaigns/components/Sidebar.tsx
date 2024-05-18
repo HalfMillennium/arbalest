@@ -18,10 +18,12 @@ export function Sidebar() {
       sx={{
         width: drawerWidth,
         flexShrink: 0,
-        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
+        [`& .MuiDrawer-paper`]: {
+          width: drawerWidth,
+          boxSizing: "border-box",
+        },
       }}
     >
-      <Toolbar />
       <List>
         {["Campaigns", "Analytics", "Settings"].map((text, index) => (
           <ListItem button key={text}>

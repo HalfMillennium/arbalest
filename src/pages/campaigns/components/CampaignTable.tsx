@@ -7,6 +7,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Typography,
 } from "@mui/material";
 
 const campaigns = [
@@ -30,7 +31,9 @@ export function CampaignTable(props: { filter: string }) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Campaign Name</TableCell>
+            <TableCell>
+              <Typography fontWeight="medium">Campaign Name</Typography>
+            </TableCell>
             <TableCell>Type</TableCell>
             <TableCell>Demographic</TableCell>
           </TableRow>

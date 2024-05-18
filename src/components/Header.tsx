@@ -48,13 +48,17 @@ export function Header() {
                 </Typography>
               </Button>
             </div>
-            <div>
+            <div className="md:text-base">
               <Button
                 variant={isSignedIn ? "outlined" : "contained"}
                 sx={{ textTransform: "capitalize" }}
                 onClick={() => setSignedIn(!isSignedIn)}
               >
-                <Typography fontFamily="Radio Canada Big" fontWeight={300}>
+                <Typography
+                  fontFamily="Radio Canada Big"
+                  fontWeight={300}
+                  className="text-xs"
+                >
                   {isSignedIn
                     ? t("header.navBar.signOut")
                     : t("header.navBar.register")}

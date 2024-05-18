@@ -8,6 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import { CampaignTable } from "./CampaignTable";
+import { Add } from "@mui/icons-material";
 
 const filterOptions = [
   { label: "All", value: "all" },
@@ -25,11 +26,17 @@ export function DashboardContent() {
   return (
     <div>
       <div>
-        <Typography variant="h4">View Campaigns</Typography>
+        <Typography
+          variant="h4"
+          fontFamily="Radio Canada Big"
+          fontWeight="medium"
+        >
+          View Campaigns
+        </Typography>
       </div>
       <div className="bg-slate-300 rounded-md shadow-lg">
         <div className="p-4">
-          <Grid container spacing={2} alignItems="center">
+          <Grid container spacing={2} className="justify-between">
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <TextField
                 select
@@ -44,6 +51,18 @@ export function DashboardContent() {
                   </MenuItem>
                 ))}
               </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3} className="w-full text-end">
+              <span className="p-3 align-middle">
+                <Button variant="outlined" sx={{ textTransform: "capitalize" }}>
+                  <Typography
+                    fontFamily="Radio Canada Big"
+                    fontWeight={"medium"}
+                  >
+                    Create New Campaign
+                  </Typography>
+                </Button>
+              </span>
             </Grid>
           </Grid>
           <div className="mt-4">

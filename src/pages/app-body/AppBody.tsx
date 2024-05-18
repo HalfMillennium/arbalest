@@ -40,7 +40,7 @@ export function AppBody() {
             </BrowserRouter>
           </div>
         </div>
-        <div className="fixed bottom-0 left-0 w-full">
+        <div className="bottom-0 left-0 w-full">
           <Footer />
         </div>
       </div>

@@ -18,7 +18,7 @@ export function ExplainerSection(props: {
       <div className="fade-in flex flex-row justify-center items-center w-screen mb-10 ">
         <div className="flex flex-col w-1/4 items-end animate-fade-in ">
           <ScrollAnimation animateIn={textAnimation ?? "fadeIn"}>
-            <h3 className="text-2xl font-semibold py-3">{title}</h3>
+            <h3 className="text-right text-2xl font-semibold py-3">{title}</h3>
             <p className="text-right text-xl">{text}</p>
           </ScrollAnimation>
         </div>
@@ -39,7 +39,7 @@ export function ExplainerSection(props: {
       </div>
       <div className="flex flex-col w-1/4 items-start z-1">
         <ScrollAnimation animateIn={textAnimation ?? "fadeIn"}>
-          <h3 className="text-2xl font-semibold py-3">{title}</h3>
+          <h3 className="text-left text-2xl font-semibold py-3">{title}</h3>
           <p className="text-left text-xl">{text}</p>
         </ScrollAnimation>
       </div>
