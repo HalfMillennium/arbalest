@@ -2,8 +2,8 @@ import { Button, Typography } from "@mui/material";
 import { t } from "i18next";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import arbalestLogo from "../assets/arbalest_logo_one_small.png";
-import { Avatar } from "@mui/material";
+import Select from "react-select/dist/declarations/src/Select";
+import AccountDropdownMenu from "./account-dropdown-menu/AccountDropdownMenu";
 
 export function Header() {
   const [isSignedIn, setSignedIn] = useState(true);
@@ -42,11 +42,7 @@ export function Header() {
         <div className="flex flex-auto w-1/3 justify-center">
           <div className="flex flex-row m-5 pr-20">
             <div className="mr-2" hidden={!isSignedIn}>
-              <Button variant="text" sx={{ textTransform: "capitalize" }}>
-                <Typography fontFamily="Radio Canada Big" fontWeight={300}>
-                  {t("header.navBar.account")}
-                </Typography>
-              </Button>
+              <AccountDropdownMenu />
             </div>
             <div className="md:text-base">
               <Button

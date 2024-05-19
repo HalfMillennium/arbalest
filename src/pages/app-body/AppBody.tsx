@@ -21,13 +21,13 @@ export function AppBody() {
   }, [i18n]);
   return (
     <div>
-      <div className="w-screen fixed top-0 left-0 pl-9 pt-4 pb-2 bg-slate-100 z-50">
-        <Header />
-      </div>
-      <div className="app-body-bg items-center w-screen">
-        <div className="justify-center">
-          <div className="px-4 pt-24">
-            <BrowserRouter>
+      <BrowserRouter>
+        <div className="w-screen fixed top-0 left-0 pl-9 pt-4 pb-2 bg-slate-100 z-50">
+          <Header />
+        </div>
+        <div className="app-body-bg items-center w-screen">
+          <div className="justify-center">
+            <div className="px-4 pt-24">
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
@@ -37,13 +37,13 @@ export function AppBody() {
                   element={<ViewCampaignsPage />}
                 />
               </Routes>
-            </BrowserRouter>
+            </div>
+          </div>
+          <div className="bottom-0 left-0 w-full">
+            <Footer />
           </div>
         </div>
-        <div className="bottom-0 left-0 w-full">
-          <Footer />
-        </div>
-      </div>
+      </BrowserRouter>
     </div>
   );
 }
