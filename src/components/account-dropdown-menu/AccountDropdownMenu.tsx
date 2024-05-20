@@ -89,6 +89,6 @@ export default function AccountDropdownMenu() {
 
   function openCampaigns() {
     handleClose();
-    navigate("/user/person/campaigns");
+    navigate("/user/person/dashboard");
   }
 }

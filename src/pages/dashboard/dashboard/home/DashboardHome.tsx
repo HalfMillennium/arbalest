@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import { Card, List, ListItem, Typography } from "@mui/material";
-import { DashboardContent } from "../components/DashboardContent";
+import { DashboardActivityContent } from "../DashboardActivityContent";
 import { OpenInNew } from "@mui/icons-material";
-import "./ViewCampaignsPage.css";
+import "./DashboardHome.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../../store/store";
+import {
+  DashboardActivity,
+  setCurrentActivity,
+} from "../../../../store/dashboard/dashboardSlice";
 
-export function ViewCampaignsPage() {
-  // 'campaigns', 'analytics', 'companions'
-  const [currentTab, setCurrentTab] = useState("campaigns");
+export function DashboardHome() {
+  // 'campaigns', 'analytics', 'assistants'
+  const currentActivity = useSelector(
+    (state: RootState) => state.dashboard.currentActivity
+  );
+  const dispatch = useDispatch();
+
   return (
     <div className="items-center">
       <div className="m-4 h-screen flex flex-row">
@@ -42,46 +52,46 @@ export function ViewCampaignsPage() {
           <List>
             <ListItem>
               <DrawerCard
-                title="Campaigns"
+                activity={DashboardActivity.CAMPAIGNS}
                 body="Create, edit and view (past or present) campaigns for the selected
           property."
               />
             </ListItem>
             <ListItem>
               <DrawerCard
-                title="Analytics"
+                activity={DashboardActivity.ANALYTICS}
                 body="Track your past & present campaigns. Dowload data as a CSV file."
               />
             </ListItem>
             <ListItem>
               <DrawerCard
-                title="Companions"
+                activity={DashboardActivity.ASSISTANTS}
                 body="Manage your virtual email director, curator and writer."
               />
             </ListItem>
           </List>
         </div>
         <div className="w-4/5 py-5 pr-5 pl-2 ml-10">
-          <DashboardContent />
+          <DashboardActivityContent />
         </div>
       </div>
     </div>
   );
-  function DrawerCard(props: { title: string; body: string }) {
-    const { title, body } = props;
+  function DrawerCard(props: { body: string; activity: DashboardActivity }) {
+    const { body, activity } = props;
     return (
       <Card
         className="hover:animate-pulse bg-white bg-opacity-50 rounded-md text-left p-4 cursor-pointer"
         style={
-          currentTab === title
+          currentActivity === activity
             ? { opacity: 0.2, pointerEvents: "none" }
             : { opacity: 0.7 }
         }
-        onClick={() => setCurrentTab(title)}
+        onClick={() => dispatch(setCurrentActivity(activity))}
       >
         <div className="mb-4">
           <Typography fontFamily="Radio Canada Big" fontSize={18}>
-            {title}
+            {activity}
           </Typography>
           <Typography variant="body1">{body}</Typography>
         </div>

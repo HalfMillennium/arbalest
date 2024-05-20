@@ -3,7 +3,7 @@ import { useState } from "react";
 import "animate.css/animate.compat.css";
 import ScrollAnimation from "react-animate-on-scroll";
 
-export function ExplainerSection(props: {
+export function ScrollerExplainerSection(props: {
   text: string;
   title: string;
   image: string;
@@ -15,17 +15,17 @@ export function ExplainerSection(props: {
     props;
   if (orientation === "IMAGE_RIGHT") {
     return (
-      <div className="flex flex-row justify-center items-center w-screen mb-10 ">
-        <div className="flex flex-col w-1/4 items-end animate-fade-in">
-          <div className="fade-in">
+      <div className="fade-in flex flex-row justify-center items-center w-screen mb-10 ">
+        <div className="flex flex-col w-1/4 items-end animate-fade-in ">
+          <ScrollAnimation animateIn={"fadeIn"}>
             <h3 className="text-right text-2xl font-semibold py-3">{title}</h3>
             <p className="text-right text-xl">{text}</p>
-          </div>
+          </ScrollAnimation>
         </div>
         <div className="flex w-2/2 p-3 ml-10 w-1/2 z-1">
-          <div className="fade-in">
+          <ScrollAnimation animateIn={"slideInRight"}>
             <img src={image} className="rounded-md shadow-md" />
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
     );
@@ -33,15 +33,15 @@ export function ExplainerSection(props: {
   return (
     <div className="flex flex-row justify-center items-center w-screen mb-10 ">
       <div className="flex w-2/2 p-3 mr-10 w-1/2 z-1  animate-fade-in ">
-        <div className="animate-fade-in">
+        <ScrollAnimation animateIn={imageAnimation ?? "slideInLeft"}>
           <img src={image} className="rounded-md shadow-md" />
-        </div>
+        </ScrollAnimation>
       </div>
       <div className="flex flex-col w-1/4 items-start z-1">
-        <div className="animate-fade-in">
+        <ScrollAnimation animateIn={textAnimation ?? "fadeIn"}>
           <h3 className="text-left text-2xl font-semibold py-3">{title}</h3>
           <p className="text-left text-xl">{text}</p>
-        </div>
+        </ScrollAnimation>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PricingPage } from "../PricingPage";
 import { Footer } from "../../components/Footer";
 import { ExplainerPage } from "../explainer-page/ExplainerPage";
-import { ViewCampaignsPage } from "../campaigns/view-campaigns/ViewCampaignsPage";
+import { DashboardHome } from "../dashboard/dashboard/home/DashboardHome";
 
 import "./AppBody.css";
 
@@ -33,8 +33,8 @@ export function AppBody() {
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/whatisit" element={<ExplainerPage />} />
                 <Route
-                  path="/user/:username/campaigns"
-                  element={<ViewCampaignsPage />}
+                  path="/user/:username/dashboard"
+                  element={<DashboardHome />}
                 />
               </Routes>
             </div>
