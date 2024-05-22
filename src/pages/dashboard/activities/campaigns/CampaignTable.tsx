@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
@@ -6,10 +6,15 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
+  IconButton,
   Typography,
+  Collapse,
 } from "@mui/material";
 import { CampaignInfo, CAMPAIGN_FIELDS } from "../../../../types/campaigns";
+import { CampaignDetails } from "./campaign-details/CampaignDetails";
+
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const campaigns: CampaignInfo[] = [
   {
@@ -55,11 +60,58 @@ export function CampaignTable(props: { filter: string }) {
     return true;
   });
 
+  const TableComponent = ({ children }: { children: any }) => (
+    <TableContainer className="rounded-md bg-white/50">
+      {children}
+    </TableContainer>
+  );
+
+  const TableRowComponent = ({ children }: { children: any }) => {
+    const [open, setOpen] = useState(false);
+    return (
+      <>
+        <TableRow
+          className={`cursor-pointer ${open ? "bg-slate-100" : ""}`}
+          sx={{
+            "&:hover": { backgroundColor: "rgb(241 245 249)" },
+            "& > *": { borderBottom: "unset" },
+          }}
+          onClick={() => setOpen(!open)}
+        >
+          <TableCell>
+            <IconButton aria-label="expand row" size="small">
+              {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            </IconButton>
+          </TableCell>
+          {children}
+        </TableRow>
+        <TableRow className="bg-slate-100">
+          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={70}>
+            <CollapseableCampaignDetails isOpen={open} />
+          </TableCell>
+        </TableRow>
+      </>
+    );
+  };
+
+  function CollapseableCampaignDetails(props: { isOpen: boolean }) {
+    const { isOpen } = props;
+    return (
+      <div className="flex">
+        <Collapse in={isOpen} timeout="auto" unmountOnExit>
+          <CampaignDetails />
+        </Collapse>
+      </div>
+    );
+  }
+
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={TableComponent}>
       <Table>
-        <TableHead>
+        <TableHead className="relative">
           <TableRow>
+            {/** Empty cell to account for extra row cell for open/close icon */}
+            <TableCell></TableCell>
             {CAMPAIGN_FIELDS.map((field: string) => (
               <TableCell>
                 <Typography fontWeight="medium" fontFamily="Radio Canada Big">
@@ -69,49 +121,51 @@ export function CampaignTable(props: { filter: string }) {
             ))}
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className="w-full">
           {filteredCampaigns.map((campaign) => (
-            <TableRow key={campaign.id}>
-              <TableCell>
-                <Typography fontFamily="Radio Canada Big">
-                  {campaign.name}
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography
-                  fontFamily="Radio Canada Big"
-                  style={
-                    campaign.demographicId === undefined
-                      ? { color: "gray" }
-                      : {}
-                  }
-                >
-                  {campaign.demographicId ?? "N/A"}{" "}
-                  {/** TODO: Instead get user-defined name for demographic group (special mailing list) */}
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography fontFamily="Radio Canada Big">
-                  {campaign.propertyId}
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography fontFamily="Radio Canada Big">
-                  {campaign.dateStarted}
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography fontFamily="Radio Canada Big">
-                  {campaign.engagements}
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography fontFamily="Radio Canada Big">
-                  {campaign.mailingListId}
-                  {/** TODO: Instead get user-defined mailing list name */}
-                </Typography>
-              </TableCell>
-            </TableRow>
+            <>
+              <TableRowComponent key={campaign.id}>
+                <TableCell>
+                  <Typography fontFamily="Radio Canada Big">
+                    {campaign.name}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography
+                    fontFamily="Radio Canada Big"
+                    style={
+                      campaign.demographicId === undefined
+                        ? { color: "gray" }
+                        : {}
+                    }
+                  >
+                    {campaign.demographicId ?? "N/A"}{" "}
+                    {/** TODO: Instead get user-defined name for demographic group (special mailing list) */}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography fontFamily="Radio Canada Big">
+                    {campaign.propertyId}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography fontFamily="Radio Canada Big">
+                    {campaign.dateStarted}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography fontFamily="Radio Canada Big">
+                    {campaign.engagements}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography fontFamily="Radio Canada Big">
+                    {campaign.mailingListId}
+                    {/** TODO: Instead get user-defined mailing list name */}
+                  </Typography>
+                </TableCell>
+              </TableRowComponent>
+            </>
           ))}
         </TableBody>
       </Table>
