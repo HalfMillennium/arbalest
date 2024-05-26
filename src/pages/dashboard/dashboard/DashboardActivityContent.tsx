@@ -34,7 +34,7 @@ export function DashboardActivityContent() {
           {currentActivity}
         </Typography>
       </div>
-      <div className="bg-slate-300 rounded-md shadow-lg">
+      <div className="bg-slate-300 rounded-sm shadow-md">
         <Suspense>
           <div className="p-4">
             {currentActivity === DashboardActivity.CAMPAIGNS && (

@@ -20,7 +20,7 @@ export function DashboardHome() {
   return (
     <div className="items-center">
       <div className="m-4 h-screen flex flex-row">
-        <div className="w-1/5 drawer-bg rounded-lg">
+        <div className="w-1/5 drawer-bg rounded-md">
           <div className="flex flex-col p-4">
             <div className="flex flex-row justify-start">
               <div>

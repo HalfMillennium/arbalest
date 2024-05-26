@@ -1,8 +1,7 @@
 import React from "react";
 import { CampaignTable } from "./CampaignTable";
-import { Grid, TextField, MenuItem, Typography } from "@mui/material";
+import { Grid, TextField, MenuItem, Typography, Button } from "@mui/material";
 import { useState } from "react";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 export function CampaignActivity(props: { campaignInfo?: any }) {
   const [filter, setFilter] = useState("");
@@ -10,33 +9,41 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
   const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
   };
+  const filterTypes = [
+    { label: "Demographic", key: "demo" },
+    { label: "Mailing List", key: "mailingList" },
+    { label: "Status", key: "status" },
+  ];
   return (
     <>
-      <Grid container spacing={2} className="justify-between">
+      <Grid container spacing={2} className="justify-equal">
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <TextField
             select
             fullWidth
             value={filter}
             onChange={handleFilterChange}
-            label="Filter"
+            label={
+              <Typography fontFamily="Radio Canada Big">Filter</Typography>
+            }
           >
-            <MenuItem key="type" value="Type">
-              Type
-            </MenuItem>
+            {filterTypes.map((type) => (
+              <MenuItem key={type.key} value={type.label}>
+                <Typography fontFamily="Radio Canada Big">
+                  {type.label}
+                </Typography>
+              </MenuItem>
+            ))}
           </TextField>
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={3} className="w-full text-end">
           <span className="align-middle">
-            <div className="flex flex-row bg-sky-600 text-slate-100 rounded-md w-fit p-2 shadow-sm cursor-pointer">
-              <div>
-                <Typography fontFamily="Radio Canada Big" fontWeight={"medium"}>
-                  <span className="pr-1">
-                    <AddCircleOutlineIcon />
-                  </span>
+            <div className="flex flex-row text-slate-100 w-fit p-2 cursor-pointer">
+              <Button variant="outlined" sx={{ textTransform: "capitalize" }}>
+                <Typography fontWeight={"medium"} fontFamily="Radio Canada Big">
                   Create New Campaign
                 </Typography>
-              </div>
+              </Button>
             </div>
           </span>
         </Grid>

@@ -61,7 +61,7 @@ export function CampaignTable(props: { filter: string }) {
   });
 
   const TableComponent = ({ children }: { children: any }) => (
-    <TableContainer className="rounded-md bg-white/50">
+    <TableContainer className="rounded-sm bg-white/75">
       {children}
     </TableContainer>
   );
@@ -85,7 +85,10 @@ export function CampaignTable(props: { filter: string }) {
           </TableCell>
           {children}
         </TableRow>
-        <TableRow className="bg-slate-100">
+        <TableRow
+          className="bg-slate-100"
+          sx={{ "& > *": { borderBottom: "unset" } }}
+        >
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={70}>
             <CollapseableCampaignDetails isOpen={open} />
           </TableCell>

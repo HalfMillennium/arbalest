@@ -40,6 +40,7 @@ export default function AccountDropdownMenu() {
       </Button>
       <Menu
         id="menu-appbar"
+        className="rounded-none"
         anchorEl={anchorEl}
         keepMounted
         transformOrigin={{
@@ -50,6 +51,7 @@ export default function AccountDropdownMenu() {
           ".MuiPaper-root": {
             backgroundColor: "#212121",
             color: "white",
+            borderRadius: "2px",
           },
         }}
         open={open}

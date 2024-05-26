@@ -11,6 +11,8 @@ import { ExplainerPage } from "../explainer-page/ExplainerPage";
 import { DashboardHome } from "../dashboard/dashboard/home/DashboardHome";
 
 import "./AppBody.css";
+import { Register } from "../register/Register";
+import { TextEditor } from "../text-editor/TextEditor";
 
 export function AppBody() {
   const { i18n } = useTranslation();
@@ -36,6 +38,8 @@ export function AppBody() {
                   path="/user/:username/dashboard"
                   element={<DashboardHome />}
                 />
+                <Route path="/register" element={<Register />} />
+                <Route path="/emaileditor" element={<TextEditor />} />
               </Routes>
             </div>
           </div>
