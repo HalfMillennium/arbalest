@@ -17,6 +17,13 @@ module.exports = {
         'bubble-gum': '#ff77e9',
         'bermuda': '#78dcca',
       },
+      spacing: {
+        '32rem': '32rem',
+        '36rem': '36rem',
+        '48rem' : '48rem',
+        '64rem': '64rem',
+        '72rem': '72rem'
+      }
     },
   },
   variants: {

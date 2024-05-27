@@ -7,17 +7,20 @@ export function Register() {
   const [userDetails, setUserDetails] = useState(EMPTY_USER_DETAILS);
   const [password, setPassword] = useState("");
 
-  const handleChange = (field: string) => (event: any) => {
-    const updatedUserDetails = userDetails;
-    updatedUserDetails[field] = event.target.value;
-    setUserDetails(updatedUserDetails);
-  };
+  const handleChange =
+    (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const updatedUserDetails = userDetails;
+      updatedUserDetails[field] = event.target.value;
+      setUserDetails(updatedUserDetails);
+    };
 
-  const handlePasswordChange = (event: any) => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const handleConfPasswordChange = (event: any) => {
+  const handleConfPasswordChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setPassword(event.target.value);
   };
 

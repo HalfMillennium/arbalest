@@ -8,11 +8,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PricingPage } from "../PricingPage";
 import { Footer } from "../../components/Footer";
 import { ExplainerPage } from "../explainer-page/ExplainerPage";
-import { DashboardHome } from "../dashboard/dashboard/home/DashboardHome";
+import { DashboardHome } from "../dashboard/dashboard/dashboard-home/DashboardHome";
 
 import "./AppBody.css";
 import { Register } from "../register/Register";
-import { TextEditor } from "../text-editor/TextEditor";
 
 export function AppBody() {
   const { i18n } = useTranslation();
@@ -39,13 +38,12 @@ export function AppBody() {
                   element={<DashboardHome />}
                 />
                 <Route path="/register" element={<Register />} />
-                <Route path="/emaileditor" element={<TextEditor />} />
               </Routes>
             </div>
           </div>
-          <div className="bottom-0 left-0 w-full">
-            <Footer />
-          </div>
+        </div>
+        <div className="bottom-0 left-0 w-full fixed">
+          <Footer />
         </div>
       </BrowserRouter>
     </div>

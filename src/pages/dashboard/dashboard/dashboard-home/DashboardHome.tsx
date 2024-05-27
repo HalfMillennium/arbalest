@@ -69,6 +69,12 @@ export function DashboardHome() {
                 body="Manage your virtual email director, curator and writer."
               />
             </ListItem>
+            <ListItem>
+              <DrawerCard
+                activity={DashboardActivity.ENTRIES}
+                body="Manage recent email entries dispatched for a selected campaign."
+              />
+            </ListItem>
           </List>
         </div>
         <div className="w-4/5 py-5 pr-5 pl-2 ml-10">

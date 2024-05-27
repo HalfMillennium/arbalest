@@ -7,12 +7,7 @@ import { DashboardActivity } from "../../../store/dashboard/dashboardSlice";
 import { CampaignActivity } from "../activities/campaigns/CampaignActivity";
 
 import { Suspense } from "react";
-
-const filterOptions = [
-  { label: "All", value: "all" },
-  { label: "Type", value: "type" },
-  { label: "Demographic", value: "demographic" },
-];
+import { EntriesHome } from "../activities/campaigns/entries/entries-home/EntriesHome";
 
 export function DashboardActivityContent() {
   const currentActivity = useSelector(
@@ -34,14 +29,17 @@ export function DashboardActivityContent() {
           {currentActivity}
         </Typography>
       </div>
-      <div className="bg-slate-300 rounded-sm shadow-md">
+      <div className="bg-slate-200 rounded-sm shadow-md">
         <Suspense>
-          <div className="p-4">
+          <div className="pb-4 px-4 h-screen">
             {currentActivity === DashboardActivity.CAMPAIGNS && (
-              <CampaignActivity />
+              <div className="mt-4">
+                <CampaignActivity />
+              </div>
             )}
             {currentActivity === DashboardActivity.ANALYTICS && <Analytics />}
             {currentActivity === DashboardActivity.ASSISTANTS && <Assistants />}
+            {currentActivity === DashboardActivity.ENTRIES && <EntriesHome />}
           </div>
         </Suspense>
       </div>

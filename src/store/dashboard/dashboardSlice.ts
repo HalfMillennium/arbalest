@@ -4,7 +4,9 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export enum DashboardActivity {
   CAMPAIGNS = "Campaigns",
   ANALYTICS = "Analytics",
+  /** Refers to AI communications director, AI email curator and automated dispatcher - where users edit property config */
   ASSISTANTS = "Assistants",
+  ENTRIES = "Entries",
 }
 
 export interface DashboardState {
