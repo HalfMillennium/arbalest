@@ -1,13 +1,13 @@
 import { TabPanel } from "../TabPanel";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Tab, Tabs, Box, Typography } from "@mui/material";
-import { EntriesDashboard } from "../../../../../entries-dashboard/EntriesDashboard";
 import { EntryDashboardTabs } from "../../../../../entries-dashboard/types";
-import { Edit, History, CalendarMonth } from "@mui/icons-material";
+import { Edit, History, ScheduleSend } from "@mui/icons-material";
+import EntriesDashboard from "../../../../../entries-dashboard/EntriesDashboard";
 
 export function EntriesHome() {
   const [currentTab, setCurrentTab] = useState(0);
-  const tabColor = "rgb(13 148 136)";
+  const tabColor = "rgb(7 89 133)";
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setCurrentTab(newValue);
@@ -21,7 +21,7 @@ export function EntriesHome() {
             value={currentTab}
             onChange={handleTabChange}
             aria-label="entry dashboard tabs"
-            TabIndicatorProps={{ style: { backgroundColor: tabColor } }} // Add this line
+            TabIndicatorProps={{ style: { backgroundColor: tabColor } }}
           >
             <Tab
               label={TabLabel({ tabType: EntryDashboardTabs.SCHEDULE })}
@@ -29,7 +29,7 @@ export function EntriesHome() {
               sx={{
                 minWidth: 200,
                 "&.Mui-selected": { color: tabColor },
-              }} // Add this line
+              }}
             />
             <Tab
               label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_HISTORY })}
@@ -37,7 +37,7 @@ export function EntriesHome() {
               sx={{
                 minWidth: 200,
                 "&.Mui-selected": { color: tabColor },
-              }} // Add this line
+              }}
             />
             <Tab
               label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_EDITOR })}
@@ -45,7 +45,7 @@ export function EntriesHome() {
               sx={{
                 minWidth: 200,
                 "&.Mui-selected": { color: tabColor },
-              }} // Add this line
+              }}
             />
           </Tabs>
         </div>
@@ -76,7 +76,7 @@ export function EntriesHome() {
           </Typography>
         </div>
         <div>
-          {tabType === EntryDashboardTabs.SCHEDULE && <CalendarMonth />}
+          {tabType === EntryDashboardTabs.SCHEDULE && <ScheduleSend />}
           {tabType === EntryDashboardTabs.ENTRY_HISTORY && <History />}
           {tabType === EntryDashboardTabs.ENTRY_EDITOR && <Edit />}
         </div>

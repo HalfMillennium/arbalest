@@ -19,7 +19,7 @@ export function DashboardActivityContent() {
   const Assistants = lazy(() => import("../activities/assistants/Assistants"));
 
   return (
-    <div>
+    <div className="w-full">
       <div>
         <Typography
           variant="h4"

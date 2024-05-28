@@ -1,31 +1,76 @@
-export const EXAMPLE_EMAIL_TEXT = `Hi Valued Customer,
+export const EXAMPLE_EMAIL_MARKDOWN = `# 🌟 Welcome to Our Exclusive New Product Sale! 🌟
 
-We're thrilled to announce a massive sale at Awesome Clothing Co! From now until May 31st, 2024, enjoy 34% off your entire purchase (excluding gift cards and taxes). Stock up on your favorites or try something new - it's the perfect time to treat yourself!
+Dear Valued Customer,
 
-Here are some highlights of the sale:
+We are thrilled to announce our latest collection of products, now available at unbeatable prices! Whether you're looking for the latest in tech, fashion, home goods, or more, we've got you covered. Don't miss out on these limited-time offers to upgrade your lifestyle without breaking the bank.
 
-All clothing - Get 34% off all clothing items.
-Summer dresses - This popular item category is now starting at just $19.99!
-Free shipping on orders over $50!
-But wait, there's more!
+## 📱 Tech Gadgets
 
-We're also excited to unveil some brand new products that just arrived at Awesome Clothing Co!
+**Smartphone XYZ**
+- Original Price: $999
+- **Sale Price: $799**
+- Features: 5G connectivity, 128GB storage, 48MP camera
 
-Check out our new line of graphic tees: https://www.awesomeclothing.com/new-product-1
-Stay cool this summer with our new selection of breathable shorts: https://www.awesomeclothing.com/new-product-2
-We've also added some new hats to our collection: https://www.awesomeclothing.com/new-product-3
-We're confident you'll love these new additions to our collection.
+**Wireless Earbuds Pro**
+- Original Price: $199
+- **Sale Price: $149**
+- Features: Noise-cancellation, 24-hour battery life, water-resistant
 
-Don't miss out on these amazing deals! Shop now at https://www.awesomeclothing.com.
+## 👗 Fashion Essentials
+
+**Designer Handbag**
+- Original Price: $299
+- **Sale Price: $199**
+- Features: Genuine leather, adjustable strap, multiple compartments
+
+**Men's Casual Blazer**
+- Original Price: $149
+- **Sale Price: $99**
+- Features: Slim fit, available in various colors, wrinkle-resistant
+
+## 🏠 Home & Kitchen
+
+**Air Fryer Deluxe**
+- Original Price: $129
+- **Sale Price: $89**
+- Features: 5.8-quart capacity, digital touch screen, 7 cooking presets
+
+**Memory Foam Mattress**
+- Original Price: $599
+- **Sale Price: $399**
+- Features: Pressure relief, hypoallergenic, 10-year warranty
+
+## 🎁 Special Offers
+
+- **Buy One Get One Free** on select skincare products
+- **Free Shipping** on orders over $50
+- **Additional 10% Off** your first purchase with code: **NEW10**
+
+## 🛒 Shop Now!
+
+Visit our [website](https://www.your-ecommerce-site.com) to explore the full range of new products on sale. Hurry, these deals won't last long!
+
+Thank you for choosing us for your shopping needs. We are committed to bringing you the best products at the best prices.
 
 Happy Shopping!
 
-The team at Awesome Clothing Co
+Best regards,  
+The E-Commerce Team
 
-P.S. Follow us on social media for exclusive offers and updates!
+---
 
-Facebook: https://www.facebook.com/awesomeclothing
-Instagram: https://www.instagram.com/awesomeclothing
-Twitter: https://www.twitter.com/awesomeclothing`;
+### 📧 Stay Connected
+
+- [Facebook](https://www.facebook.com/yourecommerce)
+- [Twitter](https://www.twitter.com/yourecommerce)
+- [Instagram](https://www.instagram.com/yourecommerce)
+
+For any inquiries, feel free to contact our customer support at support@yourecommerce.com or call us at 1-800-123-4567.
+
+---
+
+© 2024 Your E-Commerce Site. All rights reserved.  
+You are receiving this email because you opted in at our website. If you prefer not to receive promotional emails, [unsubscribe here](https://www.your-ecommerce-site.com/unsubscribe).
+`;
 
 export const EXAMPLE_EMAIL_SUBJECT = `Don't Miss Out! Huge Sale & Exciting New Products`;

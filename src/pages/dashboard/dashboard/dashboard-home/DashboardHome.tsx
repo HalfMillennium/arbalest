@@ -59,14 +59,14 @@ export function DashboardHome() {
             </ListItem>
             <ListItem>
               <DrawerCard
-                activity={DashboardActivity.ANALYTICS}
-                body="Track your past & present campaigns. Dowload data as a CSV file."
+                activity={DashboardActivity.ASSISTANTS}
+                body="Manage your virtual email director, curator and writer."
               />
             </ListItem>
             <ListItem>
               <DrawerCard
-                activity={DashboardActivity.ASSISTANTS}
-                body="Manage your virtual email director, curator and writer."
+                activity={DashboardActivity.ANALYTICS}
+                body="Track your past & present campaigns. Dowload data as a CSV file."
               />
             </ListItem>
             <ListItem>
@@ -87,7 +87,7 @@ export function DashboardHome() {
     const { body, activity } = props;
     return (
       <Card
-        className="hover:animate-pulse bg-white bg-opacity-50 rounded-md text-left p-4 cursor-pointer"
+        className="hover:animate-pulse bg-white bg-opacity-50 rounded-md text-left p-4 cursor-pointer w-full"
         style={
           currentActivity === activity
             ? { opacity: 0.2, pointerEvents: "none" }
