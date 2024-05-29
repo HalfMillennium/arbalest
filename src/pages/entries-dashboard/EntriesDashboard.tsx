@@ -1,9 +1,12 @@
 import { Typography, Button } from "@mui/material";
 import { useState, useRef, createRef } from "react";
-import { EXAMPLE_EMAIL_MARKDOWN, EXAMPLE_EMAIL_SUBJECT } from "./utils";
+import {
+  EXAMPLE_EMAIL_MARKDOWN,
+  EXAMPLE_EMAIL_SUBJECT,
+  EXAMPLE_CAMPAIGN_ENTRIES,
+} from "./utils";
 import EmailMarkdownEditor from "./EmailMarkdownEditor";
-import { useEffect } from "react";
-import { MutableRefObject } from "react";
+import { RecentEntryList } from "./recent-entries/RecentEntryList";
 
 const MAX_SUBJECT_LINE_LENGTH = 75;
 
@@ -14,7 +17,10 @@ export default function EntriesDashboard() {
     const [subject, setSubject] = useState(EXAMPLE_EMAIL_SUBJECT);
     return (
       <div>
-        <div className="mx-30 flex justify-start mb-10 flex-col w-2/3">
+        <div className="mx-30 flex justify-start mb-10 flex-col w-3/4">
+          <div>
+            <RecentEntryList entries={EXAMPLE_CAMPAIGN_ENTRIES} />
+          </div>
           <div className="flex justify-between text-center items-center">
             <div>
               <Typography variant="button" fontFamily="Radio Canada Big">
@@ -37,6 +43,19 @@ export default function EntriesDashboard() {
               onChange={(event) => setSubject(event.target.value)}
             />
           </div>
+          <div className="pt-2 text-black">
+            <Button
+              variant="outlined"
+              color="inherit"
+              onClick={() =>
+                console.log(
+                  `New subject line: ${subjectLineTextAreaRef.current?.value}`
+                )
+              }
+            >
+              Save
+            </Button>
+          </div>
         </div>
       </div>
     );
@@ -46,7 +65,7 @@ export default function EntriesDashboard() {
     return (
       <div className="flex">
         <div className="mx-30 flex justify-start my-10 flex-col w-full">
-          <div className="flex flex-col justify-center h-48rem">
+          <div className="flex flex-col justify-center sm:h-24rem md:h-36rem h-48rem">
             <div className="flex justify-between items-center mb-2">
               <div className="flex justify-between text-center items-center">
                 <div>

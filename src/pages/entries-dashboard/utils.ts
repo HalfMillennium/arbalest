@@ -1,3 +1,5 @@
+import { CampaignEntry } from "../../store/dashboard/campaigns/types";
+
 export const EXAMPLE_EMAIL_MARKDOWN = `# 🌟 Welcome to Our Exclusive New Product Sale! 🌟
 
 Dear Valued Customer,
@@ -74,3 +76,36 @@ You are receiving this email because you opted in at our website. If you prefer 
 `;
 
 export const EXAMPLE_EMAIL_SUBJECT = `Don't Miss Out! Huge Sale & Exciting New Products`;
+
+export const EXAMPLE_CAMPAIGN_ENTRIES: CampaignEntry[] = [
+  {
+    dispatchDate: new Date("03/11/2024"),
+    createdDate: new Date("03/10/2024"),
+    subject: "This Is A New Email I Made IV",
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("03/10/2024"),
+    createdDate: new Date("03/09/2024"),
+    subject: "This Is A New Email I Made IV",
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("03/10/2023"),
+    createdDate: new Date("03/09/2023"),
+    subject: "This Is A New Email I Made III",
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("03/10/2022"),
+    createdDate: new Date("03/09/2022"),
+    subject: "This Is A New Email I Made II",
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("03/10/2021"),
+    createdDate: new Date("03/09/2021"),
+    subject: "This Is A New Email I Made",
+    markdownContent: "",
+  },
+];

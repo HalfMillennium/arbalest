@@ -19,9 +19,9 @@ export interface CampaignConfig {
 export interface CampaignEntry {
   dispatchDate: Date;
   /** The dispatcher may have the entry created prior to its dispatch date? */
-  createdDate: Date;
-  subject: string;
-  markdownContent: string;
+  createdDate?: Date;
+  subject?: string;
+  markdownContent?: string;
   /** Any practical benefit to keeping this on the frontend? Not sure yet */
   htmlContent?: string;
 }

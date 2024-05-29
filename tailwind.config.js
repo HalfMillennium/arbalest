@@ -18,6 +18,11 @@ module.exports = {
         'bermuda': '#78dcca',
       },
       spacing: {
+        '4rem': '4rem',
+        '8rem': '8rem',
+        '16rem': '16rem',
+        '18rem': '18rem',
+        '24rem': '24rem',
         '32rem': '32rem',
         '36rem': '36rem',
         '48rem' : '48rem',
