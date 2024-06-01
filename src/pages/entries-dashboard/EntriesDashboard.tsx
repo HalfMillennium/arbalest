@@ -63,7 +63,7 @@ export default function EntriesDashboard() {
           </div>
         </div>
         <div className="flex w-full">
-          <div className="w-1/2 px-5">
+          <div className="w-1/2 pr-3">
             <SimpleTextInput
               maxLength={MAX_SUBJECT_LINE_LENGTH}
               initialValue={EXAMPLE_EMAIL_SUBJECT}
@@ -71,7 +71,7 @@ export default function EntriesDashboard() {
               label="Subject Line"
             />
           </div>
-          <div className="w-1/2 px-5">
+          <div className="w-1/2 pl-3">
             <SimpleTextInput
               maxLength={MAX_DEMO_ID_LENGTH}
               initialValue={EXAMPLE_EMAIL_SUBJECT}
