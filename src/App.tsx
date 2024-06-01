@@ -6,7 +6,7 @@ import { Button, Typography } from "@mui/material";
 function App() {
   const [isSignedIn, setSignedIn] = useState(true);
   return (
-    <div className="h-screen justify-center">
+    <div className="justify-center">
       <div className="justify-center">
         <AppBody />
       </div>

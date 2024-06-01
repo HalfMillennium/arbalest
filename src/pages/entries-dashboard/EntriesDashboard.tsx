@@ -7,65 +7,21 @@ import {
 } from "./utils";
 import EmailMarkdownEditor from "./EmailMarkdownEditor";
 import { RecentEntryList } from "./recent-entries/RecentEntryList";
+import { SimpleTextInput } from "../../components/SimpleTextInput";
 
 const MAX_SUBJECT_LINE_LENGTH = 75;
+const MAX_DEMO_ID_LENGTH = 25;
 
 export default function EntriesDashboard() {
   const subjectLineTextAreaRef = createRef<HTMLInputElement>();
-
-  function SubjectLineEditor() {
-    const [subject, setSubject] = useState(EXAMPLE_EMAIL_SUBJECT);
-    return (
-      <div>
-        <div className="mx-30 flex justify-start mb-10 flex-col w-3/4">
-          <div>
-            <RecentEntryList entries={EXAMPLE_CAMPAIGN_ENTRIES} />
-          </div>
-          <div className="flex justify-between text-center items-center">
-            <div>
-              <Typography variant="button" fontFamily="Radio Canada Big">
-                Subject Line
-              </Typography>
-            </div>
-            <div className="ml-2">
-              <Typography fontFamily="Montserrat" variant="body2">
-                ({subject.length}/{MAX_SUBJECT_LINE_LENGTH})
-              </Typography>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <input
-              ref={subjectLineTextAreaRef}
-              style={{ fontFamily: "Roboto Mono" }}
-              className="w-full h-1/5 bg-slate-900 text-slate-100 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-slate-600 resize-none overflow-auto shadow-md"
-              value={subject}
-              maxLength={MAX_SUBJECT_LINE_LENGTH}
-              onChange={(event) => setSubject(event.target.value)}
-            />
-          </div>
-          <div className="pt-2 text-black">
-            <Button
-              variant="outlined"
-              color="inherit"
-              onClick={() =>
-                console.log(
-                  `New subject line: ${subjectLineTextAreaRef.current?.value}`
-                )
-              }
-            >
-              Save
-            </Button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const [subjectLine, setSubjectLine] = useState("");
+  const [demoId, setDemoId] = useState("");
 
   function EmailBodyEditor() {
     return (
       <div className="flex">
         <div className="mx-30 flex justify-start my-10 flex-col w-full">
-          <div className="flex flex-col justify-center sm:h-24rem md:h-36rem h-48rem">
+          <div className="flex flex-col justify-center sm:h-24rem md:h-36rem h-48rem mt-4rem">
             <div className="flex justify-between items-center mb-2">
               <div className="flex justify-between text-center items-center">
                 <div>
@@ -78,28 +34,51 @@ export default function EntriesDashboard() {
             <div className="w-full">
               <EmailMarkdownEditor originalMarkdown={EXAMPLE_EMAIL_MARKDOWN} />
             </div>
-            <div className="text-black w-full justify-center items-center p-3">
-              <Button
-                variant="outlined"
-                color="inherit"
-                onClick={() => {
-                  console.log("BUTTON PRESSED");
-                }}
-              >
-                Save Changes
-              </Button>
+            <div className="pt-2 text-black w-full flex justify-end">
+              <div>
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  onClick={() =>
+                    console.log(
+                      `New subject line: ${subjectLineTextAreaRef.current?.value}`
+                    )
+                  }
+                >
+                  Save Changes
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     );
   }
-
   return (
     <div className="flex flex-col items-start justify-start">
       <div className="w-full flex flex-col">
-        <div>
-          <SubjectLineEditor />
+        <div className="flex w-4/4 items-end justify-end">
+          <div>
+            <RecentEntryList entries={EXAMPLE_CAMPAIGN_ENTRIES} />
+          </div>
+        </div>
+        <div className="flex w-full">
+          <div className="w-1/2 px-5">
+            <SimpleTextInput
+              maxLength={MAX_SUBJECT_LINE_LENGTH}
+              initialValue={EXAMPLE_EMAIL_SUBJECT}
+              setValue={setSubjectLine}
+              label="Subject Line"
+            />
+          </div>
+          <div className="w-1/2 px-5">
+            <SimpleTextInput
+              maxLength={MAX_DEMO_ID_LENGTH}
+              initialValue={EXAMPLE_EMAIL_SUBJECT}
+              setValue={setDemoId}
+              label="Demographic Id"
+            />
+          </div>
         </div>
         <div>
           <EmailBodyEditor />

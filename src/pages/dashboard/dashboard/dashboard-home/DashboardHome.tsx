@@ -19,7 +19,7 @@ export function DashboardHome() {
 
   return (
     <div className="items-center">
-      <div className="m-4 h-screen flex flex-row">
+      <div className="m-4 h-96rem flex flex-row">
         <div className="w-1/5 drawer-bg rounded-md">
           <div className="flex flex-col p-4">
             <div className="flex flex-row justify-start">
@@ -77,7 +77,7 @@ export function DashboardHome() {
             </ListItem>
           </List>
         </div>
-        <div className="w-4/5 py-5 pr-5 pl-2 ml-10">
+        <div className="w-4/5 py-5 pr-5 pl-2 ml-10 p-90">
           <DashboardActivityContent />
         </div>
       </div>

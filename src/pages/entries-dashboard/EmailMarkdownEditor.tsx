@@ -13,7 +13,7 @@ export default function EmailMarkdownEditor(props: {
       <div>
         <MarkdownEditor
           value={markdown}
-          className="sm:h-24rem md:h-36rem"
+          className="sm:h-36rem md:h-48rem"
           height="48rem"
           onChange={setMarkdown}
           visible={true}

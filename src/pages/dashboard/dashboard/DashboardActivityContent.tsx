@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography } from "@mui/material";
+import { Card, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { lazy } from "react";
@@ -29,9 +29,9 @@ export function DashboardActivityContent() {
           {currentActivity}
         </Typography>
       </div>
-      <div className="bg-slate-200 rounded-sm shadow-md">
+      <div className="bg-gradient-to-r from-slate-200 to-slate-300 rounded-sm shadow-md pb-4rem">
         <Suspense>
-          <div className="pb-4 px-4 h-screen">
+          <div className="pb-4 px-4 ">
             {currentActivity === DashboardActivity.CAMPAIGNS && (
               <div className="mt-4">
                 <CampaignActivity />

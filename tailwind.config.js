@@ -16,10 +16,13 @@ module.exports = {
         'silver': '#ecebff',
         'bubble-gum': '#ff77e9',
         'bermuda': '#78dcca',
+        'soft-black': "#212121"
       },
       spacing: {
         '4rem': '4rem',
+        '6rem': '6rem',
         '8rem': '8rem',
+        '12rem': '12rem',
         '16rem': '16rem',
         '18rem': '18rem',
         '24rem': '24rem',
@@ -27,7 +30,9 @@ module.exports = {
         '36rem': '36rem',
         '48rem' : '48rem',
         '64rem': '64rem',
-        '72rem': '72rem'
+        '72rem': '72rem',
+        '96rem': '96rem',
+        '128rem': '128rem'
       }
     },
   },
