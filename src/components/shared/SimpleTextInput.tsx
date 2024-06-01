@@ -1,12 +1,5 @@
-import { RecentEntryList } from "../pages/entries-dashboard/recent-entries/RecentEntryList";
-import {
-  EXAMPLE_CAMPAIGN_ENTRIES,
-  EXAMPLE_EMAIL_SUBJECT,
-} from "../pages/entries-dashboard/utils";
 import { useState, createRef } from "react";
 import { Typography, Button } from "@mui/material";
-
-const MAX_SUBJECT_LINE_LENGTH = 75;
 
 export function SimpleTextInput(props: {
   maxLength: number;

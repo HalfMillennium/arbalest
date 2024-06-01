@@ -3,8 +3,20 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      keyframes: {
+          slideIn: {
+            '0%': {transform: 'translateX(0)'},
+            '100%': {transform: 'translateX(-80%)'}
+          },
+          grow: {
+            '0%': {transform: 'scale(1)'},
+            '100%': {transform: 'scale(1.5)'}
+          }
+      },
       animation: {
+        'slide-out': 'slideIn 1s ease-in-out',
         'fade-in': 'fade-in 2s ease-in-out',
+        'grow': 'grow 1s ease-in-out',
       },
       colors: {
         transparent: 'transparent',

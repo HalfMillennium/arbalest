@@ -8,14 +8,11 @@ import { AccessTime } from "@mui/icons-material";
 export function RecentEntryList(props: { entries: CampaignEntry[] }) {
   const { entries } = props;
   return (
-    <div className="w-full h-8rem flex pb-3">
-      <div className="rounded-sm flex justify-between bg-gradient-to-tr from-soft-black/5 to-gray-700/5 items-center pl-4 -my-2">
+    <div className="w-full flex pb-3 justify-end align-bottom overflow-auto">
+      <div className="w-full rounded-sm flex justify-between bg-gradient-to-tr from-soft-black/5 to-gray-700/5 items-center p-4 overflow-auto">
         <div className="flex justify-center items-center">
           <div className="text-white">
             <MoreVertIcon color="inherit" />
-          </div>
-          <div>
-            <Divider orientation="vertical" flexItem />
           </div>
         </div>
         {entries.map((entry, i) => (
@@ -39,7 +36,7 @@ export function RecentEntryList(props: { entries: CampaignEntry[] }) {
   }) {
     const { id } = props;
     return (
-      <div>
+      <div className="flex flex-col flex-shrink cursor-pointer h-full">
         {!props.subject && (
           <div className="flex justify-center p-2 text-black/50">
             <AccessTime />
@@ -48,7 +45,7 @@ export function RecentEntryList(props: { entries: CampaignEntry[] }) {
         <div
           className={
             ENTRY_ITEM_STYLES[id] +
-            "cursor-pointer hover:animate-pulse flex flex-col rounded-md shadow-md"
+            "hover:animate-pulse flex flex-col rounded-md shadow-md"
           }
         >
           <div className="p-1">

@@ -1,4 +1,4 @@
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Grid } from "@mui/material";
 import { useState, useRef, createRef } from "react";
 import {
   EXAMPLE_EMAIL_MARKDOWN,
@@ -7,7 +7,7 @@ import {
 } from "./utils";
 import EmailMarkdownEditor from "./EmailMarkdownEditor";
 import { RecentEntryList } from "./recent-entries/RecentEntryList";
-import { SimpleTextInput } from "../../components/SimpleTextInput";
+import { SimpleTextInput } from "../../components/shared/SimpleTextInput";
 
 const MAX_SUBJECT_LINE_LENGTH = 75;
 const MAX_DEMO_ID_LENGTH = 25;
@@ -57,11 +57,7 @@ export default function EntriesDashboard() {
   return (
     <div className="flex flex-col items-start justify-start">
       <div className="w-full flex flex-col">
-        <div className="flex w-4/4 items-end justify-end">
-          <div>
-            <RecentEntryList entries={EXAMPLE_CAMPAIGN_ENTRIES} />
-          </div>
-        </div>
+        <RecentEntryList entries={EXAMPLE_CAMPAIGN_ENTRIES} />
         <div className="flex w-full">
           <div className="w-1/2 pr-3">
             <SimpleTextInput
@@ -74,7 +70,7 @@ export default function EntriesDashboard() {
           <div className="w-1/2 pl-3">
             <SimpleTextInput
               maxLength={MAX_DEMO_ID_LENGTH}
-              initialValue={EXAMPLE_EMAIL_SUBJECT}
+              initialValue={"#1293109"}
               setValue={setDemoId}
               label="Demographic Id"
             />
