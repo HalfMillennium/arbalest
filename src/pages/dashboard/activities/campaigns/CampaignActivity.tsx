@@ -1,5 +1,12 @@
 import React from "react";
-import { Grid, TextField, MenuItem, Typography, Button } from "@mui/material";
+import {
+  Grid,
+  TextField,
+  MenuItem,
+  Typography,
+  Button,
+  Grow,
+} from "@mui/material";
 import { useState } from "react";
 import { SimpleTable } from "../../../../components/shared/SimpleTable";
 import { CampaignDetails } from "./campaign-details/CampaignDetails";
@@ -95,13 +102,21 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
         </Grid>
       </Grid>
       <div className="mt-4 w-full">
-        <SimpleTable
-          labels={CAMPAIGN_INFO_FIELDS_LABELS}
-          fieldIds={CAMPAIGN_INFO_FIELDS_IDS}
-          filter=""
-          entries={EXAMPLE_CAMPAIGNS}
-          DrawerComponent={CollapseableCampaignDetails}
-        />
+        <Grow
+          in={true}
+          style={{ transformOrigin: "0 0 0" }}
+          {...{ timeout: 500 }}
+        >
+          <div>
+            <SimpleTable
+              labels={CAMPAIGN_INFO_FIELDS_LABELS}
+              fieldIds={CAMPAIGN_INFO_FIELDS_IDS}
+              filter=""
+              entries={EXAMPLE_CAMPAIGNS}
+              DrawerComponent={CollapseableCampaignDetails}
+            />
+          </div>
+        </Grow>
       </div>
     </>
   );

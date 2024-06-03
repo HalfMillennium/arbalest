@@ -1,5 +1,12 @@
 import React from "react";
-import { Grid, TextField, MenuItem, Typography, Button } from "@mui/material";
+import {
+  Grid,
+  TextField,
+  MenuItem,
+  Typography,
+  Button,
+  Zoom,
+} from "@mui/material";
 import { useState } from "react";
 import { Collapse } from "@mui/material";
 import { SimpleTable } from "../../components/shared/SimpleTable";
@@ -98,15 +105,17 @@ export function EntryHistoryActivity(props: {
           </span>
         </Grid>
       </Grid>
-      <div className="mt-4 w-full">
-        <SimpleTable
-          labels={CAMPAIGN_ENTRY_FIELDS_LABELS}
-          fieldIds={CAMPAIGN_ENTRY_FIELDS_IDS}
-          filter=""
-          entries={EXAMPLE_CAMPAIGN_ENTRIES}
-          DrawerComponent={CollapseableEntryDetails}
-        />
-      </div>
+      <Zoom in={true}>
+        <div className="mt-4 w-full">
+          <SimpleTable
+            labels={CAMPAIGN_ENTRY_FIELDS_LABELS}
+            fieldIds={CAMPAIGN_ENTRY_FIELDS_IDS}
+            filter=""
+            entries={EXAMPLE_CAMPAIGN_ENTRIES}
+            DrawerComponent={CollapseableEntryDetails}
+          />
+        </div>
+      </Zoom>
     </>
   );
 

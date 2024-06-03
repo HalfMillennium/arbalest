@@ -4,10 +4,12 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Select from "react-select/dist/declarations/src/Select";
 import AccountDropdownMenu from "./account-dropdown-menu/AccountDropdownMenu";
+import { useNavigate } from "react-router-dom";
 
 export function Header() {
   const [isSignedIn, setSignedIn] = useState(true);
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const i18n_prefix = "header.navBar";
   const navOptions = [
     { path: "/whatisit", id: "about" },
@@ -41,14 +43,34 @@ export function Header() {
         <div className="flex flex-auto w-4/5 space-x-6">{navButtons}</div>
         <div className="flex flex-auto w-1/3 justify-center">
           <div className="flex flex-row m-5 pr-20">
-            <div className="mr-2" hidden={!isSignedIn}>
-              <AccountDropdownMenu />
-            </div>
+            {isSignedIn && (
+              <div className="mr-2">
+                <AccountDropdownMenu />
+              </div>
+            )}
+            {!isSignedIn && (
+              <div className="mr-2">
+                <Button variant="text" sx={{ textTransform: "capitalize" }}>
+                  <Typography
+                    fontFamily="Radio Canada Big"
+                    fontWeight={300}
+                    style={{ flexGrow: 1 }}
+                  >
+                    Sign In
+                  </Typography>
+                </Button>
+              </div>
+            )}
             <div className="md:text-base">
               <Button
                 variant={isSignedIn ? "outlined" : "contained"}
                 sx={{ textTransform: "capitalize" }}
-                onClick={() => setSignedIn(!isSignedIn)}
+                onClick={() => {
+                  setSignedIn(!isSignedIn);
+                  if (!isSignedIn) {
+                    navigate("/register");
+                  }
+                }}
               >
                 <Typography
                   fontFamily="Radio Canada Big"

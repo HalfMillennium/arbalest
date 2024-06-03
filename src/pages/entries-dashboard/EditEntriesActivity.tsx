@@ -1,4 +1,4 @@
-import { Typography, Button, Grid } from "@mui/material";
+import { Typography, Button, Grow } from "@mui/material";
 import { useState, useRef, createRef } from "react";
 import {
   EXAMPLE_EMAIL_MARKDOWN,
@@ -78,9 +78,15 @@ export function EditEntriesActivity(props: {
             />
           </div>
         </div>
-        <div>
-          <EmailBodyEditor />
-        </div>
+        <Grow
+          in={true}
+          style={{ transformOrigin: "0 0 0" }}
+          {...{ timeout: 500 }}
+        >
+          <div>
+            <EmailBodyEditor />
+          </div>
+        </Grow>
       </div>
     </div>
   );
