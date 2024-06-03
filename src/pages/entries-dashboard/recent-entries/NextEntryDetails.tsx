@@ -2,7 +2,7 @@ import { CampaignEntry } from "../../../types/campaigns";
 import { Typography } from "@mui/material";
 import { Groups3, Settings } from "@mui/icons-material";
 
-export function NextEntryDetails(props: { entry: CampaignEntry }) {
+export default function NextEntryDetails(props: { entry: CampaignEntry }) {
   const { entry } = props;
   return (
     <div className="flex flex-col">

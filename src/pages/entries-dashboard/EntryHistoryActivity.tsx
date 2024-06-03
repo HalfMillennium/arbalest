@@ -11,10 +11,11 @@ const CAMPAIGN_ENTRY_FIELDS_IDS = Object.keys(CampaignEntryFieldsRecord);
 
 export function EntryHistoryActivity(props: {
   campaignEntryInfo?: CampaignInfo;
+  setTab: (newValue: number) => void;
 }) {
   const [filter, setFilter] = useState("");
   const [filterContent, setFilterContent] = useState("");
-  const { campaignEntryInfo } = props;
+  const { campaignEntryInfo, setTab } = props;
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
@@ -78,9 +79,19 @@ export function EntryHistoryActivity(props: {
         <Grid item xs={12} sm={6} md={4} lg={3} className="w-full text-end">
           <span className="align-middle">
             <div className="flex flex-row text-slate-100 w-fit p-2 cursor-pointer">
-              <Button variant="outlined" sx={{ textTransform: "capitalize" }}>
-                <Typography fontWeight={"medium"} fontFamily="Radio Canada Big">
-                  Create New Campaign
+              <Button
+                variant="contained"
+                sx={{
+                  textTransform: "capitalize",
+                  backgroundColor: "rgb(7 89 133)",
+                }}
+              >
+                <Typography
+                  fontWeight={"medium"}
+                  fontFamily="Radio Canada Big"
+                  onClick={() => setTab(0)}
+                >
+                  Edit Campaign Schedule
                 </Typography>
               </Button>
             </div>

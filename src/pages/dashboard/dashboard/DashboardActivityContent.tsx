@@ -7,7 +7,7 @@ import { DashboardActivity } from "../../../store/dashboard/dashboardSlice";
 import { CampaignActivity } from "../activities/campaigns/CampaignActivity";
 
 import { Suspense } from "react";
-import { EntriesHome } from "../activities/campaigns/entries/entries-home/EntriesHome";
+import { EntriesHome } from "../activities/entries/entries-home/EntriesHome";
 
 export function DashboardActivityContent() {
   const currentActivity = useSelector(

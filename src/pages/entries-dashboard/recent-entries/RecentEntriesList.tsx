@@ -5,7 +5,9 @@ import { CampaignEntry } from "../../../types/campaigns";
 import { FutureEntriesGrid } from "../../dashboard/activities/campaigns/campaign-details/widgets/FutureEntriesGrid";
 import { EXAMPLE_CAMPAIGN_ENTRIES } from "../utils";
 
-export function RecentEntriesList(props: { campaignEntries: CampaignEntry[] }) {
+export default function RecentEntriesList(props: {
+  campaignEntries: CampaignEntry[];
+}) {
   const { campaignEntries } = props;
   return (
     <div className="w-full">

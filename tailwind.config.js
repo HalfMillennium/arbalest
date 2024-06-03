@@ -28,7 +28,8 @@ module.exports = {
         'silver': '#ecebff',
         'bubble-gum': '#ff77e9',
         'bermuda': '#78dcca',
-        'soft-black': "#212121"
+        'soft-black': "#212121",
+        'navy-blue': "rgb(7 89 133)"
       },
       spacing: {
         '4rem': '4rem',
@@ -50,6 +51,9 @@ module.exports = {
   },
   variants: {
     extend: {},
+  },
+  fontFamily: {
+    'radio-canada-helv': 'Radio Canada Big, Helvetica, Arial, sans-serif'
   },
   plugins: [],
 }

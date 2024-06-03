@@ -1,12 +1,12 @@
 import { TabPanel } from "../TabPanel";
 import { Suspense, useState } from "react";
 import { Tab, Tabs, Box, Typography } from "@mui/material";
-import { EntryDashboardTabs } from "../../../../../entries-dashboard/types";
+import { EntryDashboardTabs } from "../../../../entries-dashboard/types";
 import { Edit, History, ScheduleSend } from "@mui/icons-material";
 import {
   EntryHistoryActivity,
   EditEntriesActivity,
-} from "../../../../../entries-dashboard";
+} from "../../../../entries-dashboard";
 
 export function EntriesHome() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -60,10 +60,10 @@ export function EntriesHome() {
         [ Schedule ]
       </TabPanel>
       <TabPanel value={currentTab} index={1}>
-        <EntryHistoryActivity />
+        <EntryHistoryActivity setTab={setCurrentTab} />
       </TabPanel>
       <TabPanel value={currentTab} index={2}>
-        <EditEntriesActivity />
+        <EditEntriesActivity setTab={setCurrentTab} />
       </TabPanel>
     </div>
   );

@@ -76,9 +76,17 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
         )}
         <Grid item xs={12} sm={6} md={4} lg={3} className="w-full text-end">
           <span className="align-middle">
-            <div className="flex flex-row text-slate-100 w-fit p-2 cursor-pointer">
-              <Button variant="outlined" sx={{ textTransform: "capitalize" }}>
-                <Typography fontWeight={"medium"} fontFamily="Radio Canada Big">
+            <div className="flex flex-row text-navy-blue w-fit p-2 cursor-pointer">
+              <Button
+                color="inherit"
+                variant="outlined"
+                sx={{ textTransform: "capitalize" }}
+              >
+                <Typography
+                  variant="button"
+                  fontWeight={"medium"}
+                  fontFamily="Radio Canada Big"
+                >
                   Create New Campaign
                 </Typography>
               </Button>

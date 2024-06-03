@@ -133,6 +133,94 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
       textLength: 1400,
     },
   },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
 ];
 
 export const EXAMPLE_CAMPAIGN_ENTRIES: CampaignEntry[] = [

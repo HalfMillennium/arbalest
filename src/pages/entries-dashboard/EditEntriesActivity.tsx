@@ -12,7 +12,9 @@ import { SimpleTextInput } from "../../components/shared/SimpleTextInput";
 const MAX_SUBJECT_LINE_LENGTH = 75;
 const MAX_DEMO_ID_LENGTH = 25;
 
-export function EditEntriesActivity() {
+export function EditEntriesActivity(props: {
+  setTab: (tabIndex: number) => void;
+}) {
   const subjectLineTextAreaRef = createRef<HTMLInputElement>();
   const [subjectLine, setSubjectLine] = useState("");
   const [demoId, setDemoId] = useState("");
