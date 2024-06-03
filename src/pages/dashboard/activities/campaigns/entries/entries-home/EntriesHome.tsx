@@ -27,6 +27,7 @@ export function EntriesHome() {
               label={TabLabel({ tabType: EntryDashboardTabs.SCHEDULE })}
               tabIndex={0}
               sx={{
+                alignItems: "start",
                 minWidth: 200,
                 "&.Mui-selected": { color: tabColor },
               }}
@@ -35,6 +36,7 @@ export function EntriesHome() {
               label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_HISTORY })}
               tabIndex={1}
               sx={{
+                alignItems: "start",
                 minWidth: 200,
                 "&.Mui-selected": { color: tabColor },
               }}
@@ -43,6 +45,7 @@ export function EntriesHome() {
               label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_EDITOR })}
               tabIndex={2}
               sx={{
+                alignItems: "start",
                 minWidth: 200,
                 "&.Mui-selected": { color: tabColor },
               }}
@@ -66,7 +69,12 @@ export function EntriesHome() {
     const { tabType } = props;
     return (
       <div className="flex">
-        <div className="mr-1">
+        <div>
+          {tabType === EntryDashboardTabs.SCHEDULE && <ScheduleSend />}
+          {tabType === EntryDashboardTabs.ENTRY_HISTORY && <History />}
+          {tabType === EntryDashboardTabs.ENTRY_EDITOR && <Edit />}
+        </div>
+        <div className="ml-1">
           <Typography
             variant="body1"
             fontFamily="Radio Canada Big"
@@ -74,11 +82,6 @@ export function EntriesHome() {
           >
             {tabType}
           </Typography>
-        </div>
-        <div>
-          {tabType === EntryDashboardTabs.SCHEDULE && <ScheduleSend />}
-          {tabType === EntryDashboardTabs.ENTRY_HISTORY && <History />}
-          {tabType === EntryDashboardTabs.ENTRY_EDITOR && <Edit />}
         </div>
       </div>
     );

@@ -6,7 +6,7 @@ import {
   EXAMPLE_CAMPAIGN_ENTRIES,
 } from "./utils";
 import EmailMarkdownEditor from "./EmailMarkdownEditor";
-import { RecentEntryList } from "./recent-entries/RecentEntryList";
+import { EntryEditorHeader } from "./recent-entries/EntryEditorHeader";
 import { SimpleTextInput } from "../../components/shared/SimpleTextInput";
 
 const MAX_SUBJECT_LINE_LENGTH = 75;
@@ -57,7 +57,7 @@ export default function EntriesDashboard() {
   return (
     <div className="flex flex-col items-start justify-start">
       <div className="w-full flex flex-col">
-        <RecentEntryList entries={EXAMPLE_CAMPAIGN_ENTRIES} />
+        <EntryEditorHeader entries={EXAMPLE_CAMPAIGN_ENTRIES} />
         <div className="flex w-full">
           <div className="w-1/2 pr-3">
             <SimpleTextInput

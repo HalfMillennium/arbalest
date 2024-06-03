@@ -23,7 +23,7 @@ export function DashboardHome() {
         <div className="w-1/5 drawer-bg rounded-md">
           <div className="flex flex-col p-4">
             <div className="flex flex-row justify-start">
-              <div>
+              <div className="flex overflow-auto">
                 <Typography
                   fontFamily={"Radio Canada Big"}
                   fontWeight={500}
@@ -49,33 +49,7 @@ export function DashboardHome() {
               </Typography>
             </span>
           </div>
-          <List>
-            <ListItem>
-              <DrawerCard
-                activity={DashboardActivity.CAMPAIGNS}
-                body="Create, edit and view (past or present) campaigns for the selected
-          property."
-              />
-            </ListItem>
-            <ListItem>
-              <DrawerCard
-                activity={DashboardActivity.ASSISTANTS}
-                body="Manage your virtual email director, curator and writer."
-              />
-            </ListItem>
-            <ListItem>
-              <DrawerCard
-                activity={DashboardActivity.ANALYTICS}
-                body="Track your past & present campaigns. Dowload data as a CSV file."
-              />
-            </ListItem>
-            <ListItem>
-              <DrawerCard
-                activity={DashboardActivity.ENTRIES}
-                body="Manage recent email entries dispatched for a selected campaign."
-              />
-            </ListItem>
-          </List>
+          <Drawer />
         </div>
         <div className="w-4/5 py-5 pr-5 pl-2 ml-10 p-90">
           <DashboardActivityContent />
@@ -83,6 +57,37 @@ export function DashboardHome() {
       </div>
     </div>
   );
+  function Drawer() {
+    return (
+      <List>
+        <ListItem>
+          <DrawerCard
+            activity={DashboardActivity.CAMPAIGNS}
+            body="Create, edit and view (past or present) campaigns for the selected
+          property."
+          />
+        </ListItem>
+        <ListItem>
+          <DrawerCard
+            activity={DashboardActivity.ASSISTANTS}
+            body="Manage your virtual email director, curator and writer."
+          />
+        </ListItem>
+        <ListItem>
+          <DrawerCard
+            activity={DashboardActivity.ANALYTICS}
+            body="Track your past & present campaigns. Dowload data as a CSV file."
+          />
+        </ListItem>
+        <ListItem>
+          <DrawerCard
+            activity={DashboardActivity.ENTRIES}
+            body="Manage recent email entries dispatched for a selected campaign."
+          />
+        </ListItem>
+      </List>
+    );
+  }
   function DrawerCard(props: { body: string; activity: DashboardActivity }) {
     const { body, activity } = props;
     return (

@@ -16,6 +16,9 @@ export interface CampaignConfig {
   /** Many more fields to come */
 }
 
+/**
+ * Subset of Campaign interface data used for UI display
+ */
 export interface CampaignEntry {
   dispatchDate: Date;
   /** The dispatcher may have the entry created prior to its dispatch date? */

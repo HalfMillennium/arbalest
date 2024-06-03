@@ -79,29 +79,49 @@ export const EXAMPLE_EMAIL_SUBJECT = `Don't Miss Out! Huge Sale & Exciting New P
 
 export const EXAMPLE_CAMPAIGN_ENTRIES: CampaignEntry[] = [
   {
-    dispatchDate: new Date("03/11/2024"),
+    dispatchDate: new Date("01/01/2024"),
     createdDate: new Date("03/10/2024"),
     subject: "Welcome to Our Exclusive New Product Sale!",
     markdownContent: "",
   },
   {
-    dispatchDate: new Date("03/10/2024"),
+    dispatchDate: new Date("01/02/2024"),
     createdDate: new Date("03/09/2024"),
     markdownContent: "",
   },
   {
-    dispatchDate: new Date("03/10/2023"),
-    createdDate: new Date("03/09/2023"),
+    dispatchDate: new Date("01/03/2024"),
+    createdDate: new Date("03/08/2024"),
     markdownContent: "",
   },
   {
-    dispatchDate: new Date("03/10/2022"),
-    createdDate: new Date("03/09/2022"),
+    dispatchDate: new Date("01/04/2024"),
+    createdDate: new Date("03/07/2022"),
     markdownContent: "",
   },
   {
-    dispatchDate: new Date("03/10/2021"),
-    createdDate: new Date("03/09/2021"),
+    dispatchDate: new Date("01/05/2024"),
+    createdDate: new Date("03/06/2021"),
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("01/06/2024"),
+    createdDate: new Date("03/05/2021"),
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("01/07/2024"),
+    createdDate: new Date("03/04/2021"),
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("01/08/2024"),
+    createdDate: new Date("03/03/2021"),
+    markdownContent: "",
+  },
+  {
+    dispatchDate: new Date("01/09/2024"),
+    createdDate: new Date("03/02/2021"),
     markdownContent: "",
   },
 ];
