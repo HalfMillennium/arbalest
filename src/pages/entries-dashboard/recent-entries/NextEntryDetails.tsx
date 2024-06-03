@@ -14,7 +14,7 @@ export function NextEntryDetails(props: { entry: CampaignEntry }) {
       <div className="flex">
         <div>
           <Typography fontFamily="Roboto Mono" color="inherit" variant="h2">
-            {`${entry.createdDate?.toLocaleDateString()}`}
+            {`${entry.dispatchDate?.toLocaleDateString()}`}
           </Typography>
         </div>
         <div className="flex">

@@ -2,61 +2,36 @@ export interface CampaignSettings {
   frequency: number /* number of emails per month? */;
   maxWordCount?: string;
 }
+
+/**
+ * 1-1 relationship with set of Campaign entries.
+ * May be finite or indefinite.
+ */
 export interface CampaignInfo {
   name: string;
   id: string;
   demoId?: string;
   propertyId: string;
-  dateStarted: Date;
-  dateEnded?: Date;
-  settings?: CampaignSettings;
-}
-
-/**
- * Fields presented to the user on view campaigns table, more available in Campaign details
- */
-export enum CampaignEntryFields {
-  ID = "id",
-  NAME = "name",
-  PROPERTY_ID = "propertyId",
-  CREATED_DATE = "createdDate",
-  DISPATCH_DATE = "dispatchDate",
-  DEMO_ID = "demoId",
-  SUBJECT = "subject",
-}
-
-export const CampaignEntryFieldsRecord: Record<CampaignEntryFields, string> = {
-  [CampaignEntryFields.ID]: "ID",
-  [CampaignEntryFields.NAME]: "Name",
-  [CampaignEntryFields.PROPERTY_ID]: "Property ID",
-  [CampaignEntryFields.DISPATCH_DATE]: "Dispatch Date",
-  [CampaignEntryFields.CREATED_DATE]: "Created Date",
-  [CampaignEntryFields.DEMO_ID]: "Demographic ID",
-  [CampaignEntryFields.SUBJECT]: "Subject",
-};
-
-export interface Campaign {
-  name: string;
-  id: string;
-  propertyId: string;
-  /** Duration in Days */
-  duration: number;
   startDate: Date;
   endDate?: Date;
+  /** Duration in days */
+  duration?: number;
+  settings?: CampaignSettings;
+  entries?: CampaignEntry[];
   config?: CampaignConfig;
 }
 
 export interface CampaignConfig {
   tone: string;
   /* In number of characters */
-  length: number;
+  textLength: number;
   /** Many more fields to come */
 }
 
-export interface CampaignEntryStats {
-  /** stats */
-}
-
+/**
+ * Many-1 relationship with Campaign object.
+ * A created (and potentially dispatched) email associated with user-specified demographic (mailing list)
+ */
 export interface CampaignEntry {
   [key: string]: string | CampaignEntryStats | undefined | Date;
   id?: string;
@@ -71,4 +46,52 @@ export interface CampaignEntry {
   /** Any practical benefit to keeping this on the frontend? Not sure yet */
   htmlContent?: string;
   stats?: CampaignEntryStats;
+}
+
+/**
+ * Fields presented to the user on entry history table
+ */
+export enum CampaignEntryFields {
+  ID = "id",
+  NAME = "name",
+  PROPERTY_ID = "propertyId",
+  CREATED_DATE = "createdDate",
+  DISPATCH_DATE = "dispatchDate",
+  DEMO_ID = "demoId",
+  SUBJECT = "subject",
+}
+
+/**
+ * Fields presented to the user on Campaigns table, more available in Campaign details
+ */
+export enum CampaignInfoFields {
+  ID = "id",
+  NAME = "name",
+  PROPERTY_ID = "propertyId",
+  START_DATE = "startDate",
+  END_DATE = "endDate",
+  DEMO_ID = "demoId",
+}
+
+export const CampaignInfoFieldsRecord: Record<CampaignInfoFields, string> = {
+  [CampaignInfoFields.ID]: "ID",
+  [CampaignInfoFields.NAME]: "Name",
+  [CampaignInfoFields.PROPERTY_ID]: "Property ID",
+  [CampaignInfoFields.START_DATE]: "Start Date",
+  [CampaignInfoFields.END_DATE]: "End Date",
+  [CampaignInfoFields.DEMO_ID]: "Demographic ID",
+};
+
+export const CampaignEntryFieldsRecord: Record<CampaignEntryFields, string> = {
+  [CampaignEntryFields.ID]: "ID",
+  [CampaignEntryFields.SUBJECT]: "Subject",
+  [CampaignEntryFields.NAME]: "Name",
+  [CampaignEntryFields.PROPERTY_ID]: "Property ID",
+  [CampaignEntryFields.DISPATCH_DATE]: "Dispatch Date",
+  [CampaignEntryFields.CREATED_DATE]: "Created Date",
+  [CampaignEntryFields.DEMO_ID]: "Demographic ID",
+};
+
+export interface CampaignEntryStats {
+  /** stats */
 }

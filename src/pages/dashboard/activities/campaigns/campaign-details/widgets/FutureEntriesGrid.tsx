@@ -54,7 +54,7 @@ function EntryItem(props: { entry: CampaignEntry }) {
       >
         <div className="p-1 flex justify-center">
           <Typography fontFamily="Roboto Mono" color="inherit" variant="body1">
-            {`${entry.createdDate?.toLocaleDateString([], {
+            {`${entry.dispatchDate?.toLocaleDateString([], {
               month: "2-digit",
               day: "2-digit",
               year: "numeric",

@@ -13,6 +13,7 @@ import {
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { HelpOutline } from "@mui/icons-material";
 
 export function SimpleTable<TItem extends { [key: string]: any }>(props: {
   labels: string[];
@@ -95,11 +96,18 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
                 <TableRowComponent key={i}>
                   {fieldIds.map((field) => (
                     <TableCell>
-                      <Typography fontFamily="Radio Canada Big">
-                        {item[field] instanceof Date
-                          ? item[field].toLocaleDateString()
-                          : item[field]}
-                      </Typography>
+                      {item[field] && (
+                        <Typography fontFamily="Radio Canada Big">
+                          {item[field] instanceof Date
+                            ? item[field].toLocaleDateString()
+                            : item[field]}
+                        </Typography>
+                      )}
+                      {!item[field] && (
+                        <div className="text-slate-400">
+                          <HelpOutline color="inherit" />
+                        </div>
+                      )}
                     </TableCell>
                   ))}
                 </TableRowComponent>

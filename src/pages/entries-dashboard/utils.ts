@@ -1,4 +1,4 @@
-import { CampaignEntry } from "../../types/campaigns";
+import { CampaignEntry, CampaignInfo } from "../../types/campaigns";
 
 export const EXAMPLE_EMAIL_MARKDOWN = `# 🌟 Welcome to Our Exclusive New Product Sale! 🌟
 
@@ -77,26 +77,84 @@ You are receiving this email because you opted in at our website. If you prefer 
 
 export const EXAMPLE_EMAIL_SUBJECT = `Don't Miss Out! Huge Sale & Exciting New Products`;
 
+export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
+  {
+    name: "My First Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Second Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Third Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fourth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+  {
+    name: "My Fifth Campaign",
+    id: "192833395485",
+    propertyId: "48498498454",
+    duration: 14,
+    startDate: new Date(),
+    config: {
+      tone: "Funny",
+      textLength: 1400,
+    },
+  },
+];
+
 export const EXAMPLE_CAMPAIGN_ENTRIES: CampaignEntry[] = [
   {
     id: "1",
     subject: "New Biscuits Campaign",
     propertyId: "#123",
-    dispatchDate: new Date("March 20th, 2024"),
+    dispatchDate: new Date("03/20/2025"),
     demoId: "#456",
   },
   {
     id: "2",
     subject: "Jelly Recall Announcement",
     propertyId: "#123",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
     demoId: "#456",
   },
   {
     id: "3",
     subject: "Jelly RE-recall Announcement",
     propertyId: "#123",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
     demoId: "#456",
   },
   {
@@ -104,48 +162,48 @@ export const EXAMPLE_CAMPAIGN_ENTRIES: CampaignEntry[] = [
     subject: "New Jelly Announcement",
     propertyId: "#123",
     demoId: "#988",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
   },
   {
     id: "5",
     subject: "New Jelly Announcement",
     propertyId: "#123",
     demoId: "#988",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
   },
   {
     id: "6",
     subject: "New Jelly Announcement",
     propertyId: "#123",
     demoId: "#988",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
   },
   {
     id: "7",
     subject: "New Jelly Announcement",
     propertyId: "#123",
     demoId: "#988",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
   },
   {
     id: "8",
     subject: "New Jelly Announcement",
     propertyId: "#123",
     demoId: "#988",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
   },
   {
     id: "9",
     subject: "New Jelly Announcement",
     propertyId: "#123",
     demoId: "#988",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
   },
   {
     id: "10",
     subject: "New Jelly Announcement",
     propertyId: "#123",
     demoId: "#988",
-    dispatchDate: new Date("May 17th, 2024"),
+    dispatchDate: new Date("05/17/2025"),
   },
 ];

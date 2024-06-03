@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
-  Campaign,
   CampaignConfig,
   CampaignEntry,
+  CampaignInfo,
 } from "../../../types/campaigns";
 
 export interface SelectedEntryDetails {
@@ -12,7 +12,7 @@ export interface SelectedEntryDetails {
 }
 
 export interface CampaignsState {
-  ownedCampaigns: Campaign[] | undefined;
+  ownedCampaigns: CampaignInfo[] | undefined;
   selectedCampaignId: string | undefined;
   selectedEntryDetails: SelectedEntryDetails | undefined;
 }

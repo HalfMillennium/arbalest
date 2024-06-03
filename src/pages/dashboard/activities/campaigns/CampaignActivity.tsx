@@ -4,14 +4,11 @@ import { useState } from "react";
 import { SimpleTable } from "../../../../components/shared/SimpleTable";
 import { CampaignDetails } from "./campaign-details/CampaignDetails";
 import { Collapse } from "@mui/material";
-import { EXAMPLE_CAMPAIGN_ENTRIES } from "../../../entries-dashboard/utils";
-import {
-  CampaignEntryFieldsRecord,
-  CampaignInfo,
-} from "../../../../types/campaigns";
+import { EXAMPLE_CAMPAIGNS } from "../../../entries-dashboard/utils";
+import { CampaignInfoFieldsRecord } from "../../../../types/campaigns";
 
-const CAMPAIGN_FIELDS_LABELS = Object.values(CampaignEntryFieldsRecord);
-const CAMPAIGN_FIELDS_IDS = Object.keys(CampaignEntryFieldsRecord);
+const CAMPAIGN_INFO_FIELDS_LABELS = Object.values(CampaignInfoFieldsRecord);
+const CAMPAIGN_INFO_FIELDS_IDS = Object.keys(CampaignInfoFieldsRecord);
 
 export function CampaignActivity(props: { campaignInfo?: any }) {
   const [filter, setFilter] = useState("");
@@ -91,10 +88,10 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
       </Grid>
       <div className="mt-4 w-full">
         <SimpleTable
-          labels={CAMPAIGN_FIELDS_LABELS}
-          fieldIds={CAMPAIGN_FIELDS_IDS}
+          labels={CAMPAIGN_INFO_FIELDS_LABELS}
+          fieldIds={CAMPAIGN_INFO_FIELDS_IDS}
           filter=""
-          entries={EXAMPLE_CAMPAIGN_ENTRIES}
+          entries={EXAMPLE_CAMPAIGNS}
           DrawerComponent={CollapseableCampaignDetails}
         />
       </div>
