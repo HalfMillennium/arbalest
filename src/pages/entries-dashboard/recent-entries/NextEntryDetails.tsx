@@ -1,4 +1,4 @@
-import { CampaignEntry } from "../../../store/dashboard/campaigns/types";
+import { CampaignEntry } from "../../../types/campaigns";
 import { Typography } from "@mui/material";
 import { Groups3, Settings } from "@mui/icons-material";
 

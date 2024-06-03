@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Divider } from "@mui/material";
-import { CampaignEntry } from "../../../store/dashboard/campaigns/types";
+import { CampaignEntry } from "../../../types/campaigns";
 import { RecentEntriesList } from "./RecentEntriesList";
 import { NextEntryDetails } from "./NextEntryDetails";
 

@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { AccessTime } from "@mui/icons-material";
 import { Typography } from "@mui/material";
-import { CampaignEntry } from "../../../store/dashboard/campaigns/types";
+import { CampaignEntry } from "../../../types/campaigns";
 import { FutureEntriesGrid } from "../../dashboard/activities/campaigns/campaign-details/widgets/FutureEntriesGrid";
 import { EXAMPLE_CAMPAIGN_ENTRIES } from "../utils";
 

@@ -1,7 +1,17 @@
 import React from "react";
-import { CampaignTable } from "./CampaignTable";
 import { Grid, TextField, MenuItem, Typography, Button } from "@mui/material";
 import { useState } from "react";
+import { SimpleTable } from "../../../../components/shared/SimpleTable";
+import { CampaignDetails } from "./campaign-details/CampaignDetails";
+import { Collapse } from "@mui/material";
+import { EXAMPLE_CAMPAIGN_ENTRIES } from "../../../entries-dashboard/utils";
+import {
+  CampaignEntryFieldsRecord,
+  CampaignInfo,
+} from "../../../../types/campaigns";
+
+const CAMPAIGN_FIELDS_LABELS = Object.values(CampaignEntryFieldsRecord);
+const CAMPAIGN_FIELDS_IDS = Object.keys(CampaignEntryFieldsRecord);
 
 export function CampaignActivity(props: { campaignInfo?: any }) {
   const [filter, setFilter] = useState("");
@@ -80,8 +90,25 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
         </Grid>
       </Grid>
       <div className="mt-4 w-full">
-        <CampaignTable filter="" />
+        <SimpleTable
+          labels={CAMPAIGN_FIELDS_LABELS}
+          fieldIds={CAMPAIGN_FIELDS_IDS}
+          filter=""
+          entries={EXAMPLE_CAMPAIGN_ENTRIES}
+          DrawerComponent={CollapseableCampaignDetails}
+        />
       </div>
     </>
   );
+
+  function CollapseableCampaignDetails(props: { isOpen: boolean }) {
+    const { isOpen } = props;
+    return (
+      <div className="flex">
+        <Collapse in={isOpen} timeout="auto" unmountOnExit>
+          <CampaignDetails />
+        </Collapse>
+      </div>
+    );
+  }
 }

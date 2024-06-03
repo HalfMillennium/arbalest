@@ -1,4 +1,4 @@
-import { Campaign } from "./types";
+import { Campaign } from "../../../types/campaigns";
 
 export const EXAMPLE_CAMPAIGN: Campaign = {
   name: "My First Campaign",

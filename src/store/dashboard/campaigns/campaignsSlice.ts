@@ -1,5 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Campaign, CampaignConfig, CampaignEntry } from "./types";
+import {
+  Campaign,
+  CampaignConfig,
+  CampaignEntry,
+} from "../../../types/campaigns";
 
 export interface SelectedEntryDetails {
   entryId: string;
