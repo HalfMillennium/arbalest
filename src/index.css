@@ -11,7 +11,7 @@
 }
 
 body {
-    @apply bg-white bg-gradient-to-b from-f9 via-f9 to-slate-300;
+    @apply bg-white bg-gradient-to-b from-latte-x-light via-latte-x-light to-latte-light;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

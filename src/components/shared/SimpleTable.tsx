@@ -40,9 +40,9 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
     return (
       <>
         <TableRow
-          className={`cursor-pointer ${open ? "bg-slate-100" : "bg-f9"}`}
+          className={`cursor-pointer ${open ? "bg-transparent" : "bg-white"}`}
           sx={{
-            "&:hover": { backgroundColor: "rgb(241 245 249)" },
+            "&:hover": { backgroundColor: "rgba(0,0,0,0);" },
             "& > *": { borderBottom: "unset" },
           }}
           onClick={() => setOpen(!open)}

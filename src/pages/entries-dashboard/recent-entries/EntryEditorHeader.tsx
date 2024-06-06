@@ -10,7 +10,7 @@ export function EntryEditorHeader(props: { entries: CampaignEntry[] }) {
   const RecentEntriesList = lazy(() => import("./RecentEntriesList"));
   return (
     <div className="w-full flex pb-3 justify-end align-bottom overflow-auto">
-      <div className="w-full rounded-sm flex justify-between bg-gradient-to-tr from-slate-100 to-slate-200 items-center p-4 overflow-auto">
+      <div className="w-full rounded-sm flex justify-between bg-gradient-to-tr from-dark-lavender/10 to-dark-lavender/20 items-center p-4 overflow-auto">
         <div className="h-full flex-1">
           <Suspense
             fallback={<LoadingSpinner label="Loading entry details..." />}

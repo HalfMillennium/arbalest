@@ -29,7 +29,7 @@ export function DashboardActivityContent() {
           {currentActivity}
         </Typography>
       </div>
-      <div className="bg-gradient-to-r from-slate-200 to-slate-300 rounded-sm shadow-md pb-4rem">
+      <div className="bg-gradient-to-br from-dark-lavender-5 to-dark-lavender-15 rounded-sm shadow-md">
         <Suspense>
           <div className="pb-4 px-4 ">
             {currentActivity === DashboardActivity.CAMPAIGNS && (

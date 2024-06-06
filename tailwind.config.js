@@ -18,6 +18,8 @@ module.exports = {
         'fade-in': 'fade-in 2s ease-in-out',
         'grow': 'grow 1s ease-in-out',
       },
+      /* [color name]: [opacity] 
+          (where that format appears) */
       colors: {
         transparent: 'transparent',
         'white': '#ffffff',
@@ -32,7 +34,13 @@ module.exports = {
         'navy-blue': "rgb(7 89 133)",
         'f9': "#f9f9f9",
         'dark-lavender': '#585daa',
-        'dusk-violet': "#292c52"
+        'dark-lavender-15': "#F1F1F1",
+        'dark-lavender-5': '#F8F7F1',
+        'dusk-violet': "#292c52",
+        'latte': "#ffe09e",
+        'latte-light': "#FFF3CB",
+        'latte-x-light': "#FFFDF0",
+        'fins-teal': "#067e9c"
       },
       spacing: {
         '2rem': '2rem',

@@ -23,7 +23,7 @@ export function AppBody() {
   return (
     <div>
       <BrowserRouter>
-        <div className="w-screen fixed top-0 left-0 pl-9 pt-4 pb-2 bg-f9 z-50">
+        <div className="w-screen fixed top-0 left-0 pl-9 pt-4 pb-2 bg-latte-x-light z-50">
           <Header />
         </div>
         <div className="app-body-bg items-center w-screen">

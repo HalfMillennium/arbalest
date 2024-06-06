@@ -87,7 +87,7 @@ export function EntryHistoryActivity(props: {
         )}
         <Grid item xs={12} sm={6} md={4} lg={3} className="w-full text-end">
           <span className="align-middle">
-            <div className="flex flex-row text-slate-100 w-fit p-2 cursor-pointer">
+            <div className="flex flex-row text-slate-100 w-fit px-2 cursor-pointer h-full">
               <Button
                 variant="contained"
                 sx={{
@@ -96,8 +96,8 @@ export function EntryHistoryActivity(props: {
                 }}
                 className="bg-gradient-to-tr from-dark-lavender to-dusk-violet"
               >
-                <div className="flex">
-                  <div>
+                <div className="flex align-middle justify-center items-center">
+                  <div className="mr-1">
                     <DriveFileRenameOutline />
                   </div>
                   <Typography
