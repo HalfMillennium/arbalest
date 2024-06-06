@@ -12,6 +12,7 @@ import { Collapse } from "@mui/material";
 import { SimpleTable } from "../../components/shared/SimpleTable";
 import { CampaignEntryFieldsRecord, CampaignInfo } from "../../types/campaigns";
 import { EXAMPLE_CAMPAIGN_ENTRIES } from "./utils";
+import { CUSTOM_COLORS } from "../../assets/colors";
 
 const CAMPAIGN_ENTRY_FIELDS_LABELS = Object.values(CampaignEntryFieldsRecord);
 const CAMPAIGN_ENTRY_FIELDS_IDS = Object.keys(CampaignEntryFieldsRecord);
@@ -90,11 +91,13 @@ export function EntryHistoryActivity(props: {
                 variant="contained"
                 sx={{
                   textTransform: "capitalize",
-                  backgroundColor: "rgb(7 89 133)",
+                  backgroundColor: CUSTOM_COLORS.softBlack,
                 }}
+                className="bg-gradient-to-tr from-dark-lavender to-dusk-violet"
               >
                 <Typography
                   fontWeight={"medium"}
+                  variant="button"
                   fontFamily="Radio Canada Big"
                   onClick={() => setTab(0)}
                 >

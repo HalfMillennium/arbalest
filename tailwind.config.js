@@ -31,7 +31,8 @@ module.exports = {
         'soft-black': "#212121",
         'navy-blue': "rgb(7 89 133)",
         'f9': "#f9f9f9",
-        'dark-lavender': '#585daa'
+        'dark-lavender': '#585daa',
+        'dusk-violet': "#292c52"
       },
       spacing: {
         '2rem': '2rem',
