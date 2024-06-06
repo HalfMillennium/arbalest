@@ -13,6 +13,7 @@ import { SimpleTable } from "../../components/shared/SimpleTable";
 import { CampaignEntryFieldsRecord, CampaignInfo } from "../../types/campaigns";
 import { EXAMPLE_CAMPAIGN_ENTRIES } from "./utils";
 import { CUSTOM_COLORS } from "../../assets/colors";
+import { DriveFileRenameOutline } from "@mui/icons-material";
 
 const CAMPAIGN_ENTRY_FIELDS_LABELS = Object.values(CampaignEntryFieldsRecord);
 const CAMPAIGN_ENTRY_FIELDS_IDS = Object.keys(CampaignEntryFieldsRecord);
@@ -95,14 +96,19 @@ export function EntryHistoryActivity(props: {
                 }}
                 className="bg-gradient-to-tr from-dark-lavender to-dusk-violet"
               >
-                <Typography
-                  fontWeight={"medium"}
-                  variant="button"
-                  fontFamily="Radio Canada Big"
-                  onClick={() => setTab(0)}
-                >
-                  Edit Campaign Schedule
-                </Typography>
+                <div className="flex">
+                  <div>
+                    <DriveFileRenameOutline />
+                  </div>
+                  <Typography
+                    fontWeight={"medium"}
+                    variant="button"
+                    fontFamily="Radio Canada Big"
+                    onClick={() => setTab(0)}
+                  >
+                    Edit Campaign Schedule
+                  </Typography>
+                </div>
               </Button>
             </div>
           </span>

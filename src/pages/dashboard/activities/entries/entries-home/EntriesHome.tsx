@@ -30,15 +30,16 @@ export function EntriesHome() {
             <Tab
               label={TabLabel({ tabType: EntryDashboardTabs.SCHEDULE })}
               tabIndex={0}
+              className="w-8rem md:w-12rem lg:w-16rem"
               sx={{
                 alignItems: "start",
-                minWidth: 200,
                 "&.Mui-selected": { color: tabColor },
               }}
             />
             <Tab
               label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_HISTORY })}
               tabIndex={1}
+              className="w-8rem md:w-12rem lg:w-16rem"
               sx={{
                 alignItems: "start",
                 minWidth: 200,
@@ -48,6 +49,7 @@ export function EntriesHome() {
             <Tab
               label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_EDITOR })}
               tabIndex={2}
+              className="w-8rem md:w-12rem lg:w-16rem"
               sx={{
                 alignItems: "start",
                 minWidth: 200,
