@@ -11,12 +11,17 @@ module.exports = {
           grow: {
             '0%': {transform: 'scale(1)'},
             '100%': {transform: 'scale(1.5)'}
+          },
+          dropdownOpen: {
+            '0%': {transform: 'translateY(-100)'},
+            '100%': {transform: 'translateY(0%)'}
           }
       },
       animation: {
         'slide-out': 'slideIn 1s ease-in-out',
         'fade-in': 'fade-in 2s ease-in-out',
         'grow': 'grow 1s ease-in-out',
+        'dropdown-open':'dropdownOpen 0.3s ease-in-out',
       },
       /* [color name]: [opacity] 
           (where that format appears) */

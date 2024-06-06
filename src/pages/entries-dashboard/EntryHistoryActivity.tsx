@@ -101,9 +101,9 @@ export function EntryHistoryActivity(props: {
                     <DriveFileRenameOutline />
                   </div>
                   <Typography
-                    fontWeight={"medium"}
+                    fontWeight={500}
+                    fontFamily="Helvetica Neue"
                     variant="button"
-                    fontFamily="Radio Canada Big"
                     onClick={() => setTab(0)}
                   >
                     Edit Campaign Schedule

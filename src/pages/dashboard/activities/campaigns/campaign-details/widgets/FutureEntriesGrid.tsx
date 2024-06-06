@@ -50,7 +50,7 @@ function EntryItem(props: { entry: CampaignEntry }) {
     <div className="m-1">
       <div
         onClick={() => console.log(entry.dispatchDate)}
-        className="bg-black text-white bg-gradient-to-br from-slate-600 to-slate-800 p-2 hover:animate-pulse flex flex-col rounded-sm shadow-md h-full"
+        className="bg-black text-white bg-gradient-to-br from-dark-lavender/85 to-dusk-violet p-2 hover:animate-pulse flex flex-col rounded-sm shadow-md h-full"
       >
         <div className="p-1 flex justify-center">
           <Typography fontFamily="Roboto Mono" color="inherit" variant="body1">

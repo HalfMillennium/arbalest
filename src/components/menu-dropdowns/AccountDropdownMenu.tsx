@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Settings, Campaign } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { CUSTOM_COLORS } from "../../assets/colors";
+import { Fade } from "@mui/material";
 
 export default function AccountDropdownMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -37,15 +38,18 @@ export default function AccountDropdownMenu() {
           {t("header.navBar.account")}
         </Typography>
       </Button>
+
       <Menu
         id="menu-appbar"
-        className="rounded-none"
+        className="rounded-none animate-fade-in"
         anchorEl={anchorEl}
         keepMounted
+        TransitionComponent={Fade}
         transformOrigin={{
           vertical: "top",
           horizontal: "left",
         }}
+        open={open}
         sx={{
           ".MuiPaper-root": {
             backgroundColor: "#212121",
@@ -53,10 +57,9 @@ export default function AccountDropdownMenu() {
             borderRadius: "2px",
           },
         }}
-        open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={openSettings}>
+        <MenuItem onClick={openSettings} className="">
           <div className="flex flex-row align-middle items-center">
             {" "}
             <div className="mr-1">

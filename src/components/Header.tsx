@@ -1,23 +1,35 @@
 import { Button, Typography, Box } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import AccountDropdownMenu from "./account-dropdown-menu/AccountDropdownMenu";
+import {
+  FiEdit,
+  FiChevronDown,
+  FiTrash,
+  FiShare,
+  FiPlusSquare,
+} from "react-icons/fi";
+import {
+  CampaignOutlined,
+  TuneOutlined,
+  ContactSupportOutlined,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import arbalestLogo from "../assets/arbalest_logo_two_large.png";
 import { CUSTOM_COLORS } from "../assets/colors";
+import AccountDropdownMenu from "./menu-dropdowns/AccountDropdownMenu";
 
 export function Header() {
   const [isSignedIn, setSignedIn] = useState(true);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const i18n_prefix = "header.navBar";
-  const navOptions = [
+  const generalNavOptions = [
     { path: "/whatisit", id: "about" },
     { path: "/features", id: "features" },
     { path: "/pricing", id: "pricing" },
     { path: "/docs", id: "docs" },
   ];
-  const navButtons = navOptions.map((navItem) => {
+  const generalNavButtons = generalNavOptions.map((navItem) => {
     return (
       <div>
         <Button
@@ -34,6 +46,7 @@ export function Header() {
     );
   });
 
+  /** Account nav options are net initialized at the same time as general nav options due to a bug with  */
   return (
     <div className="flex justify-center items-center z-999 w-screen">
       <div className="flex w-1/5 mr-10 justify-end">
@@ -47,7 +60,7 @@ export function Header() {
         />
       </div>
       <div className="flex flex-auto w-4/5 space-x-6 w-fit justify- ml-10">
-        {navButtons}
+        {generalNavButtons}
       </div>
       <div className="flex flex-auto w-1/3 justify-center w-fit">
         <div className="flex flex-row m-5 pr-20 text-dark-lavender">
