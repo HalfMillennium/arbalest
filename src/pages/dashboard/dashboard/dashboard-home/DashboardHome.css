@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .drawer-bg {
-    @apply bg-gradient-to-b from-sky-600 to-slate-900;
+    @apply bg-gradient-to-b from-dark-lavender to-slate-900;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

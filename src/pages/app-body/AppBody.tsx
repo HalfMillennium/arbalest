@@ -8,9 +8,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PricingPage } from "../PricingPage";
 import { Footer } from "../../components/Footer";
 import { ExplainerPage } from "../explainer-page/ExplainerPage";
-import { ViewCampaignsPage } from "../campaigns/view-campaigns/ViewCampaignsPage";
+import { DashboardHome } from "../dashboard/dashboard/dashboard-home/DashboardHome";
 
 import "./AppBody.css";
+import { Register } from "../register/Register";
 
 export function AppBody() {
   const { i18n } = useTranslation();
@@ -21,29 +22,30 @@ export function AppBody() {
   }, [i18n]);
   return (
     <div>
-      <div className="w-screen fixed top-0 left-0 pl-9 pt-4 pb-2 bg-slate-100 z-50">
-        <Header />
-      </div>
-      <div className="app-body-bg items-center w-screen">
-        <div className="justify-center">
-          <div className="px-4 pt-24">
-            <BrowserRouter>
+      <BrowserRouter>
+        <div className="w-screen fixed top-0 left-0 pl-9 pt-4 pb-2 bg-f9 z-50">
+          <Header />
+        </div>
+        <div className="app-body-bg items-center w-screen">
+          <div className="justify-center">
+            <div className="px-4 pt-24">
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/whatisit" element={<ExplainerPage />} />
                 <Route
-                  path="/user/:username/campaigns"
-                  element={<ViewCampaignsPage />}
+                  path="/user/:username/dashboard"
+                  element={<DashboardHome />}
                 />
+                <Route path="/register" element={<Register />} />
               </Routes>
-            </BrowserRouter>
+            </div>
           </div>
         </div>
-        <div className="bottom-0 left-0 w-full">
+        <div className="bottom-0 left-0 w-full fixed">
           <Footer />
         </div>
-      </div>
+      </BrowserRouter>
     </div>
   );
 }

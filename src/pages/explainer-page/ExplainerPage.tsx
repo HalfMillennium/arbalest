@@ -2,6 +2,7 @@ import React from "react";
 import { ExplainerSection } from "./explainer-section/ExplainerSection";
 import { LOREM_IPSUM_PARAGRAPH } from "./explainer-section/utils";
 import { DividerWithIcon } from "../../components/Divider";
+import { ScrollerExplainerSection } from "./explainer-section/ScrollerExplainerSection";
 
 export function ExplainerPage() {
   return (
@@ -24,14 +25,14 @@ export function ExplainerPage() {
             orientation="IMAGE_RIGHT"
           />
           <DividerWithIcon selectedIcon="build" />
-          <ExplainerSection
+          <ScrollerExplainerSection
             title="Feature Explanation"
             text={LOREM_IPSUM_PARAGRAPH}
             image="https://assets-global.website-files.com/5f59c28a9ccb43847f62c5fe/6410d12931f5ba31d5480ae5_gmail-integration.png"
             orientation="IMAGE_LEFT"
           />
           <DividerWithIcon selectedIcon="feed" />
-          <ExplainerSection
+          <ScrollerExplainerSection
             title="Feature Explanation"
             text={LOREM_IPSUM_PARAGRAPH}
             image="https://assets-global.website-files.com/5f59c28a9ccb43847f62c5fe/6410d12931f5ba31d5480ae5_gmail-integration.png"
