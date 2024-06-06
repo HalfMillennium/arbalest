@@ -7,10 +7,11 @@ import {
   EntryHistoryActivity,
   EditEntriesActivity,
 } from "../../../../entries-dashboard";
+import { CUSTOM_COLORS } from "../../../../../assets/colors";
 
 export function EntriesHome() {
   const [currentTab, setCurrentTab] = useState(0);
-  const tabColor = "rgb(7 89 133)";
+  const tabColor = CUSTOM_COLORS.primary;
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setCurrentTab(newValue);
