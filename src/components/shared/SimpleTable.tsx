@@ -40,7 +40,7 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
     return (
       <>
         <TableRow
-          className={`cursor-pointer ${open ? "bg-slate-100" : ""}`}
+          className={`cursor-pointer ${open ? "bg-slate-100" : "bg-f9"}`}
           sx={{
             "&:hover": { backgroundColor: "rgb(241 245 249)" },
             "& > *": { borderBottom: "unset" },
@@ -118,9 +118,4 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
       </Table>
     </TableContainer>
   );
-
-  function printAndReturnItem(item: any) {
-    console.log("here:", item);
-    return item;
-  }
 }

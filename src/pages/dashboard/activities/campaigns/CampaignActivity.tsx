@@ -12,15 +12,19 @@ import { SimpleTable } from "../../../../components/shared/SimpleTable";
 import { CampaignDetails } from "./campaign-details/CampaignDetails";
 import { Collapse } from "@mui/material";
 import { EXAMPLE_CAMPAIGNS } from "../../../entries-dashboard/utils";
-import { CampaignInfoFieldsRecord } from "../../../../types/campaigns";
+import {
+  CampaignInfo,
+  CampaignInfoFieldsRecord,
+} from "../../../../types/campaigns";
+import { CreateCampaignDrawer } from "../../../../components/campaigns/CreateCampaignDrawer";
 
 const CAMPAIGN_INFO_FIELDS_LABELS = Object.values(CampaignInfoFieldsRecord);
 const CAMPAIGN_INFO_FIELDS_IDS = Object.keys(CampaignInfoFieldsRecord);
 
-export function CampaignActivity(props: { campaignInfo?: any }) {
+export function CampaignActivity(props: { campaignInfo?: CampaignInfo }) {
   const [filter, setFilter] = useState("");
   const [filterContent, setFilterContent] = useState("");
-  const { campaignInfo } = props;
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
@@ -29,6 +33,9 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setFilterContent(event.target.value);
+  };
+  const toggleCreateCampaignDrawerToggle = (shouldBeOpen: boolean) => {
+    setDrawerOpen(shouldBeOpen);
   };
   const filterTypes = [
     { label: "Demographic", key: "demo" },
@@ -88,6 +95,7 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
                 color="inherit"
                 variant="outlined"
                 sx={{ textTransform: "capitalize" }}
+                onClick={() => toggleCreateCampaignDrawerToggle(true)}
               >
                 <Typography
                   variant="button"
@@ -97,6 +105,10 @@ export function CampaignActivity(props: { campaignInfo?: any }) {
                   Create New Campaign
                 </Typography>
               </Button>
+              <CreateCampaignDrawer
+                open={drawerOpen}
+                setDrawerClose={() => toggleCreateCampaignDrawerToggle(false)}
+              />
             </div>
           </span>
         </Grid>

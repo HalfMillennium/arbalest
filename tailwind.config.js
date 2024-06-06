@@ -29,9 +29,12 @@ module.exports = {
         'bubble-gum': '#ff77e9',
         'bermuda': '#78dcca',
         'soft-black': "#212121",
-        'navy-blue': "rgb(7 89 133)"
+        'navy-blue': "rgb(7 89 133)",
+        'f9': "#f9f9f9",
+        'dark-lavender': '#585daa'
       },
       spacing: {
+        '2rem': '2rem',
         '4rem': '4rem',
         '6rem': '6rem',
         '8rem': '8rem',

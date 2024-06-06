@@ -11,7 +11,10 @@
 }
 
 body {
-    @apply bg-slate-400;
+    @apply bg-white bg-gradient-to-b from-f9 via-f9 to-slate-300;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 html {

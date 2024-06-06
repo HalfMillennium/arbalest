@@ -18,8 +18,8 @@ export function DashboardHome() {
   const dispatch = useDispatch();
 
   return (
-    <div className="items-center sticky">
-      <div className="m-4 h-fit top-0 flex flex-row sticky">
+    <div className="items-center h-screen">
+      <div className="m-4 h-fit top-0 flex flex-row">
         <div className="w-1/5 h-fit top-0 drawer-bg rounded-md sticky">
           <div className="flex flex-col p-4">
             <div className="flex flex-row justify-start">
@@ -76,7 +76,7 @@ export function DashboardHome() {
         <ListItem>
           <DrawerCard
             activity={DashboardActivity.ANALYTICS}
-            body="Track your past & present campaigns. Dowload data as a CSV file."
+            body="Track your past & present campaigns. Download data as a CSV file."
           />
         </ListItem>
         <ListItem>

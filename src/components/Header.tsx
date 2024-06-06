@@ -1,10 +1,9 @@
-import { Button, Typography } from "@mui/material";
-import { t } from "i18next";
+import { Button, Typography, Box } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Select from "react-select/dist/declarations/src/Select";
 import AccountDropdownMenu from "./account-dropdown-menu/AccountDropdownMenu";
 import { useNavigate } from "react-router-dom";
+import arbalestLogo from "../assets/arbalest_logo_two_large.png";
 
 export function Header() {
   const [isSignedIn, setSignedIn] = useState(true);
@@ -34,11 +33,13 @@ export function Header() {
 
   return (
     <div className="w-screen">
-      <div className="flex flex-row justify-center items-center z-999 bg-slate-100">
-        <div className="flex-auto w-1/5">
-          <h1 className="text-3xl font-semibold flex w-1/5">
-            <a href="/">Arbalest</a>
-          </h1>
+      <div className="flex flex-row justify-center items-center z-999 bg-f9">
+        <div className="flex-auto w-72 mr-10">
+          <Box
+            component="img"
+            alt="The house from the offer."
+            src={arbalestLogo}
+          />
         </div>
         <div className="flex flex-auto w-4/5 space-x-6">{navButtons}</div>
         <div className="flex flex-auto w-1/3 justify-center">
