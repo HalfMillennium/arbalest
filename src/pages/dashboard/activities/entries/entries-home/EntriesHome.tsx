@@ -1,5 +1,5 @@
 import { TabPanel } from "../TabPanel";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Tab, Tabs, Box, Typography } from "@mui/material";
 import { EntryDashboardTabs } from "../../../../entries-dashboard/types";
 import { Edit, History, ScheduleSend } from "@mui/icons-material";
@@ -8,8 +8,10 @@ import {
   EditEntriesActivity,
 } from "../../../../entries-dashboard";
 import { CUSTOM_COLORS } from "../../../../../assets/colors";
+import { EntryDashboardTabsRecord } from "./types";
 
 export function EntriesHome() {
+  const [allTabs, setAllTabs] = useState<EntryDashboardTabs[]>([]);
   const [currentTab, setCurrentTab] = useState(0);
   const tabColor = CUSTOM_COLORS.primary;
 
@@ -17,6 +19,13 @@ export function EntriesHome() {
     setCurrentTab(newValue);
   };
 
+  useEffect(() => {
+    const tabTypes: EntryDashboardTabs[] = [];
+    for (const key of Object.keys(EntryDashboardTabsRecord)) {
+      tabTypes.push(key as EntryDashboardTabs);
+    }
+    setAllTabs(tabTypes);
+  }, []);
   return (
     <div>
       <div>
@@ -25,37 +34,24 @@ export function EntriesHome() {
             value={currentTab}
             onChange={handleTabChange}
             aria-label="entry dashboard tabs"
-            TabIndicatorProps={{ style: { backgroundColor: tabColor } }}
+            TabIndicatorProps={{
+              style: { display: "none", backgroundColor: tabColor },
+            }}
           >
-            <Tab
-              label={TabLabel({ tabType: EntryDashboardTabs.SCHEDULE })}
-              tabIndex={0}
-              className="w-8rem md:w-12rem lg:w-16rem"
-              sx={{
-                alignItems: "start",
-                "&.Mui-selected": { color: tabColor },
-              }}
-            />
-            <Tab
-              label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_HISTORY })}
-              tabIndex={1}
-              className="w-8rem md:w-12rem lg:w-16rem"
-              sx={{
-                alignItems: "start",
-                minWidth: 200,
-                "&.Mui-selected": { color: tabColor },
-              }}
-            />
-            <Tab
-              label={TabLabel({ tabType: EntryDashboardTabs.ENTRY_EDITOR })}
-              tabIndex={2}
-              className="w-8rem md:w-12rem lg:w-16rem"
-              sx={{
-                alignItems: "start",
-                minWidth: 200,
-                "&.Mui-selected": { color: tabColor },
-              }}
-            />
+            {allTabs.map((tab, i) => (
+              <Tab
+                label={TabLabel({ tabType: tab })}
+                tabIndex={i}
+                className="w-8rem md:w-12rem lg:w-16rem"
+                sx={{
+                  alignItems: "start",
+                  "&.Mui-selected": { color: tabColor },
+                  borderRadius: "100rem",
+                  backgroundColor: currentTab === i ? "rgba(0,0,0,0.1)" : "",
+                  marginRight: "5px",
+                }}
+              />
+            ))}
           </Tabs>
         </div>
       </div>
