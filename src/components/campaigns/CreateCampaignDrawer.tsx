@@ -78,31 +78,33 @@ export function CreateCampaignDrawer(props: {
         <div>
           <DurationModeToggler setIsFixedDuration={handleSetIsFixedDuration} />
         </div>
-        {isFixedDuration && (
-          <div>
-            <div className="flex w-full mt-4rem">
-              <div className="flex w-full">
-                <DatePicker
-                  className="w-full"
-                  label="Start date"
-                  value={startDate}
-                  onChange={(newValue) => setStartDate(newValue)}
-                />
-              </div>
-              <div className="flex justify-center items-center mx-4 text-black/20">
-                <AccessTime />
-              </div>
-              <div className="flex flex-col w-full">
-                <DatePicker
-                  className="w-full"
-                  label="End date"
-                  value={endDate}
-                  onChange={(newValue) => setEndDate(newValue)}
-                />
-              </div>
+        <div>
+          <div className="flex w-full mt-4rem">
+            <div className="flex w-full">
+              <DatePicker
+                className="w-full"
+                label="Start date"
+                value={startDate}
+                onChange={(newValue) => setStartDate(newValue)}
+              />
             </div>
+            {isFixedDuration && (
+              <>
+                <div className="flex justify-center items-center mx-4 text-black/20">
+                  <AccessTime />
+                </div>
+                <div className="flex flex-col w-full">
+                  <DatePicker
+                    className="w-full"
+                    label="End date"
+                    value={endDate}
+                    onChange={(newValue) => setEndDate(newValue)}
+                  />
+                </div>
+              </>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </Drawer>
   );
