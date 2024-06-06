@@ -26,7 +26,7 @@ export function DurationModeToggler(props: {
             className={`px-4 py-2 font-semibold rounded-sm focus:outline-none ${
               isFixedDurationInternal
                 ? "bg-gray-100 text-gray-800"
-                : "bg-blue-500 text-white"
+                : "bg-dark-lavender text-white"
             }`}
             onClick={() => handleSelectOption(false)}
           >
@@ -47,7 +47,7 @@ export function DurationModeToggler(props: {
             className={`px-4 py-2 font-semibold rounded-sm focus:outline-none ${
               !isFixedDurationInternal
                 ? "bg-gray-100 text-gray-800"
-                : "bg-blue-500 text-white"
+                : "bg-dark-lavender text-white"
             }`}
             onClick={() => handleSelectOption(true)}
           >

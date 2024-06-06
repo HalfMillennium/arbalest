@@ -1,6 +1,4 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -8,6 +6,7 @@ import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Settings, Campaign } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { CUSTOM_COLORS } from "../../assets/colors";
 
 export default function AccountDropdownMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -33,7 +32,7 @@ export default function AccountDropdownMenu() {
         <Typography
           fontFamily="Radio Canada Big"
           fontWeight={300}
-          style={{ flexGrow: 1 }}
+          style={{ flexGrow: 1, color: CUSTOM_COLORS.primary }}
         >
           {t("header.navBar.account")}
         </Typography>
