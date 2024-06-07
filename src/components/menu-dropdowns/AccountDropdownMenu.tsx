@@ -52,15 +52,15 @@ export default function AccountDropdownMenu() {
         open={open}
         sx={{
           ".MuiPaper-root": {
-            backgroundColor: "#212121",
-            color: "white",
+            backgroundColor: "white",
+            color: "#212121",
             borderRadius: "2px",
           },
         }}
         onClose={handleClose}
       >
         <MenuItem onClick={openSettings} className="">
-          <div className="flex flex-row align-middle items-center">
+          <div className="flex flex-row jutify-center items-center">
             {" "}
             <div className="mr-1">
               <Settings />
@@ -73,13 +73,15 @@ export default function AccountDropdownMenu() {
           </div>
         </MenuItem>
         <MenuItem onClick={openCampaigns}>
-          <div className="mr-1">
-            <Campaign />
-          </div>
-          <div>
-            <Typography fontFamily={"Radio Canada Big"} fontWeight={500}>
-              Campaigns
-            </Typography>
+          <div className="flex flex-row jutify-center items-center">
+            <div className="mr-1">
+              <Campaign />
+            </div>
+            <div>
+              <Typography fontFamily={"Radio Canada Big"} fontWeight={500}>
+                Campaigns
+              </Typography>
+            </div>
           </div>
         </MenuItem>
       </Menu>

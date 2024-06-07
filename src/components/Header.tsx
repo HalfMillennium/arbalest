@@ -2,14 +2,7 @@ import { Button, Typography, Box } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  FiEdit,
-  FiChevronDown,
-  FiTrash,
-  FiShare,
-  FiPlusSquare,
-} from "react-icons/fi";
-import {
-  CampaignOutlined,
+  DashboardOutlined,
   TuneOutlined,
   ContactSupportOutlined,
 } from "@mui/icons-material";
@@ -17,6 +10,10 @@ import { useNavigate } from "react-router-dom";
 import arbalestLogo from "../assets/arbalest_logo_two_large.png";
 import { CUSTOM_COLORS } from "../assets/colors";
 import AccountDropdownMenu from "./menu-dropdowns/AccountDropdownMenu";
+import {
+  DropdownMenuOptions,
+  StaggeredDropdownMenu,
+} from "./menu-dropdowns/StaggeredDropdownMenu";
 
 export function Header() {
   const [isSignedIn, setSignedIn] = useState(true);
@@ -46,6 +43,16 @@ export function Header() {
     );
   });
 
+  const accountNavOptions: DropdownMenuOptions[] = [
+    {
+      label: "Dashboard",
+      path: "/user/person/dashboard",
+      Icon: DashboardOutlined,
+    },
+    { label: "Settings", path: "/user/person/settings", Icon: TuneOutlined },
+    { label: "Support", path: "/support", Icon: ContactSupportOutlined },
+  ];
+
   /** Account nav options are net initialized at the same time as general nav options due to a bug with  */
   return (
     <div className="flex justify-center items-center z-999 w-screen">
@@ -66,7 +73,7 @@ export function Header() {
         <div className="flex flex-row m-5 pr-20 text-dark-lavender">
           {isSignedIn && (
             <div className="mr-2">
-              <AccountDropdownMenu />
+              <StaggeredDropdownMenu options={accountNavOptions} />
             </div>
           )}
           {!isSignedIn && (
