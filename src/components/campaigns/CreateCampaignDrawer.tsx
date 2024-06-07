@@ -5,7 +5,7 @@ import { useState, createRef } from "react";
 import { DatePicker } from "@mui/x-date-pickers";
 import { AccessTime } from "@mui/icons-material";
 import { DurationModeToggler } from "./DurationModeToggler";
-import arbalestLogo from "../../assets/arbalest_logo_two_large.png";
+import arbalestIcon from "../../assets/arbalest_icon_large.png";
 import Divider from "@mui/material/Divider";
 
 const DEFAULT_CAMPAIGN_TITLE = "My awesome new campaign";
@@ -15,8 +15,10 @@ export function CreateCampaignDrawer(props: {
   open: boolean;
   setDrawerClose: () => void;
 }) {
-  const [startDate, setStartDate] = useState<Dayjs | null>(dayjs("2000-01-01"));
-  const [endDate, setEndDate] = useState<Dayjs | null>(dayjs(""));
+  const [startDate, setStartDate] = useState<Dayjs | null>(
+    dayjs().add(1, "day")
+  );
+  const [endDate, setEndDate] = useState<Dayjs | null>(dayjs().add(1, "month"));
   const [isFixedDuration, setIsFixedDuration] = useState(false);
   const { open, setDrawerClose } = props;
   const formTextRefs = {
@@ -36,8 +38,8 @@ export function CreateCampaignDrawer(props: {
             <Box
               component="img"
               alt="Arbalest logo"
-              sx={{ width: "10rem" }}
-              src={arbalestLogo}
+              sx={{ width: "3rem" }}
+              src={arbalestIcon}
               className="cursor-pointer"
             />
           </div>

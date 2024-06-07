@@ -115,6 +115,8 @@ const itemVariants = {
     y: 0,
     transition: {
       when: "beforeChildren",
+      staggerChildren: 0.05,
+      delayChildren: 0.1,
     },
   },
   closed: {
