@@ -94,6 +94,7 @@ export function CampaignActivity(props: { campaignInfo?: CampaignInfo }) {
             <div className="flex flex-row text-dark-lavender w-2/2 px-2 h-full cursor-pointer">
               <Button
                 color="inherit"
+                className="hover:shadow-md"
                 variant="outlined"
                 sx={{
                   textTransform: "capitalize",

@@ -54,10 +54,7 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
           </TableCell>
           {children}
         </TableRow>
-        <TableRow
-          className="bg-slate-100"
-          sx={{ "& > *": { borderBottom: "unset" } }}
-        >
+        <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={70}>
             <DrawerComponent isOpen={open} />
           </TableCell>
