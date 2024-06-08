@@ -10,7 +10,7 @@ export interface CampaignSettings {
 export interface CampaignInfo {
   name: string;
   id: string;
-  demoId?: string;
+  mailingListId?: string;
   propertyId: string;
   startDate: Date;
   endDate?: Date;
@@ -42,7 +42,7 @@ export interface CampaignEntry {
   propertyId: string;
   markdownContent?: string;
   /** Demographic ID */
-  demoId: string;
+  mailingListId: string;
   /** Any practical benefit to keeping this on the frontend? Not sure yet */
   htmlContent?: string;
   stats?: CampaignEntryStats;
@@ -57,7 +57,7 @@ export enum CampaignEntryFields {
   PROPERTY_ID = "propertyId",
   CREATED_DATE = "createdDate",
   DISPATCH_DATE = "dispatchDate",
-  DEMO_ID = "demoId",
+  MAILING_LIST_ID = "mailingListId",
   SUBJECT = "subject",
 }
 
@@ -70,7 +70,7 @@ export enum CampaignInfoFields {
   PROPERTY_ID = "propertyId",
   START_DATE = "startDate",
   END_DATE = "endDate",
-  DEMO_ID = "demoId",
+  MAILING_LIST_ID = "mailingListId",
 }
 
 export const CampaignInfoFieldsRecord: Record<CampaignInfoFields, string> = {
@@ -79,7 +79,7 @@ export const CampaignInfoFieldsRecord: Record<CampaignInfoFields, string> = {
   [CampaignInfoFields.PROPERTY_ID]: "Property ID",
   [CampaignInfoFields.START_DATE]: "Start Date",
   [CampaignInfoFields.END_DATE]: "End Date",
-  [CampaignInfoFields.DEMO_ID]: "Demographic ID",
+  [CampaignInfoFields.MAILING_LIST_ID]: "Demographic ID",
 };
 
 export const CampaignEntryFieldsRecord: Record<CampaignEntryFields, string> = {
@@ -89,7 +89,7 @@ export const CampaignEntryFieldsRecord: Record<CampaignEntryFields, string> = {
   [CampaignEntryFields.PROPERTY_ID]: "Property ID",
   [CampaignEntryFields.DISPATCH_DATE]: "Dispatch Date",
   [CampaignEntryFields.CREATED_DATE]: "Created Date",
-  [CampaignEntryFields.DEMO_ID]: "Demographic ID",
+  [CampaignEntryFields.MAILING_LIST_ID]: "Mailing List ID",
 };
 
 export interface CampaignEntryStats {

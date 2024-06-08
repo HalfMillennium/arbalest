@@ -45,7 +45,8 @@ module.exports = {
         'latte': "#ffe09e",
         'latte-light': "#FFF3CB",
         'latte-x-light': "#FFFDF0",
-        'fins-teal': "#067e9c"
+        'fins-teal': "#067e9c",
+        "cream-cicle": "#ffba1f"
       },
       spacing: {
         '2rem': '2rem',

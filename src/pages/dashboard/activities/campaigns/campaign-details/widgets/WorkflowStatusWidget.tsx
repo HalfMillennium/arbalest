@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 /** Provides overview on current release schedule of email dispatcher (e.g. most recent dispatch, next dispatch date) */
 export function WorkflowStatusWidget() {
   return (
-    <div className="bg-blue-100 p-3 mb-3 mt-3 rounded-md">
+    <div className="bg-dusk-violet/10 p-3 mb-3 mt-3 rounded-md">
       <Typography variant="h5" component="div">
         Workflow Status
       </Typography>

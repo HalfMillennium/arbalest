@@ -7,6 +7,7 @@ import {
   WorkflowStatusWidget,
   DemoOverviewWidget,
 } from "./widgets";
+
 export function CampaignDetails() {
   return (
     <div>

@@ -16,9 +16,9 @@ export function EditEntriesActivity(props: {
   setTab: (tabIndex: number) => void;
 }) {
   const subjectLineTextAreaRef = createRef<HTMLInputElement>();
-  const demoIdTextAreaRef = createRef<HTMLInputElement>();
+  const mailingListIdTextAreaRef = createRef<HTMLInputElement>();
   const [subjectLine, setSubjectLine] = useState("");
-  const [demoId, setDemoId] = useState("");
+  const [mailingListId, setMailingListId] = useState("");
 
   function EmailBodyEditor() {
     return (
@@ -43,6 +43,7 @@ export function EditEntriesActivity(props: {
                   variant="outlined"
                   color="inherit"
                   onClick={() =>
+                    // TODO: Do something meaningful with the value, obviously
                     console.log(
                       `New subject line: ${subjectLineTextAreaRef.current?.value}`
                     )
@@ -74,12 +75,12 @@ export function EditEntriesActivity(props: {
           </div>
           <div className="w-1/2 pl-3">
             <SimpleTextInput
-              ref={demoIdTextAreaRef}
+              ref={mailingListIdTextAreaRef}
               showSaveChangesButton={true}
               maxLength={MAX_DEMO_ID_LENGTH}
               initialValue={"#1293109"}
-              setValue={setDemoId}
-              label="Demographic Id"
+              setValue={setMailingListId}
+              label="Mailing List ID"
             />
           </div>
         </div>
