@@ -60,7 +60,10 @@ export function CreateCampaignDrawer(props: {
   return (
     <Drawer open={open} onClose={setDrawerClose}>
       <div className="flex flex-col w-48rem justify-start -mb-10 ml-10">
-        <div className="flex flex-col w-48rem p-10 justify-center">
+        <div
+          className="flex flex-col w-48rem p-10 justify-center"
+          style={{ position: "sticky", top: 0 }}
+        >
           <div className="flex flex-col items-center">
             <Box
               component="img"
@@ -73,7 +76,7 @@ export function CreateCampaignDrawer(props: {
           <div className="py-5">
             <Divider variant="middle" />
           </div>
-          <div>
+          <div className="sticky top-0">
             <Typography variant="h2">Create a new campaign.</Typography>
           </div>
           <div className="text-">
@@ -112,7 +115,18 @@ export function CreateCampaignDrawer(props: {
             <div className="flex w-full">
               <DatePicker
                 className="w-full"
-                label="Start date"
+                label={
+                  <div className="text-soft-black">
+                    <Typography
+                      fontFamily={"Source Sans 3"}
+                      fontWeight={900}
+                      variant="button"
+                      color="inherit"
+                    >
+                      Start date
+                    </Typography>
+                  </div>
+                }
                 value={startDate}
                 onChange={(newValue) => setStartDate(newValue)}
               />
@@ -125,7 +139,18 @@ export function CreateCampaignDrawer(props: {
                 <div className="flex flex-col w-full">
                   <DatePicker
                     className="w-full"
-                    label="End date"
+                    label={
+                      <div className="text-soft-black">
+                        <Typography
+                          fontFamily={"Source Sans 3"}
+                          fontWeight={900}
+                          variant="button"
+                          color="inherit"
+                        >
+                          End date
+                        </Typography>
+                      </div>
+                    }
                     value={endDate}
                     onChange={(newValue) => setEndDate(newValue)}
                   />
@@ -138,8 +163,19 @@ export function CreateCampaignDrawer(props: {
           headingText="Set Scan Rate"
           isRequired={true}
           options={scanRateOptions}
-          infoText={t("campaigns.createCampaignDrawer.")}
+          infoText18nKey={"campaigns.createCampaignDrawer.scanRateExplanation"}
+          initialValue="weekly"
           setValue={setScanRate}
+        />
+        <SimpleSelect
+          headingText="Set Dispatch Rate"
+          isRequired={true}
+          options={dispatchRateOptions}
+          infoText18nKey={
+            "campaigns.createCampaignDrawer.dispatchRateExplanation"
+          }
+          initialValue="weekly"
+          setValue={setDispatchRate}
         />
       </div>
     </Drawer>

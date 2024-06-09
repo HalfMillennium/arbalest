@@ -59,7 +59,7 @@ export function SimpleTextInput(props: InputOptions) {
         />
         {isRequired !== undefined && (
           <div className="w-full flex justify-end">
-            <div className="text-slate-500">
+            <div className="text-dusk-violet">
               <Typography
                 variant="body1"
                 color="inherit"

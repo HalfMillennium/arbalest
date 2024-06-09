@@ -24,8 +24,8 @@ export function CampaignHealthWidget() {
             <Typography
               variant="h5"
               component="div"
-              fontWeight="bold"
-              fontStyle="Source Sans 3"
+              fontWeight="medium"
+              fontFamily="Radio Canada Big"
             >
               Campaign Health
             </Typography>
@@ -42,7 +42,9 @@ export function CampaignHealthWidget() {
                 dispatch(setCurrentActivity(DashboardActivity.ANALYTICS))
               }
             >
-              View Analytics
+              <Typography fontFamily={"Radio Canada Big"}>
+                View Analytics
+              </Typography>
             </Button>
           </div>
         </div>
@@ -69,69 +71,51 @@ export function CampaignHealthWidget() {
           <div className="flex flex-col p-3 m-2 rounded-md bg-latte-x-light border-2 border-slate-300 px-5 justify-center">
             <HealthIndicator rating={campaignHealthRating} />
           </div>
-          <div className="flex flex-col m-2 md:mr-6">
-            <div className="flex -mb-1 justify-center items-center">
-              <div className="text-latte border-2 border-gray-200 rounded-lg">
-                <AdsClick />
-              </div>
-              <Typography
-                className="pl-1"
-                fontFamily={"Radio Canada Big"}
-                fontSize={18}
-              >
-                Click Rate
-              </Typography>
-            </div>
-            <div className="text-black">
-              <Typography
-                fontFamily={"Roboto Mono"}
-                fontSize={36}
-                fontWeight={500}
-              >
-                {clickRate}
-              </Typography>
-            </div>
-          </div>
-          <div className="flex flex-col m-2 md:mr-6">
-            <div className="flex -mb-1 justify-center items-center">
-              <div className="text-latte border-2 border-gray-200 rounded-lg">
-                <BrokenImage color="inherit" />
-              </div>
-              <Typography fontFamily="Radio Canada Big" className="pl-1">
-                Bounce Rate
-              </Typography>
-            </div>
-            <div className="text-black">
-              <Typography
-                fontFamily={"Roboto Mono"}
-                fontSize={36}
-                fontWeight={500}
-              >
-                {bounceRate}
-              </Typography>
-            </div>
-          </div>
-          <div className="flex flex-col m-2 md:mr-6">
-            <div className="flex -mb-1 justify-center items-center">
-              <div className="text-latte border-2 border-gray-200 rounded-lg">
-                <ShowChart />
-              </div>
-              <Typography fontFamily={"Radio Canada Big"} className="pl-1">
-                Overall ROI
-              </Typography>
-            </div>
-            <div className="text-black">
-              <Typography
-                fontFamily={"Roboto Mono"}
-                fontSize={36}
-                fontWeight={500}
-              >
-                {overallROI}
-              </Typography>
-            </div>
-          </div>
+          <CampaignStatChunk
+            label="Click Rate"
+            value={clickRate}
+            Icon={AdsClick}
+          />
+          <CampaignStatChunk
+            label="Bounce Rate"
+            value={bounceRate}
+            Icon={BrokenImage}
+          />
+          <CampaignStatChunk
+            label="Overall ROI"
+            value={overallROI}
+            Icon={ShowChart}
+          />
         </div>
       </Box>
     );
   }
 }
+
+const CampaignStatChunk = ({
+  label,
+  value,
+  Icon,
+}: {
+  label: string;
+  value: string | number;
+  Icon: React.ComponentType;
+}) => {
+  return (
+    <div className="flex flex-col m-2 md:mr-6">
+      <div className="flex -mb-1 justify-start  items-center">
+        <div className="text-latte border-2 border-gray-200 rounded-lg">
+          <Icon />
+        </div>
+        <Typography fontFamily="Radio Canada Big" className="pl-1">
+          {label}
+        </Typography>
+      </div>
+      <div className="text-black">
+        <Typography fontFamily={"Roboto Mono"} fontSize={36} fontWeight={500}>
+          {value}
+        </Typography>
+      </div>
+    </div>
+  );
+};
