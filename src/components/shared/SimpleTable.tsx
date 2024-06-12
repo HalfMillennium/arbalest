@@ -10,7 +10,7 @@ import {
   Typography,
   Collapse,
 } from "@mui/material";
-
+import { motion } from "framer-motion";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { HelpOutline } from "@mui/icons-material";
@@ -49,7 +49,15 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
         >
           <TableCell>
             <IconButton aria-label="expand row" size="small">
-              {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+              <motion.span
+                animate={open ? "open" : "closed"}
+                variants={{
+                  open: { rotate: 180 },
+                  closed: { rotate: 0 },
+                }}
+              >
+                <KeyboardArrowDownIcon />
+              </motion.span>
             </IconButton>
           </TableCell>
           {children}
