@@ -43,7 +43,7 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
           className={`cursor-pointer ${open ? "bg-transparent" : "bg-white"}`}
           sx={{
             "&:hover": { backgroundColor: "rgba(0,0,0,0);" },
-            "& > *": { borderBottom: "unset" },
+            "& > *": { border: open ? "unset" : "" },
           }}
           onClick={() => setOpen(!open)}
         >
@@ -62,7 +62,9 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
           </TableCell>
           {children}
         </TableRow>
-        <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+        <TableRow
+          sx={{ "& > *": { borderBottom: "unset", borderTop: "unset" } }}
+        >
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={70}>
             <DrawerComponent isOpen={open} />
           </TableCell>
