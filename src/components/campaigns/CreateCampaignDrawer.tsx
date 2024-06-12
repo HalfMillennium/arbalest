@@ -60,10 +60,7 @@ export function CreateCampaignDrawer(props: {
   return (
     <Drawer open={open} onClose={setDrawerClose}>
       <div className="flex flex-col w-48rem justify-start -mb-10 ml-10">
-        <div
-          className="flex flex-col w-48rem p-10 justify-center"
-          style={{ position: "sticky", top: 0 }}
-        >
+        <div className="flex flex-col w-48rem p-10 justify-center">
           <div className="flex flex-col items-center">
             <Box
               component="img"
@@ -76,7 +73,7 @@ export function CreateCampaignDrawer(props: {
           <div className="py-5">
             <Divider variant="middle" />
           </div>
-          <div className="sticky top-0">
+          <div>
             <Typography variant="h2">Create a new campaign.</Typography>
           </div>
           <div className="text-">

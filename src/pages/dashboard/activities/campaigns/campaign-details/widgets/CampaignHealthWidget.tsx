@@ -17,23 +17,25 @@ import {
 export function CampaignHealthWidget() {
   const dispatch = useDispatch();
   return (
-    <div className="bg-gradient-to-r from-dark-lavender/20 to-dark-lavender/40 p-3 mb-3 mr-3 mt-3 rounded-md hover:shadow-sm">
+    <div className="bg-gradient-to-r from-dark-lavender/20 to-dark-lavender/40 px-3 pb-3 mb-3 mr-3 mt-3 rounded-md hover:shadow-sm md:h-13rem">
       <div>
-        <div className="flex flex-row">
-          <div>
-            <Typography
-              variant="h5"
-              component="div"
-              fontWeight="medium"
-              fontFamily="Radio Canada Big"
-            >
-              Campaign Health
-            </Typography>
+        <div className="flex">
+          <div className="flex justify-center items-center">
+            <div>
+              <Typography
+                variant="h5"
+                component="div"
+                fontWeight="medium"
+                fontFamily="Helvetica Neue"
+              >
+                Campaign Health
+              </Typography>
+            </div>
+            <div className="flex justify-center items-center ml-1">
+              <HealthAndSafety />
+            </div>
           </div>
-          <div>
-            <HealthAndSafety />
-          </div>
-          <div className="pl-6">
+          <div className="pl-6 pt-3">
             <Button
               color="inherit"
               sx={{ textTransform: "capitalize", marginBottom: "10px" }}
@@ -42,13 +44,17 @@ export function CampaignHealthWidget() {
                 dispatch(setCurrentActivity(DashboardActivity.ANALYTICS))
               }
             >
-              <Typography fontFamily={"Radio Canada Big"}>
+              <Typography fontFamily={"Helvetica Neue"}>
                 View Analytics
               </Typography>
             </Button>
           </div>
         </div>
-        <Typography variant="body2" color="text.secondary">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          fontFamily="Helvetica Neue"
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Typography>

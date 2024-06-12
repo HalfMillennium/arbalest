@@ -52,7 +52,7 @@ export function SimpleSelect(props: {
         </div>
         {infoText18nKey && (
           <div className="pb-2">
-            <Typography variant="body2">
+            <Typography variant="body2" fontFamily="Radio Canada Big">
               <Trans i18nKey={infoText18nKey} />
             </Typography>
           </div>
@@ -72,13 +72,13 @@ export function SimpleSelect(props: {
       </Select>
       {isRequired !== undefined && (
         <div className="w-full flex justify-end">
-          <div className="text-dusk-violet">
+          <div className="text-soft-black">
             <Typography
-              variant="body1"
+              variant="body2"
               color="inherit"
               fontFamily="Radio Canada Big"
             >
-              This field is {isRequired ? <b>required</b> : "optional"}.
+              * This field is {isRequired ? <b>required</b> : "optional"}.
             </Typography>
           </div>
         </div>

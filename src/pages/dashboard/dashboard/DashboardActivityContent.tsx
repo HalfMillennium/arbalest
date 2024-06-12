@@ -8,9 +8,15 @@ import { CampaignActivity } from "../activities/campaigns/CampaignActivity";
 
 import { Suspense } from "react";
 import { EntriesHome } from "../activities/entries/entries-home/EntriesHome";
+import { PropertiesHome } from "../../../components/properties/PropertiesHome";
+import { NoPropertiesPage } from "../properties/NoPropertiesPage";
 
-export function DashboardActivityContent() {
-  const currentActivity = useSelector(
+export function DashboardActivityContent({
+  userHasAvailableProperties,
+}: {
+  userHasAvailableProperties: boolean;
+}) {
+  const currentActivity: DashboardActivity = useSelector(
     (state: RootState) => state.dashboard.currentActivity
   );
 
@@ -20,29 +26,44 @@ export function DashboardActivityContent() {
 
   return (
     <div className="w-full">
-      <div>
-        <Typography
-          variant="h4"
-          fontFamily="Radio Canada Big"
-          fontWeight="medium"
-        >
-          {currentActivity}
-        </Typography>
-      </div>
-      <div className="bg-white rounded-md shadow-md border-solid border-2 border-dark-lavender-15">
-        <Suspense>
-          <div className="pb-4 px-4 ">
-            {currentActivity === DashboardActivity.CAMPAIGNS && (
-              <div className="mt-4">
-                <CampaignActivity />
+      {userHasAvailableProperties && (
+        <>
+          <div>
+            <Typography
+              variant="h4"
+              fontFamily="Radio Canada Big"
+              fontWeight="medium"
+            >
+              {currentActivity}
+            </Typography>
+          </div>{" "}
+          <div className="bg-white rounded-md shadow-md border-solid border-2 border-dark-lavender-15">
+            <Suspense>
+              <div className="pb-4 px-4 ">
+                {currentActivity === DashboardActivity.CAMPAIGNS && (
+                  <div className="mt-4">
+                    <CampaignActivity />
+                  </div>
+                )}
+                {currentActivity === DashboardActivity.ANALYTICS && (
+                  <Analytics />
+                )}
+                {currentActivity === DashboardActivity.ASSISTANTS && (
+                  <Assistants />
+                )}
+                {currentActivity === DashboardActivity.ENTRIES && (
+                  <EntriesHome />
+                )}
               </div>
-            )}
-            {currentActivity === DashboardActivity.ANALYTICS && <Analytics />}
-            {currentActivity === DashboardActivity.ASSISTANTS && <Assistants />}
-            {currentActivity === DashboardActivity.ENTRIES && <EntriesHome />}
+            </Suspense>
           </div>
-        </Suspense>
-      </div>
+        </>
+      )}
+      {!userHasAvailableProperties && (
+        <div>
+          <NoPropertiesPage />
+        </div>
+      )}
     </div>
   );
 }

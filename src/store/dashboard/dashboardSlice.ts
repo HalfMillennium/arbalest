@@ -9,6 +9,13 @@ export enum DashboardActivity {
   ENTRIES = "Entries",
 }
 
+export const ResourceTypesRecord: Record<DashboardActivity, string> = {
+  [DashboardActivity.CAMPAIGNS]: "campaigns",
+  [DashboardActivity.ANALYTICS]: "analytics",
+  [DashboardActivity.ASSISTANTS]: "assistants",
+  [DashboardActivity.ENTRIES]: "entries",
+};
+
 export interface DashboardState {
   currentActivity: DashboardActivity;
   selectedCampaignId: string | undefined;

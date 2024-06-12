@@ -62,6 +62,17 @@ export const TRANSLATIONS = {
               "Users will receive quarterly update digests beginning 3 months after the start date, at 5pm EST (GMT-5).",
           },
         },
+        campaignsTable: {
+          workflowStatus:
+            "Workflow status includes details about the date of the campaign's next email digest, as well as basic information about the last digest.",
+        },
+      },
+      properties: {
+        noPropertiesMenu: {
+          title: "You haven't linked any properties yet.",
+          subtitle: "Let's change that.",
+          actionText: "Create Arbalest property",
+        },
       },
     },
   },

@@ -10,16 +10,18 @@ import {
 
 export function CampaignDetails() {
   return (
-    <div>
-      <span className="justify-center items-center">
+    <div className="h-full justify-center items-center">
+      <div className="flex h-full">
         <div>
-          <div className="flex max-w-fit">
-            <CampaignHealthWidget />
-            <WorkflowStatusWidget />
-            <DemoOverviewWidget />
-          </div>
+          <CampaignHealthWidget />
         </div>
-      </span>
+        <div>
+          <WorkflowStatusWidget />
+        </div>
+        <div>
+          <DemoOverviewWidget />
+        </div>
+      </div>
     </div>
   );
 }

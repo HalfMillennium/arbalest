@@ -9,6 +9,7 @@ import {
   DashboardActivity,
   setCurrentActivity,
 } from "../../../../store/dashboard/dashboardSlice";
+import BubbleButton from "../../../../components/shared/BubbleButton";
 
 export function DashboardHome() {
   // 'campaigns', 'analytics', 'assistants'
@@ -16,48 +17,93 @@ export function DashboardHome() {
     (state: RootState) => state.dashboard.currentActivity
   );
   const dispatch = useDispatch();
+  // TODO: Eventually replace with Redux selector value
+  const [userHasAvailableProperties, setUserHasAvailableProperties] =
+    useState(true);
+  const [currentProperty, setCurrentProperty] = useState(null);
 
   return (
     <div className="items-center h-screen">
-      <div className="m-4 h-fit top-0 flex flex-row">
-        <div className="w-1/5 h-fit top-0 drawer-bg rounded-md sticky">
-          <div className="flex flex-col p-4">
-            <div className="flex flex-row justify-start">
-              <div className="flex overflow-auto h-fit top-0">
-                <Typography
-                  fontFamily={"Radio Canada Big"}
-                  fontWeight={500}
-                  fontSize={32}
-                  color={"white"}
-                >
-                  {/** TODO: Create max character count of about this length */}
-                  How2Builders
-                </Typography>
-              </div>
-              <div
-                className="cursor-pointer"
-                onClick={() => {
-                  console.log("Should open property website");
-                }}
-              >
-                <OpenInNew />
-              </div>
-            </div>
-            <span className="text-base">
-              <Typography fontFamily={"Source Sans 3"} color="#212121">
-                PROPERTY
-              </Typography>
-            </span>
-          </div>
-          <Drawer />
-        </div>
+      <div className="m-4 h-fit top-0 flex">
+        <Drawer />
         <div className="w-4/5 py-5 pr-5 pl-2 ml-10 p-90">
-          <DashboardActivityContent />
+          <DashboardActivityContent
+            userHasAvailableProperties={userHasAvailableProperties}
+          />
         </div>
       </div>
     </div>
   );
   function Drawer() {
+    return (
+      <div className="w-1/5 h-fit top-0 drawer-bg rounded-md sticky">
+        {userHasAvailableProperties && (
+          <>
+            <div className="flex flex-col p-4">
+              <div className="flex flex-row justify-between">
+                <div className="md:flex">
+                  <div className="flex overflow-auto h-fit top-0">
+                    <Typography
+                      fontFamily={"Radio Canada Big"}
+                      fontWeight={500}
+                      fontSize={32}
+                      color={"white"}
+                    >
+                      {/** TODO: Create max character count of about this length */}
+                      How2Builders
+                    </Typography>
+                  </div>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => {
+                      console.log("Should open property website");
+                    }}
+                  >
+                    <OpenInNew />
+                  </div>
+                </div>
+              </div>
+              <div className="flex text-base text-black/70 justify-between">
+                <Typography
+                  variant="button"
+                  fontFamily={"Helvetica Neue"}
+                  color="inherit"
+                >
+                  Property
+                </Typography>
+                <div className="flex w-16rem justify-end">
+                  <BubbleButton
+                    text="Select New Property"
+                    route="/properties"
+                  />
+                </div>
+              </div>
+            </div>
+            <DrawerNavList />
+          </>
+        )}
+        {!userHasAvailableProperties && <NoPropertiesDrawerContent />}
+      </div>
+    );
+  }
+
+  function NoPropertiesDrawerContent() {
+    return (
+      <div className="flex w-full h-36rem md:h-48rem justify-center items-center p-3">
+        <div className="text-white/70 w-fit flex text-center border-2 border-white/50 p-2 rounded-md">
+          <Typography
+            fontFamily="Radio Canada Big"
+            variant="h6"
+            color="inherit"
+          >
+            Select or create a property to unlock your dashboard.
+          </Typography>
+        </div>
+      </div>
+    );
+  }
+
+  function DrawerNavList() {
     return (
       <List>
         <ListItem>
@@ -88,6 +134,7 @@ export function DashboardHome() {
       </List>
     );
   }
+
   function DrawerCard(props: { body: string; activity: DashboardActivity }) {
     const { body, activity } = props;
     return (
