@@ -9,7 +9,8 @@ import {
   DashboardActivity,
   setCurrentActivity,
 } from "../../../../store/dashboard/dashboardSlice";
-import BubbleButton from "../../../../components/shared/BubbleButton";
+import { motion } from "framer-motion";
+import DottedButton from "../../../../components/shared/DottedButton";
 
 export function DashboardHome() {
   // 'campaigns', 'analytics', 'assistants'
@@ -72,7 +73,7 @@ export function DashboardHome() {
                   Property
                 </Typography>
                 <div className="flex w-16rem justify-end">
-                  <BubbleButton
+                  <DottedButton
                     text="Select New Property"
                     route="/properties"
                   />
@@ -138,8 +139,8 @@ export function DashboardHome() {
   function DrawerCard(props: { body: string; activity: DashboardActivity }) {
     const { body, activity } = props;
     return (
-      <Card
-        className="hover:animate-pulse bg-white bg-opacity-50 rounded-md text-left p-4 cursor-pointer w-full"
+      <motion.div
+        className="hover:animate-pulse bg-white/75 rounded-md text-left p-4 cursor-pointer w-full transition-all duration-300 hover:bg-white hover:text-dark-lavender hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
         style={
           currentActivity === activity
             ? { opacity: 0.2, pointerEvents: "none" }
@@ -153,7 +154,7 @@ export function DashboardHome() {
           </Typography>
           <Typography variant="body1">{body}</Typography>
         </div>
-      </Card>
+      </motion.div>
     );
   }
 }

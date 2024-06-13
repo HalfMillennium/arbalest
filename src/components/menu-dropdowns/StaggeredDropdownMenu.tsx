@@ -38,7 +38,6 @@ export function StaggeredDropdownMenu(props: {
         <button
           onClick={() => setOpen((pv) => !pv)}
           className="flex items-center gap-2 px-3 py-2 rounded-md text-indigo-50 bg-dark-lavender hover:bg-dark-lavender transition-colors font-medium text-sm"
-          onMouseLeave={() => setOpen(false)}
         >
           {t("header.navBar.account")}
           <motion.span variants={iconVariants}>

@@ -118,11 +118,7 @@ export function Header() {
               }}
             >
               <div>
-                <Typography
-                  fontFamily="Radio Canada Big"
-                  fontWeight={300}
-                  className="text-xs"
-                >
+                <Typography fontFamily="Radio Canada Big" fontWeight={300}>
                   {isSignedIn
                     ? t("header.navBar.signOut")
                     : t("header.navBar.register")}
