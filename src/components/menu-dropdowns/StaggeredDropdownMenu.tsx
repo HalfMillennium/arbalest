@@ -37,11 +37,10 @@ export function StaggeredDropdownMenu(props: {
       <motion.div animate={open ? "open" : "closed"} className="relative">
         <button
           onClick={() => setOpen((pv) => !pv)}
-          className="flex items-center gap-2 px-3 py-2 rounded-md text-indigo-50 bg-dark-lavender hover:bg-dark-lavender transition-colors"
+          className="flex items-center gap-2 px-3 py-2 rounded-md text-indigo-50 bg-dark-lavender hover:bg-dark-lavender transition-colors font-medium text-sm"
+          onMouseLeave={() => setOpen(false)}
         >
-          <span className="font-medium text-sm">
-            {t("header.navBar.account")}
-          </span>
+          {t("header.navBar.account")}
           <motion.span variants={iconVariants}>
             <FiChevronDown />
           </motion.span>

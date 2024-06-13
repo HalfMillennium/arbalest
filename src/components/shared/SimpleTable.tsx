@@ -8,11 +8,9 @@ import {
   TableRow,
   IconButton,
   Typography,
-  Collapse,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { HelpOutline } from "@mui/icons-material";
 
 export function SimpleTable<TItem extends { [key: string]: any }>(props: {
@@ -30,7 +28,7 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
   });
 
   const TableComponent = ({ children }: { children: any }) => (
-    <TableContainer className="rounded-sm bg-white/75">
+    <TableContainer className="rounded-sm bg-white/75 w-full">
       {children}
     </TableContainer>
   );
@@ -93,9 +91,8 @@ export function SimpleTable<TItem extends { [key: string]: any }>(props: {
           {/**
            *
            * NOTE:
-           *
            * At the moment, this table uses the indices generated from the map function as keys for each row.
-           * When user's attempt table deletion, or some kind of re-sorting, table structure will need to be maintained (or refresh).
+           * When user's attempt table deletion, or some kind of re-sorting, table structure will need to be maintained (or refreshed).
            */}
           {filteredEntries.map((item, i) => {
             return (

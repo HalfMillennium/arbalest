@@ -150,7 +150,7 @@ export function CampaignActivity(props: { campaignInfo?: CampaignInfo }) {
   function CollapseableCampaignDetails(props: { isOpen: boolean }) {
     const { isOpen } = props;
     return (
-      <div className="flex">
+      <div>
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
           <CampaignDetails />
         </Collapse>

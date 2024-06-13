@@ -10,8 +10,8 @@ import {
 
 export function CampaignDetails() {
   return (
-    <div className="h-full justify-center items-center">
-      <div className="flex h-full">
+    <div className="justify-center items-center">
+      <div className="flex">
         <div>
           <CampaignHealthWidget />
         </div>
