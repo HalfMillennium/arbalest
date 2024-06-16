@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export function SalesFunnel() {
+  const { t } = useTranslation();
   return (
     <div className="container mx-auto px-4 pb-16">
       <Hero />
@@ -12,11 +14,11 @@ export function SalesFunnel() {
   function Hero() {
     return (
       <div className="flex flex-col justify-center items-center h-screen">
-        <h1 className="text-4xl font-bold text-center mb-4">
-          Your Product Name Here
+        <h1 className="text-4xl font-bold text-center mb-4 pt-20 xl:pt-0">
+          {t("landingPage.title")}
         </h1>
         <p className="text-xl text-gray-600 text-center">
-          A short description of your product and its benefits
+          {t("landingPage.subtitlePitch")}
         </p>
         <img
           className="w-full max-w-4xl object-cover mt-8 rounded-lg shadow-lg"
@@ -53,7 +55,7 @@ export function SalesFunnel() {
             key={feature.title}
             className="p-4 rounded-lg shadow-md bg-slate-100"
           >
-            <i className="text-blue-600 text-2xl">{feature.icon}</i>
+            <i className="text-dark-lavender text-2xl">{feature.icon}</i>
             <h3 className="text-lg font-bold mt-2">{feature.title}</h3>
             <p className="text-gray-600">{feature.description}</p>
           </div>

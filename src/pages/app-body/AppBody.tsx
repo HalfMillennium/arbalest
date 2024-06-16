@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import "../../i18n";
 import { Header } from "../../components/Header";
 import { LandingPage } from "../landing-page/LandingPage";
+import { LandingPageHero } from "../../components/shared/LandingPageHero";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PricingPage } from "../PricingPage";
 import { Footer } from "../../components/Footer";
 import { ExplainerPage } from "../explainer-page/ExplainerPage";
 import { DashboardHome } from "../dashboard/dashboard/dashboard-home/DashboardHome";
-
 import "./AppBody.css";
 import { Register } from "../register/Register";
 

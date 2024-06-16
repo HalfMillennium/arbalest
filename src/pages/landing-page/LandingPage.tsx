@@ -2,36 +2,18 @@ import React from "react";
 import { Trans } from "react-i18next";
 import { t } from "i18next";
 import { SalesFunnel } from "./sales-funnel/SalesFunnel";
-import FeedIcon from "@mui/icons-material/Feed";
-import WebIcon from "@mui/icons-material/Web";
-import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import {
   MarkEmailUnread,
   ConnectWithoutContact,
   Analytics,
 } from "@mui/icons-material";
+import { LandingPageHero } from "../../components/shared/LandingPageHero";
 
 export function LandingPage() {
   return (
     <div>
       <section className="py-20 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl font-semibold mb-6">
-            <Trans
-              i18nKey="landingPage.pitchOne"
-              components={{
-                under: <u />,
-                strong: <strong />,
-              }}
-            />
-          </h2>
-          <p className="text-lg text-gray-700 mb-8">
-            <Trans i18nKey="landingPage.pitchTwo.p1" />
-          </p>
-          <button className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
-            Get Started Free
-          </button>
-        </div>
+        <LandingPageHero />
       </section>
       <section className="max-w-6xl mx-auto mx-autopy-20 text-center w-full pt-10">
         <h2 className="text-3xl font-semibold mb-12">Features</h2>
@@ -39,7 +21,7 @@ export function LandingPage() {
           <div className="bg-white rounded-lg p-6 shadow-md">
             <div className="flex flex-row justify-center w-full">
               <div className="mr-1">
-                <MarkEmailUnread className="animate-bounce" />
+                <MarkEmailUnread className="animate-pulse" />
               </div>
               <h3 className="ml-1 text-xl font-semibold mb-4">
                 Email Marketing
@@ -53,7 +35,7 @@ export function LandingPage() {
           <div className="bg-white rounded-lg p-6 shadow-md">
             <div className="flex flex-row justify-center w-full">
               <div className="mr-1">
-                <ConnectWithoutContact className="animate-bounce" />
+                <ConnectWithoutContact className="animate-pulse" />
               </div>
               <h3 className="ml-1 text-xl font-semibold mb-4">
                 Social Media Integration
@@ -67,7 +49,7 @@ export function LandingPage() {
           <div className="bg-white rounded-lg p-6 shadow-md">
             <div className="flex flex-row justify-center w-full">
               <div className="mr-1">
-                <Analytics className="animate-bounce" />
+                <Analytics className="animate-pulse" />
               </div>
               <h3 className="ml-1 text-xl font-semibold mb-4">
                 Analytics Dashboard
@@ -83,6 +65,28 @@ export function LandingPage() {
       <section>
         <SalesFunnel />
       </section>
+    </div>
+  );
+}
+
+function HeroSection() {
+  return (
+    <div className="max-w-3xl mx-auto">
+      <h2 className="text-4xl font-semibold mb-6">
+        <Trans
+          i18nKey="landingPage.pitchOne"
+          components={{
+            under: <u />,
+            strong: <strong />,
+          }}
+        />
+      </h2>
+      <p className="text-lg text-gray-700 mb-8">
+        <Trans i18nKey="landingPage.pitchTwo.p1" />
+      </p>
+      <button className="px-8 py-4 bg-dark-lavender text-white font-semibold rounded-lg shadow-lg hover:dusk-violet transition duration-300">
+        Get Started Free{" "}
+      </button>
     </div>
   );
 }

@@ -15,6 +15,22 @@ export const TRANSLATIONS = {
         },
       },
       landingPage: {
+        header: {
+          note: "Powerful Automation",
+          poweredBy: "Powered by",
+          titleFirstWord: "Create",
+          titleRest:
+            "marketing emails directly based off of your website's content.",
+          subtitle:
+            "Arbalest AI is your virtual marketing communications director. It curates relevant content, crafts compelling email drafts, and dispatches them to your designated audiences. <strong>All with a few clicks.</strong>",
+          joinNewsletter:
+            "Interested in update announcements? Join our newsletter.",
+        },
+        funnel: {
+          title: "Arbalest AI",
+          subtitle:
+            "10X your conversions while 1/10X-ing your marketing spend.",
+        },
         pitchOne:
           "From <strong>Website</strong> to <strong>Inbox</strong>: <under>Truly Effortless</under> Email Marketing",
         pitchTwo: {
