@@ -11,8 +11,8 @@ export function WorkflowStatusWidget(props: {
 }) {
   const { t } = useTranslation();
   return (
-    <div className="bg-gradient-to-r from-dark-lavender/5 to-dark-lavender/10 px-3 mb-3 mr-3 mt-3 rounded-md hover:shadow-sm md:h-12.75rem">
-      <div className="flex w-full">
+    <div className="bg-gradient-to-r from-dark-lavender/5 to-dark-lavender/10 px-3 mb-3 mr-3 mt-3 rounded-md hover:shadow-sm">
+      <div className="flex">
         <div className="flex justify-center items-center">
           <div>
             <Typography
@@ -25,29 +25,30 @@ export function WorkflowStatusWidget(props: {
             </Typography>
           </div>
           <div className="flex justify-center items-center ml-1">
-            <Tooltip title={t("campaigns.campaignsTable.workflowStatus")}>
-              <Cloud />
-            </Tooltip>
+            <Cloud />
           </div>
         </div>
         <div className="pl-6 pt-3">
           <Button
             color="inherit"
-            sx={{ textTransform: "capitalize" }}
+            sx={{ textTransform: "capitalize", marginBottom: "10px" }}
             variant="outlined"
           >
-            <Typography fontFamily="Helvetica Neue">View Analytics</Typography>
+            <Typography fontFamily={"Helvetica Neue"}>
+              View Analytics
+            </Typography>
           </Button>
         </div>
       </div>
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        fontFamily="Helvetica Neue"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </Typography>
+      <div className="mb-1">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          fontFamily="Helvetica Neue"
+        >
+          {t("campaigns.campaignsTable.workflowStatus.explanation")}
+        </Typography>
+      </div>
       <div className="flex w-full">
         <div className="flex flex-col items-center w-12rem bg-gradient-to-tr from-dark-lavender/10 via-dusk-violet/10 to-dusk-violet/20 rounded-md m-1">
           <Typography variant="button" fontFamily="Helvetica Neue">

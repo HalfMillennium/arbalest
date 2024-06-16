@@ -140,7 +140,7 @@ export function DashboardHome() {
     const { body, activity } = props;
     return (
       <motion.div
-        className="hover:animate-pulse bg-white/75 rounded-md text-left p-4 cursor-pointer w-full transition-all duration-300 hover:bg-white hover:text-dark-lavender hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+        className="hover:animate-pulse bg-white/75 rounded-md text-left p-4 cursor-pointer w-full transition-all duration-300 hover:bg-white hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
         style={
           currentActivity === activity
             ? { opacity: 0.2, pointerEvents: "none" }

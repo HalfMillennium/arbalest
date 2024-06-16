@@ -1,3 +1,3 @@
 export * from "./CampaignHealthWidget";
-export * from "./DemoOverviewWidget";
+export * from "./MailingListWidget";
 export * from "./WorkflowStatusWidget";

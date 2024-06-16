@@ -1,11 +1,7 @@
-import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import {
   CampaignHealthWidget,
   WorkflowStatusWidget,
-  DemoOverviewWidget,
+  MailingListWidget,
 } from "./widgets";
 
 export function CampaignDetails() {
@@ -19,7 +15,7 @@ export function CampaignDetails() {
           <WorkflowStatusWidget />
         </div>
         <div>
-          <DemoOverviewWidget />
+          <MailingListWidget />
         </div>
       </div>
     </div>

@@ -63,8 +63,14 @@ export const TRANSLATIONS = {
           },
         },
         campaignsTable: {
-          workflowStatus:
-            "Workflow status includes details about the date of the campaign's next email digest, as well as basic information about the last digest.",
+          campaignHealth: {
+            explanation:
+              "Arbalest measures the health of your campaign based on various metrics, including the rate of unsubscribes, mailing list growth, as well as the metrics visible below.",
+          },
+          workflowStatus: {
+            explanation:
+              "Keep track of your next and most recent scheduled entries.",
+          },
         },
       },
       properties: {

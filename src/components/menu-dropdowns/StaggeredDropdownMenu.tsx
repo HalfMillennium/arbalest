@@ -44,7 +44,6 @@ export function StaggeredDropdownMenu(props: {
             <FiChevronDown />
           </motion.span>
         </button>
-
         <motion.ul
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
