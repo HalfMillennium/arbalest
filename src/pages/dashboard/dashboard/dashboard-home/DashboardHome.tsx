@@ -11,6 +11,7 @@ import {
 } from "../../../../store/dashboard/dashboardSlice";
 import { motion } from "framer-motion";
 import DottedButton from "../../../../components/shared/DottedButton";
+import { useTranslation } from "react-i18next";
 
 export function DashboardHome() {
   // 'campaigns', 'analytics', 'assistants'
@@ -20,8 +21,9 @@ export function DashboardHome() {
   const dispatch = useDispatch();
   // TODO: Eventually replace with Redux selector value
   const [userHasAvailableProperties, setUserHasAvailableProperties] =
-    useState(true);
+    useState(false);
   const [currentProperty, setCurrentProperty] = useState(null);
+  const { t } = useTranslation();
 
   return (
     <div className="items-center h-screen">
@@ -91,13 +93,13 @@ export function DashboardHome() {
   function NoPropertiesDrawerContent() {
     return (
       <div className="flex w-full h-36rem md:h-48rem justify-center items-center p-3">
-        <div className="text-white/70 w-fit flex text-center border-2 border-white/50 p-2 rounded-md">
+        <div className="text-white/70 w-fit flex text-center p-2">
           <Typography
             fontFamily="Radio Canada Big"
             variant="h6"
             color="inherit"
           >
-            Select or create a property to unlock your dashboard.
+            {t("properties.createToUnlockDash")}
           </Typography>
         </div>
       </div>

@@ -79,6 +79,7 @@ export const TRANSLATIONS = {
           subtitle: "Let's change that.",
           actionText: "Create Arbalest property",
         },
+        createToUnlockDash: "Create a property to unlock your dashboard.",
       },
     },
   },

@@ -9,7 +9,7 @@ export function NoPropertiesPage() {
   return (
     <div className="flex flex-col">
       <div>
-        <Typography variant="button" fontFamily="Source Sans 3">
+        <Typography variant="button" fontFamily="Helvetica Neue">
           No Properties Available
         </Typography>
       </div>
