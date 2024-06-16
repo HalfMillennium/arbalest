@@ -1,11 +1,16 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Divider } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { MutableRefObject } from "react";
 import { Trans } from "react-i18next";
 import open_ai_logo from "../../assets/open_ai_logo.png";
 import langchain_logo from "../../assets/lang_chain_logo.png";
 import pinecone_logo from "../../assets/pinecone_logo.png";
 
-export const LandingPageHero = () => {
+export const LandingPageHero = ({
+  arrowButtonRef,
+}: {
+  arrowButtonRef: MutableRefObject<HTMLElement | null>;
+}) => {
   const { t } = useTranslation();
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -62,7 +67,7 @@ export const LandingPageHero = () => {
           </div>
           <form className="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
             <input
-              placeholder="Email"
+              placeholder="Enter your email"
               type="text"
               className="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
             />
@@ -76,10 +81,15 @@ export const LandingPageHero = () => {
           <p className="max-w-md mx-auto mb-10 text-xs text-gray-600 sm:text-sm md:mb-16">
             {t("landingPage.header.joinNewsletter")}
           </p>
-          <a
-            href="/"
+          <div
             aria-label="Scroll down"
             className="flex items-center justify-center w-10 h-10 mx-auto text-gray-600 duration-300 transform border border-gray-400 rounded-full hover:text-deep-purple-accent-400 hover:border-deep-purple-accent-400 hover:shadow hover:scale-110"
+            onClick={() =>
+              window.scrollTo({
+                top: arrowButtonRef.current?.offsetTop,
+                behavior: "smooth",
+              })
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +100,7 @@ export const LandingPageHero = () => {
             >
               <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z" />
             </svg>
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -98,6 +108,9 @@ export const LandingPageHero = () => {
   function PoweredBySection() {
     return (
       <div className="flex flex-col text-center w-full text-gray-700">
+        <div className="pb-5">
+          <Divider orientation="horizontal" variant="middle" />
+        </div>
         <Typography
           variant="body2"
           fontFamily={"Radio Canada Big"}
@@ -130,6 +143,9 @@ export const LandingPageHero = () => {
               className="cursor-pointer w-8rem animate-bounce"
             />
           </div>
+        </div>{" "}
+        <div className="pt-5">
+          <Divider orientation="horizontal" variant="middle" />
         </div>
       </div>
     );

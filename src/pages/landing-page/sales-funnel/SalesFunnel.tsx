@@ -15,10 +15,10 @@ export function SalesFunnel() {
     return (
       <div className="flex flex-col justify-center items-center h-screen">
         <h1 className="text-4xl font-bold text-center mb-4 pt-20 xl:pt-0">
-          {t("landingPage.title")}
+          {t("landingPage.funnel.title")}
         </h1>
         <p className="text-xl text-gray-600 text-center">
-          {t("landingPage.subtitlePitch")}
+          {t("landingPage.funnel.subtitle")}
         </p>
         <img
           className="w-full max-w-4xl object-cover mt-8 rounded-lg shadow-lg"

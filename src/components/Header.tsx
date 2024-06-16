@@ -9,7 +9,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import arbalestLogo from "../assets/arbalest_logo_two_large.png";
 import { CUSTOM_COLORS } from "../assets/colors";
-import AccountDropdownMenu from "./menu-dropdowns/AccountDropdownMenu";
 import {
   DropdownMenuOptions,
   StaggeredDropdownMenu,
@@ -33,7 +32,7 @@ export function Header() {
           sx={{ textTransform: "capitalize", fontWeight: "medium" }}
           href={navItem.path}
         >
-          <div className="text-dark-lavender">
+          <div className="text-soft-black">
             <Typography fontFamily="Radio Canada Big" color="inherit">
               {t(`${i18n_prefix}.${navItem.id}`)}
             </Typography>

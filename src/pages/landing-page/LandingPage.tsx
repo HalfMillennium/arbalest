@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Trans } from "react-i18next";
 import { t } from "i18next";
 import { SalesFunnel } from "./sales-funnel/SalesFunnel";
@@ -8,12 +8,17 @@ import {
   Analytics,
 } from "@mui/icons-material";
 import { LandingPageHero } from "../../components/shared/LandingPageHero";
+import { Divider } from "@mui/material";
 
 export function LandingPage() {
+  const featuresAreaRef = useRef(null);
   return (
     <div>
       <section className="py-20 text-center">
-        <LandingPageHero />
+        <LandingPageHero arrowButtonRef={featuresAreaRef} />
+        <section className="px-96" ref={featuresAreaRef}>
+          <Divider variant="middle" orientation="horizontal" />
+        </section>
       </section>
       <section className="max-w-6xl mx-auto mx-autopy-20 text-center w-full pt-10">
         <h2 className="text-3xl font-semibold mb-12">Features</h2>
@@ -65,28 +70,6 @@ export function LandingPage() {
       <section>
         <SalesFunnel />
       </section>
-    </div>
-  );
-}
-
-function HeroSection() {
-  return (
-    <div className="max-w-3xl mx-auto">
-      <h2 className="text-4xl font-semibold mb-6">
-        <Trans
-          i18nKey="landingPage.pitchOne"
-          components={{
-            under: <u />,
-            strong: <strong />,
-          }}
-        />
-      </h2>
-      <p className="text-lg text-gray-700 mb-8">
-        <Trans i18nKey="landingPage.pitchTwo.p1" />
-      </p>
-      <button className="px-8 py-4 bg-dark-lavender text-white font-semibold rounded-lg shadow-lg hover:dusk-violet transition duration-300">
-        Get Started Free{" "}
-      </button>
     </div>
   );
 }
