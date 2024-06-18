@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "../../i18n";
 import { Header } from "../../components/Header";
 import { LandingPage } from "../landing-page/LandingPage";
-import { LandingPageHero } from "../../components/shared/LandingPageHero";
+import { CreatePropertyPage } from "../dashboard/properties/CreatePropertyPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PricingPage } from "../PricingPage";
 import { Footer } from "../../components/Footer";
@@ -37,7 +37,22 @@ export function AppBody() {
                   path="/user/:username/dashboard"
                   element={<DashboardHome />}
                 />
-                <Route path="/register" element={<Register />} />
+                <Route
+                  path="/register"
+                  element={
+                    <div className="flex w-full justify-center items-center">
+                      <Register />
+                    </div>
+                  }
+                />
+                <Route
+                  path="/user/:username/properties/create"
+                  element={
+                    <div className="flex w-full justify-center items-center">
+                      <CreatePropertyPage />
+                    </div>
+                  }
+                />
               </Routes>
             </div>
           </div>

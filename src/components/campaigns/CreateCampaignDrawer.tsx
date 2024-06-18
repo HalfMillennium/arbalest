@@ -157,7 +157,7 @@ export function CreateCampaignDrawer(props: {
           </div>
         </div>
         <SimpleSelect
-          headingText="Set Scan Rate"
+          label="Set Scan Rate"
           isRequired={true}
           options={scanRateOptions}
           infoText18nKey={"campaigns.createCampaignDrawer.scanRateExplanation"}
@@ -165,7 +165,7 @@ export function CreateCampaignDrawer(props: {
           setValue={setScanRate}
         />
         <SimpleSelect
-          headingText="Set Dispatch Rate"
+          label="Set Dispatch Rate"
           isRequired={true}
           options={dispatchRateOptions}
           infoText18nKey={

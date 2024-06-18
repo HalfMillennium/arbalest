@@ -49,6 +49,7 @@ module.exports = {
         "cream-cicle": "#ffba1f"
       },
       spacing: {
+        '0rem': '0rem',
         '2rem': '2rem',
         '4rem': '4rem',
         '6rem': '6rem',

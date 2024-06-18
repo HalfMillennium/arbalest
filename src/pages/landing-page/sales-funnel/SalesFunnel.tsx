@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 export function SalesFunnel() {
   const { t } = useTranslation();
   return (
-    <div className="container mx-auto px-4 pb-16">
+    <div className="flex flex-col container mx-auto px-4 pb-16">
       <Hero />
       <FeatureList />
       <Cta />
@@ -13,8 +13,8 @@ export function SalesFunnel() {
 
   function Hero() {
     return (
-      <div className="flex flex-col justify-center items-center h-screen">
-        <h1 className="text-4xl font-bold text-center mb-4 pt-20 xl:pt-0">
+      <div className="flex flex-col justify-center items-center h-screen pt-16rem xl:-mt-12rem">
+        <h1 className="text-4xl font-bold text-center mb-4 pt-20">
           {t("landingPage.funnel.title")}
         </h1>
         <p className="text-xl text-gray-600 text-center">
@@ -67,8 +67,8 @@ export function SalesFunnel() {
   function Cta() {
     return (
       <div className="flex justify-center mt-8">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
-          Get Started Now!
+        <button className="bg-dark-lavender hover:bg-soft-black text-white font-bold py-2 px-4 rounded-lg">
+          Get Started Now
         </button>
       </div>
     );

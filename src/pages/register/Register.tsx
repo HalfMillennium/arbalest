@@ -25,15 +25,19 @@ export function Register() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className="flex flex-col mb-16 mt-16">
+    <div className="flex flex-col justify-center items-center h-screen mt-4rem">
+      <div className="flex flex-col mb-16 xl:-mt-8rem">
         <Typography variant="h2">Hi. Welcome to Arbalest.</Typography>
-        <Typography variant="h5">Let's get to know each other.</Typography>
+        <div className="text-soft-black/75">
+          <Typography variant="h5" color="inherit">
+            Let's get to know each other.
+          </Typography>
+        </div>
       </div>
       <form
         noValidate
         autoComplete="off"
-        className="flex flex-col justify-center w-1/4"
+        className="flex flex-col justify-center w-3/4"
       >
         <div>
           <div className="mb-5">
@@ -160,8 +164,8 @@ export function Register() {
         </div>
         <div className="flex justify-center px-5 pb-5 text-black mb-20">
           <Button variant="outlined" color="inherit" type="submit">
-            <Typography variant="button" fontFamily="Montserrat">
-              Register
+            <Typography variant="button" fontFamily="Helvetica Neue">
+              Join
             </Typography>
           </Button>
         </div>

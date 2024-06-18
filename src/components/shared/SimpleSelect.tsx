@@ -14,21 +14,15 @@ export interface SelectMenuOption {
 }
 
 export function SimpleSelect(props: {
-  headingText: string;
+  label: string;
   options: SelectMenuOption[];
   isRequired?: boolean;
   infoText18nKey?: string | undefined;
   initialValue?: string;
   setValue: (value: string) => void;
 }) {
-  const {
-    headingText,
-    options,
-    isRequired,
-    infoText18nKey,
-    initialValue,
-    setValue,
-  } = props;
+  const { label, options, isRequired, infoText18nKey, initialValue, setValue } =
+    props;
   const [valueInternal, setValueInternal] = useState(initialValue ?? "");
   const handleValueChange = (event: SelectChangeEvent) => {
     const updatedValue = event.target.value;
@@ -44,7 +38,7 @@ export function SimpleSelect(props: {
             fontFamily="Radio Canada Big"
             color="inherit"
           >
-            {headingText}
+            {label}
           </Typography>
           <div className="ml-2 flex items-center text-dark-lavender">
             <HelpOutline fontSize="small" color="inherit" />
@@ -96,9 +90,11 @@ const RichMenuItem = (props: { option: SelectMenuOption }) => {
           <b>{option.title}</b>
         </Typography>
       </div>
-      <div className="p-1">
-        <Typography variant="body2">{option.subtitle}</Typography>
-      </div>
+      {option.subtitle.length > 0 && (
+        <div className="p-1">
+          <Typography variant="body2">{option.subtitle}</Typography>
+        </div>
+      )}
     </div>
   );
 };

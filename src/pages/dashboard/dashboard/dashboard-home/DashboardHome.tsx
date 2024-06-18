@@ -21,7 +21,7 @@ export function DashboardHome() {
   const dispatch = useDispatch();
   // TODO: Eventually replace with Redux selector value
   const [userHasAvailableProperties, setUserHasAvailableProperties] =
-    useState(false);
+    useState(true);
   const [currentProperty, setCurrentProperty] = useState(null);
   const { t } = useTranslation();
 

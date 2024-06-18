@@ -16,7 +16,7 @@ export const TRANSLATIONS = {
       },
       landingPage: {
         header: {
-          note: "Powerful Automation",
+          note: "Automated Marketing",
           poweredBy: "Powered by",
           titleFirstWord: "Create",
           titleRest:
@@ -24,7 +24,7 @@ export const TRANSLATIONS = {
           subtitle:
             "Arbalest AI is your virtual marketing communications director. It curates relevant content, crafts compelling email drafts, and dispatches them to your designated audiences. <strong>All with a few clicks.</strong>",
           joinNewsletter:
-            "Interested in update announcements? Join our newsletter.",
+            "Interested in seeing our announcements? Join our newsletter.",
         },
         funnel: {
           title: "Arbalest AI",
@@ -96,6 +96,13 @@ export const TRANSLATIONS = {
           actionText: "Create Arbalest property",
         },
         createToUnlockDash: "Create a property to unlock your dashboard.",
+        createProperty: {
+          header: {
+            title: "Create a Property",
+            subtitle:
+              "Link your online property to Arbalest by filling out the following details about your business.",
+          },
+        },
       },
     },
   },
