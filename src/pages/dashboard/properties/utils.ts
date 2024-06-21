@@ -78,13 +78,22 @@ export const PropertyIndustryRecord: Record<PropertyIndustryEnum, string> = {
   [PropertyIndustryEnum.WHOLESALE]: "Wholesale",
 };
 
+const oneMonthAgo = new Date();
+oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+const twoMonthsAgo = new Date();
+twoMonthsAgo.setMonth(twoMonthsAgo.getMonth() - 2);
+
+const threeMonthsAgo = new Date();
+threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+
 export const EXAMPLE_PROPERTIES: Property[] = [
   {
     id: "1",
     name: "E-commerce Shop",
     description: "An online shop selling various items.",
     campaignCount: 5,
-    createdAt: new Date(),
+    createdAt: oneMonthAgo,
     industry: PropertyIndustryEnum.E_COMMERCE,
     location: "www.example.com",
     website: {
@@ -101,7 +110,7 @@ export const EXAMPLE_PROPERTIES: Property[] = [
     name: "Tech Company",
     description: "A tech company providing IT solutions.",
     campaignCount: 10,
-    createdAt: new Date(),
+    createdAt: twoMonthsAgo,
     industry: PropertyIndustryEnum.INFORMATION_TECHNOLOGY,
     website: {
       contentRoot: "www.techcompany.com",
@@ -110,6 +119,23 @@ export const EXAMPLE_PROPERTIES: Property[] = [
     logo: {
       large: "www.techcompany.com/logo_large.png",
       small: "www.techcompany.com/logo_small.png",
+    },
+  },
+  {
+    id: "3",
+    name: "Sporty Goods",
+    description:
+      "A leading retailer of sports equipment and apparel, offering high-quality products for all types of sports and fitness activities.",
+    campaignCount: 10,
+    createdAt: threeMonthsAgo,
+    industry: PropertyIndustryEnum.E_COMMERCE,
+    website: {
+      contentRoot: "www.sportygoods.com",
+    },
+    size: "medium",
+    logo: {
+      large: "www.sportygoods.com/logo_large.png",
+      small: "www.sportygoods.com/logo_small.png",
     },
   },
 ];

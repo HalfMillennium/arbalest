@@ -9,12 +9,12 @@ import { CampaignActivity } from "../activities/campaigns/CampaignActivity";
 import { Suspense } from "react";
 import { EntriesHome } from "../activities/entries/entries-home/EntriesHome";
 import { PropertiesHome } from "../../../components/properties/PropertiesHome";
-import { NoPropertiesPage } from "../properties/NoPropertiesPage";
+import { NoPropertySelectedPage } from "../properties/NoPropertySelectedPage";
 
 export function DashboardActivityContent({
-  userHasAvailableProperties,
+  userPropertySelected,
 }: {
-  userHasAvailableProperties: boolean;
+  userPropertySelected: boolean;
 }) {
   const currentActivity: DashboardActivity = useSelector(
     (state: RootState) => state.dashboard.currentActivity
@@ -26,7 +26,7 @@ export function DashboardActivityContent({
 
   return (
     <div className="w-full">
-      {userHasAvailableProperties && (
+      {userPropertySelected && (
         <>
           <div>
             <Typography
@@ -59,9 +59,9 @@ export function DashboardActivityContent({
           </div>
         </>
       )}
-      {!userHasAvailableProperties && (
+      {!userPropertySelected && (
         <div>
-          <NoPropertiesPage />
+          <NoPropertySelectedPage />
         </div>
       )}
     </div>

@@ -2,6 +2,8 @@ import { Typography, Box, Divider } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { MutableRefObject } from "react";
 import { Trans } from "react-i18next";
+import { motion } from "framer-motion";
+import { FaEnvelope } from "react-icons/fa";
 import open_ai_logo from "../../assets/open_ai_logo.png";
 import langchain_logo from "../../assets/lang_chain_logo.png";
 import pinecone_logo from "../../assets/pinecone_logo.png";
@@ -14,7 +16,10 @@ export const LandingPageHero = ({
   const { t } = useTranslation();
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className="max-w-2xl mx-auto sm:max-w-xl md:max-w-2xl">
+      <div
+        className="max-w-2xl mx-auto sm:max-w-xl md:max-w-2xl"
+        style={{ zIndex: 100 }}
+      >
         <div className="text-center">
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
             <div>
@@ -67,6 +72,7 @@ export const LandingPageHero = ({
           </div>
           <form className="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
             <input
+              style={{ zIndex: 100 }}
               placeholder="Enter your email"
               type="text"
               className="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"

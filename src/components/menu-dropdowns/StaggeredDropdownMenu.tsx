@@ -76,9 +76,7 @@ const Option = ({ text, Icon, setOpen, navigate, path }: OptionProps) => {
       }}
       className="flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-indigo-100 text-slate-700 hover:text-dark-lavender transition-colors cursor-pointer"
     >
-      <motion.span variants={actionIconVariants}>
-        <Icon />
-      </motion.span>
+      <Icon />
       <span>{text}</span>
     </motion.li>
   );
@@ -123,9 +121,4 @@ const itemVariants = {
       when: "afterChildren",
     },
   },
-};
-
-const actionIconVariants = {
-  open: { scale: 1, y: 0 },
-  closed: { scale: 0, y: -7 },
 };

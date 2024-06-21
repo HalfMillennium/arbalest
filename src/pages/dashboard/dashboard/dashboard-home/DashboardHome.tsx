@@ -20,8 +20,7 @@ export function DashboardHome() {
   );
   const dispatch = useDispatch();
   // TODO: Eventually replace with Redux selector value
-  const [userHasAvailableProperties, setUserHasAvailableProperties] =
-    useState(true);
+  const [userPropertySelected, setUserPropertySelected] = useState(false);
   const [currentProperty, setCurrentProperty] = useState(null);
   const { t } = useTranslation();
 
@@ -31,7 +30,7 @@ export function DashboardHome() {
         <Drawer />
         <div className="w-4/5 py-5 pr-5 pl-2 ml-10 p-90">
           <DashboardActivityContent
-            userHasAvailableProperties={userHasAvailableProperties}
+            userPropertySelected={userPropertySelected}
           />
         </div>
       </div>
@@ -40,7 +39,7 @@ export function DashboardHome() {
   function Drawer() {
     return (
       <div className="w-1/5 h-fit top-0 drawer-bg rounded-md sticky">
-        {userHasAvailableProperties && (
+        {userPropertySelected && (
           <>
             <div className="flex flex-col p-4">
               <div className="flex flex-row justify-between">
@@ -85,7 +84,7 @@ export function DashboardHome() {
             <DrawerNavList />
           </>
         )}
-        {!userHasAvailableProperties && <NoPropertiesDrawerContent />}
+        {!userPropertySelected && <NoPropertiesDrawerContent />}
       </div>
     );
   }

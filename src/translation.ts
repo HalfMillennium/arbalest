@@ -90,12 +90,15 @@ export const TRANSLATIONS = {
         },
       },
       properties: {
-        noPropertiesMenu: {
-          title: "You haven't linked any properties yet.",
-          subtitle: "Let's change that.",
-          actionText: "Create Arbalest property",
+        messages: {
+          noPropertiesTitle: "You haven't linked any properties yet.",
+          noPropertiesSubtitle: "Let's change that.",
+          noPropertiesActionText: "Create Arbalest property",
+          noPropertiesAvailable: "No Properties Available",
+          selectAProperty: "Select or Create a Property",
         },
-        createToUnlockDash: "Create a property to unlock your dashboard.",
+        createToUnlockDash:
+          "Select or create a property to unlock your dashboard.",
         createProperty: {
           header: {
             title: "Create a Property",
