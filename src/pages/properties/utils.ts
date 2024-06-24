@@ -99,7 +99,7 @@ export const EXAMPLE_PROPERTIES: Property[] = [
     website: {
       contentRoot: "www.example.com/catalog/shop",
     },
-    size: "large",
+    size: "small",
     logo: {
       large: "www.example.com/logo_large.png",
       small: "www.example.com/logo_small.png",

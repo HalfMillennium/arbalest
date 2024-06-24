@@ -9,7 +9,7 @@ import { CampaignActivity } from "../activities/campaigns/CampaignActivity";
 import { Suspense } from "react";
 import { EntriesHome } from "../activities/entries/entries-home/EntriesHome";
 import { PropertiesHome } from "../../../components/properties/PropertiesHome";
-import { NoPropertySelectedPage } from "../properties/NoPropertySelectedPage";
+import { NoPropertySelectedPage } from "../../properties/NoPropertySelectedPage";
 
 export function DashboardActivityContent({
   userPropertySelected,

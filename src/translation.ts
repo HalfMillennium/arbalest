@@ -18,9 +18,9 @@ export const TRANSLATIONS = {
         header: {
           note: "Automated Marketing",
           poweredBy: "Powered by",
-          titleFirstWord: "Create",
+          titleFirstWord: "Generate",
           titleRest:
-            "marketing emails directly based off of your website's content.",
+            "compelling effective marketing emails directly based off of your website's content.",
           subtitle:
             "Arbalest AI is your virtual marketing communications director. It curates relevant content, crafts compelling email drafts, and dispatches them to your designated audiences. <strong>All with a few clicks.</strong>",
           joinNewsletter:
@@ -103,7 +103,7 @@ export const TRANSLATIONS = {
           header: {
             title: "Create a Property",
             subtitle:
-              "Link your online property to Arbalest by filling out the following details about your business.",
+              "Link your online business to Arbalest by filling out the following details about your business.",
           },
         },
       },

@@ -35,7 +35,7 @@ export function SimpleSelect(props: {
         <div className="text-black flex mb-1">
           <Typography
             variant="button"
-            fontFamily="Radio Canada Big"
+            fontFamily="Helvetica Neue"
             color="inherit"
           >
             {label}

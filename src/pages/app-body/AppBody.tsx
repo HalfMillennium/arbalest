@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "../../i18n";
 import { Header } from "../../components/Header";
 import { LandingPage } from "../landing-page/LandingPage";
-import { CreatePropertyPage } from "../dashboard/properties/CreatePropertyPage";
+import { CreatePropertyPage } from "../properties/CreatePropertyPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PricingPage } from "../PricingPage";
 import { Footer } from "../../components/Footer";
@@ -12,6 +12,7 @@ import { ExplainerPage } from "../explainer-page/ExplainerPage";
 import { DashboardHome } from "../dashboard/dashboard/dashboard-home/DashboardHome";
 import "./AppBody.css";
 import { Register } from "../register/Register";
+import { PricingPage2 } from "../PricingPage2";
 
 export function AppBody() {
   const { i18n } = useTranslation();
@@ -31,7 +32,7 @@ export function AppBody() {
             <div className="px-4 pt-24">
               <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/pricing" element={<PricingPage2 />} />
                 <Route path="/whatisit" element={<ExplainerPage />} />
                 <Route
                   path="/user/:username/dashboard"

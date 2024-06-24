@@ -46,7 +46,7 @@ export function SimpleTextInput(props: InputOptions) {
     <div className="flex flex-col justify-start w-full mt-10 mx-30">
       <div className="flex justify-between text-center items-center">
         <div>
-          <Typography variant="button" fontFamily="Radio Canada Big">
+          <Typography variant="button" fontFamily="Helvetica Neue">
             {label}
           </Typography>
         </div>
