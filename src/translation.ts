@@ -54,7 +54,7 @@ export const TRANSLATIONS = {
       campaigns: {
         createCampaignDrawer: {
           scanRateExplanation:
-            "Arbalest scans your web pages at a rate you set to develop the next email blast. This rate should align with the volume of content you regularly produce for your web properties. For instance, if you create about 5 new blog posts daily, a bi-weekly or semi-weekly scan rate would be appropriate. <strong>Please note that this is the rate at which data is gathered, not necessarily the rate at which emails are dispatched</strong>. You will set that rate below!",
+            "Arbalest scans your web pages at a rate you set to develop the next email blast. This rate should align with the volume of content you regularly produce for your web properties. For instance, if you create about 5 new blog posts daily, a bi-weekly or semi-weekly scan rate would be appropriate. <strong>Please note that this is the rate at which data is gathered, not necessarily the rate at which emails are dispatched</strong>.",
           scanRateSubtitles: {
             weekly:
               "One week content-ingestion range. Arbalest scans your web pages once per week on Friday at 5pm EST (GMT-5).",
