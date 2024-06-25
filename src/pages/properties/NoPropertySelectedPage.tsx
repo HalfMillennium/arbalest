@@ -16,6 +16,8 @@ import {
 } from "@mui/icons-material";
 import { EXAMPLE_PROPERTIES, Property } from "./utils";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentProperty } from "../../store/dashboard/properties/propertiesSlice";
 
 const MAX_PROPERTY_COUNT = 16;
 
@@ -126,11 +128,13 @@ export function NoPropertySelectedPage() {
     const theme = useTheme();
     const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
     const isXLScreen = useMediaQuery(theme.breakpoints.up("xl"));
+    const dispatch = useDispatch();
 
     return (
       <button
         style={{ height: "7rem" }}
         className="flex flex-col my-5 rounded-2xl border-2 border-dashed border-black bg-white/50 hover:bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+        onClick={() => dispatch(setCurrentProperty(property))}
       >
         <div className="flex lg:w-16rem lg:mb-6 justify-between text-left items-center">
           <div className="text-soft-black">
@@ -149,13 +153,18 @@ export function NoPropertySelectedPage() {
             {property.size === "small" && <Storefront />}
           </div>
         </div>
-        <div className="flex text-soft-black justify-end w-full pr-3 lg:pr-0 pb-2 items-center">
+        <div className="flex flex-col text-soft-black justify-end w-full pr-3 lg:pr-0 pb-2 items-end">
           <Typography
             variant={isLargeScreen ? "body2" : "body1"}
             fontFamily="Helvetica Neue"
           >
             {getTimeElapsed(property.createdAt)}
           </Typography>
+          <div className="text-black/50">
+            <Typography variant="caption" fontFamily="Helvetica Neue">
+              duration
+            </Typography>
+          </div>
         </div>
       </button>
     );

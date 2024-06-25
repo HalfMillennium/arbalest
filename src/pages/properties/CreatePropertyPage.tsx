@@ -18,10 +18,12 @@ import { SimpleTextInput } from "../../components/shared/SimpleTextInput";
 import { SimpleSelect } from "../../components/shared/SimpleSelect";
 import { ArrowForward } from "@mui/icons-material";
 import { MutableRefObject } from "react";
+import { useMousePosition } from "../../hooks/useMousePosition";
 
 export function CreatePropertyPage() {
   const [propertyDetails, setPropertyDetails] = useState(EXAMPLE_PROPERTIES[0]);
 
+  const leftColumnRef = useRef(null);
   const propertyNameRef = useRef(null);
   const propertyDescriptionRef = useRef<HTMLInputElement>(null);
   const contentURLRef = useRef<HTMLInputElement>(null);
@@ -38,13 +40,16 @@ export function CreatePropertyPage() {
     };
   });
 
-  const [elementHeight, setElementHeight] = useState(500);
+  const { y } = useMousePosition();
 
-  useEffect(() => {
-    if (contentURLRef.current) {
-      setElementHeight(contentURLRef.current.offsetHeight);
+  function getWidth(elementRef: React.RefObject<HTMLElement>) {
+    if (elementRef.current) {
+      // Access the width of the element and update state
+      const width = elementRef.current.offsetWidth;
+      return width;
     }
-  }, []);
+    return undefined;
+  }
 
   return (
     <div className="flex flex-col justify-center items-center h-screen w-full">
@@ -59,11 +64,13 @@ export function CreatePropertyPage() {
         </div>
       </div>
       <div className="flex w-4/5">
-        <div className="w-3/4 bg-red-200 h-full">
+        <div ref={leftColumnRef} className="w-3/4 bg-red-200 h-full">
           <div
-            className="p-3 bg-soft-black/80 text-white rounded-md shadow-md"
+            className="w-3/4 p-3 bg-soft-black/80 text-white rounded-md shadow-md"
             style={{
-              height: `${elementHeight}px`,
+              position: "absolute",
+              top: `${y}px`,
+              width: getWidth(leftColumnRef),
             }}
           >
             <Typography variant="body1">

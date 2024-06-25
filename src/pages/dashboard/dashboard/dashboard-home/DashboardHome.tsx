@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, List, ListItem, Typography } from "@mui/material";
+import { useState } from "react";
+import { List, ListItem, Typography } from "@mui/material";
 import { DashboardActivityContent } from "../DashboardActivityContent";
 import { OpenInNew } from "@mui/icons-material";
 import "./DashboardHome.css";
@@ -12,6 +12,7 @@ import {
 import { motion } from "framer-motion";
 import DottedButton from "../../../../components/shared/DottedButton";
 import { useTranslation } from "react-i18next";
+import { setCurrentProperty } from "../../../../store/dashboard/properties/propertiesSlice";
 
 export function DashboardHome() {
   // 'campaigns', 'analytics', 'assistants'
@@ -19,9 +20,9 @@ export function DashboardHome() {
     (state: RootState) => state.dashboard.currentActivity
   );
   const dispatch = useDispatch();
-  // TODO: Eventually replace with Redux selector value
-  const [userPropertySelected, setUserPropertySelected] = useState(false);
-  const [currentProperty, setCurrentProperty] = useState(null);
+  const selectedProperty = useSelector(
+    (state: RootState) => state.properties.selectedProperty
+  );
   const { t } = useTranslation();
 
   return (
@@ -29,9 +30,7 @@ export function DashboardHome() {
       <div className="m-4 h-fit top-0 flex">
         <Drawer />
         <div className="w-4/5 py-5 pr-5 pl-2 ml-10 p-90">
-          <DashboardActivityContent
-            userPropertySelected={userPropertySelected}
-          />
+          <DashboardActivityContent userPropertySelected={!!selectedProperty} />
         </div>
       </div>
     </div>
@@ -39,7 +38,7 @@ export function DashboardHome() {
   function Drawer() {
     return (
       <div className="w-1/5 h-fit top-0 drawer-bg rounded-md sticky">
-        {userPropertySelected && (
+        {selectedProperty && (
           <>
             <div className="flex flex-col p-4">
               <div className="flex flex-row justify-between">
@@ -51,8 +50,7 @@ export function DashboardHome() {
                       fontSize={32}
                       color={"white"}
                     >
-                      {/** TODO: Create max character count of about this length */}
-                      How2Builders
+                      {selectedProperty.name}
                     </Typography>
                   </div>
                   <div
@@ -77,6 +75,7 @@ export function DashboardHome() {
                   <DottedButton
                     text="Select New Property"
                     route="/properties"
+                    onClick={() => dispatch(setCurrentProperty(undefined))}
                   />
                 </div>
               </div>
@@ -84,7 +83,7 @@ export function DashboardHome() {
             <DrawerNavList />
           </>
         )}
-        {!userPropertySelected && <NoPropertiesDrawerContent />}
+        {!selectedProperty && <NoPropertiesDrawerContent />}
       </div>
     );
   }
