@@ -8,12 +8,13 @@ import {
 import EmailMarkdownEditor from "./EmailMarkdownEditor";
 import { EntryEditorHeader } from "./recent-entries/EntryEditorHeader";
 import { SimpleTextInput } from "../../components/shared/SimpleTextInput";
+import { EntryDashboardTabs } from "./types";
 
 const MAX_SUBJECT_LINE_LENGTH = 75;
 const MAX_DEMO_ID_LENGTH = 25;
 
 export function EditEntriesActivity(props: {
-  setTab: (tabIndex: number) => void;
+  setTab: (tab: EntryDashboardTabs) => void;
 }) {
   const subjectLineTextAreaRef = createRef<HTMLInputElement>();
   const mailingListIdTextAreaRef = createRef<HTMLInputElement>();

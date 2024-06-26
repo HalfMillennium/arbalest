@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export function SignInModal(props: {
   open: boolean;
-  handleClose: (open: boolean) => void;
+  handleClose: (open: boolean) => {};
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

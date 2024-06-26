@@ -40,8 +40,6 @@ export function SimpleTextInput(props: InputOptions) {
       ? "border-0 bg-transparent"
       : "border-2 border-slate-300 rounded-md bg-white shadow-md");
 
-  console.log(componentStyles);
-
   return (
     <div className="flex flex-col justify-start w-full mt-10 mx-30">
       <div className="flex justify-between text-center items-center">

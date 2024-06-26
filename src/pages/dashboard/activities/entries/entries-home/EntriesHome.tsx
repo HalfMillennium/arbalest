@@ -1,5 +1,5 @@
 import { TabPanel } from "../TabPanel";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useContext, useEffect, useState } from "react";
 import { Tab, Tabs, Box, Typography } from "@mui/material";
 import { EntryDashboardTabs } from "../../../../entries-dashboard/types";
 import { Edit, History, ScheduleSend } from "@mui/icons-material";
@@ -14,38 +14,29 @@ import ChipTabs from "../../../../../components/shared/ChipTabs";
 const allTabs = Object.keys(EntryDashboardTabsRecord) as EntryDashboardTabs[];
 
 export function EntriesHome() {
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState(EntryDashboardTabs.SCHEDULE);
+  const handleSetCurrentTab = (newTab: EntryDashboardTabs) => {
+    setCurrentTab(newTab);
+  };
   return (
     <div>
       <div>
         <div className="py-5">
           <ChipTabs
+            selectedTab={currentTab}
             tabs={allTabs}
-            setSelected={(selected: EntryDashboardTabs) => {
-              switch (selected) {
-                case EntryDashboardTabs.SCHEDULE:
-                  setCurrentTab(0);
-                  break;
-                case EntryDashboardTabs.ENTRY_HISTORY:
-                  setCurrentTab(1);
-                  break;
-                case EntryDashboardTabs.ENTRY_EDITOR:
-                  setCurrentTab(2);
-                  break;
-                default:
-              }
-            }}
+            setSelected={setCurrentTab}
           />
         </div>
       </div>
-      <TabPanel value={currentTab} index={0}>
+      <TabPanel value={currentTab} index={EntryDashboardTabs.SCHEDULE}>
         [ Schedule ]
       </TabPanel>
-      <TabPanel value={currentTab} index={1}>
-        <EntryHistoryActivity setTab={setCurrentTab} />
+      <TabPanel value={currentTab} index={EntryDashboardTabs.ENTRY_HISTORY}>
+        <EntryHistoryActivity setTab={handleSetCurrentTab} />
       </TabPanel>
-      <TabPanel value={currentTab} index={2}>
-        <EditEntriesActivity setTab={setCurrentTab} />
+      <TabPanel value={currentTab} index={EntryDashboardTabs.ENTRY_EDITOR}>
+        <EditEntriesActivity setTab={handleSetCurrentTab} />
       </TabPanel>
     </div>
   );

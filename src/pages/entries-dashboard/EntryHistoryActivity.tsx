@@ -14,13 +14,14 @@ import { CampaignEntryFieldsRecord, CampaignInfo } from "../../types/campaigns";
 import { EXAMPLE_CAMPAIGN_ENTRIES } from "./utils";
 import { CUSTOM_COLORS } from "../../assets/colors";
 import { DriveFileRenameOutline } from "@mui/icons-material";
+import { EntryDashboardTabs } from "./types";
 
 const CAMPAIGN_ENTRY_FIELDS_LABELS = Object.values(CampaignEntryFieldsRecord);
 const CAMPAIGN_ENTRY_FIELDS_IDS = Object.keys(CampaignEntryFieldsRecord);
 
 export function EntryHistoryActivity(props: {
   campaignEntryInfo?: CampaignInfo;
-  setTab: (newValue: number) => void;
+  setTab: (newValue: EntryDashboardTabs) => void;
 }) {
   const [filter, setFilter] = useState("");
   const [filterContent, setFilterContent] = useState("");
@@ -95,6 +96,7 @@ export function EntryHistoryActivity(props: {
                   backgroundColor: CUSTOM_COLORS.softBlack,
                 }}
                 className="bg-gradient-to-tr from-dark-lavender to-dusk-violet"
+                onClick={() => setTab(EntryDashboardTabs.SCHEDULE)}
               >
                 <div className="flex align-middle justify-center items-center">
                   <div className="mr-1">
@@ -104,7 +106,6 @@ export function EntryHistoryActivity(props: {
                     fontWeight={500}
                     fontFamily="Helvetica Neue"
                     variant="button"
-                    onClick={() => setTab(0)}
                   >
                     Edit Campaign Schedule
                   </Typography>

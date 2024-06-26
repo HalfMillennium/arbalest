@@ -8,7 +8,7 @@ const DottedButton = ({
 }: {
   text: string;
   route: string;
-  onClick?: () => void;
+  onClick?: () => {};
 }) => {
   const navigate = useNavigate();
   return (

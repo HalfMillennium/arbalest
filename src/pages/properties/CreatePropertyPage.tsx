@@ -102,12 +102,13 @@ export function CreatePropertyPage() {
               isRequired={true}
               initialValue={PropertyIndustryEnum.E_COMMERCE}
               options={industryOptions}
-              setValue={(industry: string) =>
+              setValue={(value: string) => {
                 setPropertyDetails({
                   ...propertyDetails,
-                  industry: industry as PropertyIndustryEnum,
-                })
-              }
+                  industry: value as PropertyIndustryEnum,
+                });
+                return {};
+              }}
             />
             <SimpleTextInput
               ref={propertyDescriptionRef}

@@ -5,20 +5,23 @@ import { Typography } from "@mui/material";
 
 export const ChipTabs = ({
   tabs,
+  selectedTab,
   setSelected,
 }: {
   tabs: EntryDashboardTabs[];
+  selectedTab: EntryDashboardTabs;
   setSelected: (selected: EntryDashboardTabs) => void;
 }) => {
-  const [selectedInternal, setSelectedInternal] = useState(tabs[0]);
-
+  let selectedInternal = selectedTab;
   return (
     <div className="mx-4 flex items-center flex-wrap gap-8 -mb-6">
       {tabs.map((tab) => (
         <Chip
           tab={tab}
           selected={selectedInternal === tab}
-          setChipSelected={setSelectedInternal}
+          setChipSelected={(chipSelected) => {
+            selectedInternal = chipSelected;
+          }}
           key={tab}
         />
       ))}
