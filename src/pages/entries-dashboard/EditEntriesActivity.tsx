@@ -13,7 +13,7 @@ import { EntryDashboardTabs } from "./types";
 const MAX_SUBJECT_LINE_LENGTH = 75;
 const MAX_DEMO_ID_LENGTH = 25;
 
-export function EditEntriesActivity(props: {
+function EditEntriesActivity(props: {
   setTab: (tab: EntryDashboardTabs) => void;
 }) {
   const subjectLineTextAreaRef = createRef<HTMLInputElement>();
@@ -98,3 +98,5 @@ export function EditEntriesActivity(props: {
     </div>
   );
 }
+
+export default EditEntriesActivity;

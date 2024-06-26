@@ -1,12 +1,9 @@
 import { TabPanel } from "../TabPanel";
-import { Suspense, useContext, useEffect, useState } from "react";
+import { Suspense, lazy, useContext, useEffect, useState } from "react";
 import { Tab, Tabs, Box, Typography } from "@mui/material";
 import { EntryDashboardTabs } from "../../../../entries-dashboard/types";
 import { Edit, History, ScheduleSend } from "@mui/icons-material";
-import {
-  EntryHistoryActivity,
-  EditEntriesActivity,
-} from "../../../../entries-dashboard";
+import { LoadingSpinner } from "../../../../../components/shared/LoadingSpinner";
 import { CUSTOM_COLORS } from "../../../../../assets/colors";
 import { EntryDashboardTabsRecord } from "./types";
 import ChipTabs from "../../../../../components/shared/ChipTabs";
@@ -18,48 +15,36 @@ export function EntriesHome() {
   const handleSetCurrentTab = (newTab: EntryDashboardTabs) => {
     setCurrentTab(newTab);
   };
+  const EditEntriesActivity = lazy(
+    () => import("../../../../entries-dashboard/EditEntriesActivity")
+  );
+  const EntryHistoryActivity = lazy(
+    () => import("../../../../entries-dashboard/EntryHistoryActivity")
+  );
   return (
     <div>
-      <div>
-        <div className="py-5">
-          <ChipTabs
-            selectedTab={currentTab}
-            tabs={allTabs}
-            setSelected={setCurrentTab}
-          />
-        </div>
+      <div className="py-5">
+        <ChipTabs
+          selectedTab={currentTab}
+          tabs={allTabs}
+          setSelected={setCurrentTab}
+        />
       </div>
       <TabPanel value={currentTab} index={EntryDashboardTabs.SCHEDULE}>
         [ Schedule ]
       </TabPanel>
       <TabPanel value={currentTab} index={EntryDashboardTabs.ENTRY_HISTORY}>
-        <EntryHistoryActivity setTab={handleSetCurrentTab} />
+        <Suspense
+          fallback={<LoadingSpinner label="Loading entry history..." />}
+        >
+          <EntryHistoryActivity setTab={handleSetCurrentTab} />
+        </Suspense>
       </TabPanel>
       <TabPanel value={currentTab} index={EntryDashboardTabs.ENTRY_EDITOR}>
-        <EditEntriesActivity setTab={handleSetCurrentTab} />
+        <Suspense fallback={<LoadingSpinner label="Loading entry editor..." />}>
+          <EditEntriesActivity setTab={handleSetCurrentTab} />
+        </Suspense>
       </TabPanel>
     </div>
   );
-
-  function TabLabel(props: { tabType: EntryDashboardTabs }) {
-    const { tabType } = props;
-    return (
-      <div className="flex">
-        <div>
-          {tabType === EntryDashboardTabs.SCHEDULE && <ScheduleSend />}
-          {tabType === EntryDashboardTabs.ENTRY_HISTORY && <History />}
-          {tabType === EntryDashboardTabs.ENTRY_EDITOR && <Edit />}
-        </div>
-        <div className="ml-1">
-          <Typography
-            variant="body1"
-            fontFamily="Radio Canada Big"
-            sx={{ textTransform: "capitalize" }}
-          >
-            {tabType}
-          </Typography>
-        </div>
-      </div>
-    );
-  }
 }

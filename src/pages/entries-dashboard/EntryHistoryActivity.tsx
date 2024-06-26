@@ -19,7 +19,7 @@ import { EntryDashboardTabs } from "./types";
 const CAMPAIGN_ENTRY_FIELDS_LABELS = Object.values(CampaignEntryFieldsRecord);
 const CAMPAIGN_ENTRY_FIELDS_IDS = Object.keys(CampaignEntryFieldsRecord);
 
-export function EntryHistoryActivity(props: {
+function EntryHistoryActivity(props: {
   campaignEntryInfo?: CampaignInfo;
   setTab: (newValue: EntryDashboardTabs) => void;
 }) {
@@ -142,3 +142,5 @@ export function EntryHistoryActivity(props: {
     );
   }
 }
+
+export default EntryHistoryActivity;
