@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BarChart } from "./shared/BarChart";
-import { EXAMPLE_DATUM } from "./utils";
+import { generateExampleData } from "./utils";
 import { Typography } from "@mui/material";
 import {
   SelectMenuOption,
   SimpleSelect,
 } from "../../../../components/shared/SimpleSelect";
 import { EXAMPLE_CAMPAIGNS } from "../../../entries-dashboard/utils";
-import { ChartMetricOptionsEnum } from "../../../../types/campaign_analytics";
+import {
+  ChartMetricOptionsEnum,
+  ChartMetricOptionsRecord,
+} from "../../../../types/campaign_analytics";
+import { useTranslation } from "react-i18next";
 
 const campaignOptions: SelectMenuOption[] = EXAMPLE_CAMPAIGNS.map(
   (campaignInfo) => {
@@ -17,15 +21,33 @@ const campaignOptions: SelectMenuOption[] = EXAMPLE_CAMPAIGNS.map(
     };
   }
 );
+
+const chartMetricOptions: SelectMenuOption[] = Object.keys(
+  ChartMetricOptionsRecord
+).map((metricOption) => {
+  const option = metricOption as ChartMetricOptionsEnum;
+  return {
+    id: option,
+    title: ChartMetricOptionsRecord[option],
+  };
+});
 export default function Analytics() {
   const [currentCampaign, setCurrentCampaign] = useState(campaignOptions[0]);
   /** Note: "Chart metric" only has to do with the type of data displayed, and not directly to chart type/context */
   const [currentChartMetric, setCurrentChartMetric] = useState(
     ChartMetricOptionsEnum.OPEN_RATE
   );
+  const [chartData, setChartData] = useState(generateExampleData());
+
   const handleSetCampaign = (campaignOption: { id: string; title: string }) => {
     setCurrentCampaign(campaignOption);
   };
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    // Fetch more random data for chart
+    setChartData(generateExampleData());
+  }, [currentCampaign]);
   return (
     <div className="flex flex-col">
       <div className="flex h-screen">
@@ -43,7 +65,6 @@ export default function Analytics() {
           </Typography>
           <SimpleSelect
             label="Choose An Active Campaign"
-            isRequired={true}
             options={campaignOptions}
             initialValue={campaignOptions[0].id}
             setValue={(campaignId: string) => {
@@ -56,19 +77,23 @@ export default function Analytics() {
             }}
           />
         </div>
-        <div className="flex flex-col w-2/3 h-2/3 bg-red-200">
+        <div className="flex flex-col w-2/3 h-2/3">
           <div className="flex justify-end w-full">
-            <SimpleSelect
-              label="Select A Metric"
-              isRequired={true}
-              options={campaignOptions}
-              initialValue={campaignOptions[0].id}
-              setValue={(value: string) =>
-                setCurrentChartMetric(value as ChartMetricOptionsEnum)
-              }
-            />
+            <div className="w-1/4">
+              <SimpleSelect
+                label={t("dashboard.analytics.charts.selectAMetric")}
+                tooltip18nKey={t(
+                  "dashboard.analytics.charts.selectAMetricInfo"
+                )}
+                options={chartMetricOptions}
+                initialValue={chartMetricOptions[0].id}
+                setValue={(value: string) =>
+                  setCurrentChartMetric(value as ChartMetricOptionsEnum)
+                }
+              />
+            </div>
           </div>
-          <BarChart data={EXAMPLE_DATUM} />
+          <BarChart data={chartData} />
         </div>
       </div>
     </div>

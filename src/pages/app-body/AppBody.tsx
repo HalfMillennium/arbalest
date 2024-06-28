@@ -35,7 +35,7 @@ export function AppBody() {
                 <Route path="/pricing" element={<PricingPage2 />} />
                 <Route path="/whatisit" element={<ExplainerPage />} />
                 <Route
-                  path="/user/:username/dashboard"
+                  path="/user/:username/dashboard/:activity?"
                   element={<DashboardHome />}
                 />
                 <Route

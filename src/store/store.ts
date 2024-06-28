@@ -4,6 +4,7 @@ import propertiesReducer from "./dashboard/properties/propertiesSlice";
 
 export const store = configureStore({
   reducer: { dashboard: dashboardReducer, properties: propertiesReducer },
+  devTools: true,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

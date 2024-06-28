@@ -1,5 +1,11 @@
 import React from "react";
-import { Typography, Box, Divider } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Divider,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import {
   HealthAndSafety,
   AdsClick,
@@ -7,16 +13,17 @@ import {
   ShowChart,
 } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
 import { CircularProgress } from "@mui/material";
 import {
   DashboardActivity,
+  ResourceTypesRecord,
   setCurrentActivity,
 } from "../../../../../../store/dashboard/dashboardSlice";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 /** Provides overview of engagement rate vs. duration of campaign, as well as campaign result if current rate is maintained for duration of campaign */
 export function CampaignHealthWidget() {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   return (
     <div className="bg-gradient-to-r from-dark-lavender/20 to-dark-lavender/40 px-3 pb-3 mb-3 mr-3 mt-3 rounded-md hover:shadow-sm">
@@ -39,13 +46,25 @@ export function CampaignHealthWidget() {
         <div className="pl-6 pt-3">
           <Button
             color="inherit"
-            sx={{ textTransform: "capitalize", marginBottom: "10px" }}
+            sx={{
+              textTransform: "capitalize",
+              marginBottom: "10px",
+              borderRadius: "0rem",
+              ":hover": {
+                backgroundColor: "#212121",
+                color: "#FFFDF0",
+              },
+            }}
             variant="outlined"
             onClick={() =>
-              dispatch(setCurrentActivity(DashboardActivity.ANALYTICS))
+              navigate(
+                `/user/person/dashboard/${
+                  ResourceTypesRecord[DashboardActivity.ANALYTICS]
+                }`
+              )
             }
           >
-            <Typography fontFamily={"Helvetica Neue"}>
+            <Typography variant="button" fontFamily={"Helvetica Neue"}>
               View Analytics
             </Typography>
           </Button>
@@ -73,7 +92,7 @@ export function CampaignHealthWidget() {
     const overallROI = "15.67%";
 
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-between">
         <div className="flex flex-col rounded-md bg-latte-x-light border-2 border-slate-300 px-5 justify-center">
           <HealthIndicator rating={campaignHealthRating} />
         </div>
@@ -106,16 +125,18 @@ const CampaignStatChunk = ({
   value: string | number;
   Icon: React.ComponentType;
 }) => {
+  const theme = useTheme();
+  const isXLScreen = useMediaQuery(theme.breakpoints.up("xl"));
   return (
     <div className="flex flex-col m-2 md:mr-6 justify-center items-center">
       <div className="flex -mb-1 items-center text-black">
-        <div className="text-latte border-2 border-gray-200 rounded-lg">
+        <div className="text-latte border-2 border-latte-x-light rounded-lg">
           <Icon />
         </div>
         <Typography
           fontFamily="Radio Canada Big"
-          fontSize={12}
-          className="pl-1 bg-gray-200 rounded-lg -ml-1 px-2"
+          fontSize={isXLScreen ? 16 : 12}
+          className="pl-1 bg-latte-x-light rounded-lg -ml-1 px-2"
         >
           {label}
         </Typography>

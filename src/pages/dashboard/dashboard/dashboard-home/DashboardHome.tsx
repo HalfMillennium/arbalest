@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { List, ListItem, Typography } from "@mui/material";
 import { DashboardActivityContent } from "../DashboardActivityContent";
 import { OpenInNew } from "@mui/icons-material";
 import "./DashboardHome.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
+import { useEffect } from "react";
 import {
   DashboardActivity,
   setCurrentActivity,
@@ -13,6 +13,29 @@ import { motion } from "framer-motion";
 import DottedButton from "../../../../components/shared/DottedButton";
 import { useTranslation } from "react-i18next";
 import { setCurrentProperty } from "../../../../store/dashboard/properties/propertiesSlice";
+import { useNavigate, useParams } from "react-router-dom";
+import { ResourceTypesRecord } from "../../../../store/dashboard/dashboardSlice";
+
+function setActivityFromParams(
+  activity: string | undefined,
+  dispatch: ReturnType<typeof useDispatch>
+) {
+  switch (activity) {
+    case "campaigns":
+      dispatch(setCurrentActivity(DashboardActivity.CAMPAIGNS));
+      break;
+    case "assistants":
+      dispatch(setCurrentActivity(DashboardActivity.ASSISTANTS));
+      break;
+    case "analytics":
+      dispatch(setCurrentActivity(DashboardActivity.ANALYTICS));
+      break;
+    case "entries":
+      dispatch(setCurrentActivity(DashboardActivity.ENTRIES));
+      break;
+    default:
+  }
+}
 
 export function DashboardHome() {
   // 'campaigns', 'analytics', 'assistants'
@@ -20,11 +43,20 @@ export function DashboardHome() {
     (state: RootState) => state.dashboard.currentActivity
   );
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const selectedProperty = useSelector(
     (state: RootState) => state.properties.selectedProperty
   );
   const { t } = useTranslation();
-
+  // Use useParams to fetch the optional parameter
+  const { activity } = useParams<{ activity?: string }>();
+  // set store based on URL params
+  setActivityFromParams(activity, dispatch);
+  useEffect(() => {
+    navigate(`/user/person/dashboard/${ResourceTypesRecord[currentActivity]}`, {
+      replace: true,
+    });
+  }, [currentActivity]);
   return (
     <div className="items-center h-screen">
       <div className="m-4 h-fit top-0 flex">
@@ -146,7 +178,9 @@ export function DashboardHome() {
             ? { opacity: 0.2, pointerEvents: "none" }
             : { opacity: 0.7 }
         }
-        onClick={() => dispatch(setCurrentActivity(activity))}
+        onClick={() =>
+          navigate(`/user/person/dashboard/${ResourceTypesRecord[activity]}`)
+        }
       >
         <div className="mb-4">
           <Typography fontFamily="Radio Canada Big" fontSize={18}>

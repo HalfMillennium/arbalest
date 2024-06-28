@@ -51,10 +51,24 @@ export const TRANSLATIONS = {
           },
         },
       },
+      dashboard: {
+        analytics: {
+          selectACampaign: "Select A Campaign",
+          selectACampaignSubtitle:
+            "View relevant statistics for the campaign of your choosing.",
+          charts: {
+            selectAMetric: "Select A Metric",
+            selectAMetricInfo:
+              "This will determine the specific data displayed on the charts, allowing you to tailor the analytics view to your needs.",
+          },
+        },
+      },
       campaigns: {
         createCampaignDrawer: {
+          scanRateTooltip:
+            "This rate should align with the volume of content you regularly produce for your web properties. For instance, if you create about 5 new blog posts daily, a bi-weekly or semi-weekly scan rate would be appropriate.",
           scanRateExplanation:
-            "Arbalest scans your web pages at a rate you set to develop the next email blast. This rate should align with the volume of content you regularly produce for your web properties. For instance, if you create about 5 new blog posts daily, a bi-weekly or semi-weekly scan rate would be appropriate. <strong>Please note that this is the rate at which data is gathered, not necessarily the rate at which emails are dispatched</strong>.",
+            "Arbalest scans your web pages at a rate you set to develop the next email blast. <strong>Please note that this is the rate at which data is gathered, not necessarily the rate at which emails are dispatched</strong>.",
           scanRateSubtitles: {
             weekly:
               "One week content-ingestion range. Arbalest scans your web pages once per week on Friday at 5pm EST (GMT-5).",
@@ -65,6 +79,8 @@ export const TRANSLATIONS = {
             quarterly:
               "3-month content-ingestion period, beginning 3 months after the campaign start date.",
           },
+          dispatchRateTooltip:
+            "Update your dispatch preferences in the campaign schedule tab.",
           dispatchRateExplanation:
             "The time at which the next email digest/blast will be sent. All email digests <strong>must</strong> be approved before digests are dispatched, unless auto-dispatch rules have been set.",
           dispatchRateSubtitles: {

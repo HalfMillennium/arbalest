@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Typography, Tooltip } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Cloud } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { CampaignEntry } from "../../../../../../types/campaigns";
@@ -31,10 +31,18 @@ export function WorkflowStatusWidget(props: {
         <div className="pl-6 pt-3">
           <Button
             color="inherit"
-            sx={{ textTransform: "capitalize", marginBottom: "10px" }}
+            sx={{
+              textTransform: "capitalize",
+              marginBottom: "10px",
+              borderRadius: "0rem",
+              ":hover": {
+                backgroundColor: "#212121",
+                color: "#FFFDF0",
+              },
+            }}
             variant="outlined"
           >
-            <Typography fontFamily={"Helvetica Neue"}>
+            <Typography variant="button" fontFamily={"Helvetica Neue"}>
               View Analytics
             </Typography>
           </Button>

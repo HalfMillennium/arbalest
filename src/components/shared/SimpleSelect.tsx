@@ -1,4 +1,10 @@
-import { Typography, Select, SelectChangeEvent, MenuItem } from "@mui/material";
+import {
+  Typography,
+  Select,
+  SelectChangeEvent,
+  MenuItem,
+  Tooltip,
+} from "@mui/material";
 import { HelpOutline } from "@mui/icons-material";
 import { useState } from "react";
 
@@ -17,12 +23,20 @@ export function SimpleSelect(props: {
   label: string;
   options: SelectMenuOption[];
   isRequired?: boolean;
+  tooltip18nKey?: string | undefined;
   infoText18nKey?: string | undefined;
   initialValue?: string;
   setValue: (itemId: string) => void;
 }) {
-  const { label, options, isRequired, infoText18nKey, initialValue, setValue } =
-    props;
+  const {
+    label,
+    options,
+    isRequired,
+    infoText18nKey,
+    tooltip18nKey,
+    initialValue,
+    setValue,
+  } = props;
   const [valueInternal, setValueInternal] = useState(initialValue ?? "");
   const handleValueChange = (event: SelectChangeEvent) => {
     const updatedValue = event.target.value;
@@ -40,9 +54,19 @@ export function SimpleSelect(props: {
           >
             {label}
           </Typography>
-          <div className="ml-2 flex items-center text-dark-lavender">
-            <HelpOutline fontSize="small" color="inherit" />
-          </div>
+          {tooltip18nKey && (
+            <Tooltip
+              title={
+                <Typography variant="body2" fontFamily="Radio Canada Big">
+                  <Trans i18nKey={tooltip18nKey} />
+                </Typography>
+              }
+            >
+              <div className="ml-2 flex items-center text-dark-lavender">
+                <HelpOutline fontSize="small" color="inherit" />
+              </div>
+            </Tooltip>
+          )}
         </div>
         {infoText18nKey && (
           <div className="pb-2">

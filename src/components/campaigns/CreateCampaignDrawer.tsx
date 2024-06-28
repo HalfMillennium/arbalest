@@ -160,6 +160,7 @@ export function CreateCampaignDrawer(props: {
           label="Set Scan Rate"
           isRequired={true}
           options={scanRateOptions}
+          tooltip18nKey={"campaigns.createCampaignDrawer.scanRateTooltip"}
           infoText18nKey={"campaigns.createCampaignDrawer.scanRateExplanation"}
           initialValue="weekly"
           setValue={setScanRate}
@@ -168,6 +169,7 @@ export function CreateCampaignDrawer(props: {
           label="Set Dispatch Rate"
           isRequired={true}
           options={dispatchRateOptions}
+          tooltip18nKey={"campaigns.createCampaignDrawer.dispatchRateTooltip"}
           infoText18nKey={
             "campaigns.createCampaignDrawer.dispatchRateExplanation"
           }
