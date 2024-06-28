@@ -17,7 +17,6 @@ import { CircularProgress } from "@mui/material";
 import {
   DashboardActivity,
   ResourceTypesRecord,
-  setCurrentActivity,
 } from "../../../../../../store/dashboard/dashboardSlice";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -126,7 +125,7 @@ const CampaignStatChunk = ({
   Icon: React.ComponentType;
 }) => {
   const theme = useTheme();
-  const isXLScreen = useMediaQuery(theme.breakpoints.up("xl"));
+  const isXLScreen = useMediaQuery(theme.breakpoints.down("xl"));
   return (
     <div className="flex flex-col m-2 md:mr-6 justify-center items-center">
       <div className="flex -mb-1 items-center text-black">
