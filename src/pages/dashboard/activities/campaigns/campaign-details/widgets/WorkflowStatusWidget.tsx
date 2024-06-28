@@ -38,6 +38,7 @@ export function WorkflowStatusWidget(props: {
               ":hover": {
                 backgroundColor: "#212121",
                 color: "#FFFDF0",
+                borderColor: "#212121",
               },
             }}
             variant="outlined"

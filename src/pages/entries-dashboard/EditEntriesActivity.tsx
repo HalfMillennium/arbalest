@@ -85,8 +85,18 @@ function EditEntriesActivity(props: {
               setValue={setMailingListId}
               label="Mailing List ID"
               CustomButtonGroup={
-                <Button variant="outlined" color="inherit">
-                  {t("dashboard.campaigns.")}
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  sx={{
+                    ":hover": {
+                      backgroundColor: "#212121",
+                      color: "white",
+                      borderColor: "#212121",
+                    },
+                  }}
+                >
+                  {t("dashboard.campaigns.entries.modifyMailingLists")}
                 </Button>
               }
             />

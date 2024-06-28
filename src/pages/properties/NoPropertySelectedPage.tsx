@@ -173,7 +173,7 @@ export function NoPropertySelectedPage() {
           </Typography>
           <div className="text-black/50">
             <Typography variant="caption" fontFamily="Helvetica Neue">
-              duration
+              Age
             </Typography>
           </div>
         </div>

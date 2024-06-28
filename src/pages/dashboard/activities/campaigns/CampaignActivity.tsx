@@ -7,6 +7,7 @@ import {
   Button,
   Grow,
 } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { SimpleTable } from "../../../../components/shared/SimpleTable";
 import { CampaignDetails } from "./campaign-details/CampaignDetails";
@@ -72,23 +73,31 @@ export function CampaignActivity(props: { campaignInfo?: CampaignInfo }) {
             </MenuItem>
           </TextField>
         </Grid>
-
-        {filter && (
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <TextField
-              fullWidth
-              value={filterContent}
-              onChange={handleFilterContentChange}
-              label={
-                <div className="text-slate-400">
-                  <Typography fontFamily="Radio Canada Big" color="inherit">
-                    Enter a value
-                  </Typography>
-                </div>
-              }
-            ></TextField>
-          </Grid>
-        )}
+        <AnimatePresence>
+          {filter && (
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <motion.div
+                initial={{ x: -100, opacity: 0 }} // Start off-screen to the left
+                animate={{ x: 0, opacity: 1 }} // Animate to original position and full opacity
+                transition={{ duration: 0.5 }} // Animation duration of 0.5 seconds
+                exit={{ x: -100, opacity: 0 }}
+              >
+                <TextField
+                  fullWidth
+                  value={filterContent}
+                  onChange={handleFilterContentChange}
+                  label={
+                    <div className="text-slate-400">
+                      <Typography fontFamily="Radio Canada Big" color="inherit">
+                        Enter a value
+                      </Typography>
+                    </div>
+                  }
+                ></TextField>
+              </motion.div>
+            </Grid>
+          )}
+        </AnimatePresence>
         <Grid item xs={12} sm={6} md={4} lg={3} className="w-full text-end">
           <span className="align-middle">
             <div className="flex flex-row text-dark-lavender w-2/2 px-2 h-full cursor-pointer">

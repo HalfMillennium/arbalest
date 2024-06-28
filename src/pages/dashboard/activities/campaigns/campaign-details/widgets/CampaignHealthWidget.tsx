@@ -20,12 +20,14 @@ import {
 } from "../../../../../../store/dashboard/dashboardSlice";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 /** Provides overview of engagement rate vs. duration of campaign, as well as campaign result if current rate is maintained for duration of campaign */
 export function CampaignHealthWidget() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   return (
-    <div className="bg-gradient-to-r from-dark-lavender/20 to-dark-lavender/40 px-3 pb-3 mb-3 mr-3 mt-3 rounded-md hover:shadow-sm">
+    <div className="bg-gradient-to-r from-dark-lavender/20 to-dark-lavender/40 px-3 pb-3 mb-3 mr-3 mt-3 rounded-sm hover:shadow-sm">
       <div className="flex">
         <div className="flex justify-center items-center">
           <div>
@@ -52,6 +54,7 @@ export function CampaignHealthWidget() {
               ":hover": {
                 backgroundColor: "#212121",
                 color: "#FFFDF0",
+                borderColor: "#212121",
               },
             }}
             variant="outlined"
@@ -124,8 +127,9 @@ const CampaignStatChunk = ({
   value: string | number;
   Icon: React.ComponentType;
 }) => {
+  const [isValueHovered, setIsValueHovered] = useState(false);
   const theme = useTheme();
-  const isXLScreen = useMediaQuery(theme.breakpoints.down("xl"));
+  const isXLScreen = useMediaQuery(theme.breakpoints.up("xl"));
   return (
     <div className="flex flex-col m-2 md:mr-6 justify-center items-center">
       <div className="flex -mb-1 items-center text-black">
@@ -141,7 +145,13 @@ const CampaignStatChunk = ({
         </Typography>
       </div>
       <div className="-mb-2">
-        <Typography fontFamily={"Roboto Mono"} fontSize={36} fontWeight={500}>
+        <Typography
+          onMouseEnter={() => setIsValueHovered(true)}
+          onMouseLeave={() => setIsValueHovered(false)}
+          fontFamily={"Roboto Mono"}
+          fontSize={36}
+          fontWeight={500}
+        >
           {value}
         </Typography>
       </div>

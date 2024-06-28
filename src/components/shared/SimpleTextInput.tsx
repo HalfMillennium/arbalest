@@ -88,7 +88,7 @@ export function SimpleTextInput(props: InputOptions) {
       </div>
       {showSaveChangesButton && (
         <div className="pt-2 text-black w-full flex justify-end">
-          <div>{CustomButtonGroup}</div>
+          <div className="text-gray-500 mr-2">{CustomButtonGroup}</div>
           <Button
             variant="outlined"
             color="inherit"
