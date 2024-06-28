@@ -47,6 +47,10 @@ export function AppBody() {
                   }
                 />
                 <Route
+                  path="/user/person/properties"
+                  element={<DashboardHome />}
+                />
+                <Route
                   path="/user/:username/properties/create"
                   element={
                     <div className="flex w-full justify-center items-center">

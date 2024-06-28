@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect } from "react";
 import { Card, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import { EntriesHome } from "../activities/entries/entries-home/EntriesHome";
 import { PropertiesHome } from "../../../components/properties/PropertiesHome";
 import { NoPropertySelectedPage } from "../../properties/NoPropertySelectedPage";
+import { redirect, useNavigate } from "react-router-dom";
 
 export function DashboardActivityContent({
   userPropertySelected,
@@ -19,11 +20,17 @@ export function DashboardActivityContent({
   const currentActivity: DashboardActivity = useSelector(
     (state: RootState) => state.dashboard.currentActivity
   );
+  const navigate = useNavigate();
 
   /** Lazy load Analytics and Assistants activities */
   const Analytics = lazy(() => import("../activities/analytics/Analytics"));
   const Assistants = lazy(() => import("../activities/assistants/Assistants"));
 
+  useEffect(() => {
+    if (userPropertySelected == false) {
+      navigate("/user/person/properties", { replace: true });
+    }
+  }, [userPropertySelected]);
   return (
     <div className="w-full">
       {userPropertySelected && (

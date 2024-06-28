@@ -53,6 +53,7 @@ export const TRANSLATIONS = {
       },
       dashboard: {
         campaigns: {
+          viewAnalytics: "View Analytics",
           campaignsTable: {
             campaignHealth: {
               explanation:

@@ -64,7 +64,7 @@ export function CampaignHealthWidget() {
             }
           >
             <Typography variant="button" fontFamily={"Helvetica Neue"}>
-              View Analytics
+              {t("dashboard.campaigns.viewAnalytics")}
             </Typography>
           </Button>
         </div>
