@@ -10,7 +10,7 @@ import { Trans } from "react-i18next";
 export interface SelectMenuOption {
   id: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 export function SimpleSelect(props: {
@@ -19,7 +19,7 @@ export function SimpleSelect(props: {
   isRequired?: boolean;
   infoText18nKey?: string | undefined;
   initialValue?: string;
-  setValue: (value: string) => void;
+  setValue: (itemId: string) => void;
 }) {
   const { label, options, isRequired, infoText18nKey, initialValue, setValue } =
     props;
@@ -59,7 +59,7 @@ export function SimpleSelect(props: {
         onChange={handleValueChange}
       >
         {options.map((option) => (
-          <MenuItem value={option.id}>
+          <MenuItem key={option.id} value={option.id}>
             <RichMenuItem option={option} />
           </MenuItem>
         ))}
@@ -83,16 +83,23 @@ export function SimpleSelect(props: {
 
 const RichMenuItem = (props: { option: SelectMenuOption }) => {
   const { option } = props;
+  const subtitle = option?.subtitle;
   return (
     <div className="flex flex-col">
       <div className="p-1">
-        <Typography variant="body1" fontWeight={500}>
+        <Typography
+          variant="body1"
+          fontFamily="Helvetica Neue"
+          fontWeight={500}
+        >
           <b>{option.title}</b>
         </Typography>
       </div>
-      {option.subtitle.length > 0 && (
+      {subtitle && (
         <div className="p-1">
-          <Typography variant="body2">{option.subtitle}</Typography>
+          <Typography variant="body2" fontFamily="Helvetica Neue">
+            {subtitle}
+          </Typography>
         </div>
       )}
     </div>

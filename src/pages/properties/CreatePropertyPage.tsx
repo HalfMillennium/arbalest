@@ -34,7 +34,7 @@ export function CreatePropertyPage() {
   const industryOptions = Object.keys(PropertyIndustryRecord).map((key) => {
     const industryEnum = key as PropertyIndustryEnum;
     return {
-      id: key,
+      id: industryEnum,
       title: PropertyIndustryRecord[industryEnum],
       subtitle: "",
     };
@@ -102,13 +102,12 @@ export function CreatePropertyPage() {
               isRequired={true}
               initialValue={PropertyIndustryEnum.E_COMMERCE}
               options={industryOptions}
-              setValue={(value: string) => {
+              setValue={(value: string) =>
                 setPropertyDetails({
                   ...propertyDetails,
                   industry: value as PropertyIndustryEnum,
-                });
-                return {};
-              }}
+                })
+              }
             />
             <SimpleTextInput
               ref={propertyDescriptionRef}

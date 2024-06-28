@@ -80,8 +80,8 @@ export const EXAMPLE_EMAIL_SUBJECT = `Don't Miss Out! Huge Sale & Exciting New P
 export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   {
     name: "My First Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
+    id: "192833395481",
+    propertyId: "48498498451",
     duration: 14,
     startDate: new Date(),
     config: {
@@ -91,8 +91,8 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   },
   {
     name: "My Second Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
+    id: "192833395482",
+    propertyId: "48498498452",
     duration: 14,
     startDate: new Date(),
     config: {
@@ -102,8 +102,8 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   },
   {
     name: "My Third Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
+    id: "192833395483",
+    propertyId: "48498498453",
     duration: 14,
     startDate: new Date(),
     config: {
@@ -113,7 +113,7 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   },
   {
     name: "My Fourth Campaign",
-    id: "192833395485",
+    id: "192833395484",
     propertyId: "48498498454",
     duration: 14,
     startDate: new Date(),
@@ -125,7 +125,7 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   {
     name: "My Fifth Campaign",
     id: "192833395485",
-    propertyId: "48498498454",
+    propertyId: "48498498455",
     duration: 14,
     startDate: new Date(),
     config: {
@@ -135,8 +135,8 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   },
   {
     name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
+    id: "192833395486",
+    propertyId: "48498498456",
     duration: 14,
     startDate: new Date(),
     config: {
@@ -146,8 +146,8 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   },
   {
     name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
+    id: "192833395487",
+    propertyId: "48498498457",
     duration: 14,
     startDate: new Date(),
     config: {
@@ -157,8 +157,8 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   },
   {
     name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
+    id: "192833395488",
+    propertyId: "48498498458",
     duration: 14,
     startDate: new Date(),
     config: {
@@ -168,52 +168,8 @@ export const EXAMPLE_CAMPAIGNS: CampaignInfo[] = [
   },
   {
     name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
-    duration: 14,
-    startDate: new Date(),
-    config: {
-      tone: "Funny",
-      textLength: 1400,
-    },
-  },
-  {
-    name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
-    duration: 14,
-    startDate: new Date(),
-    config: {
-      tone: "Funny",
-      textLength: 1400,
-    },
-  },
-  {
-    name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
-    duration: 14,
-    startDate: new Date(),
-    config: {
-      tone: "Funny",
-      textLength: 1400,
-    },
-  },
-  {
-    name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
-    duration: 14,
-    startDate: new Date(),
-    config: {
-      tone: "Funny",
-      textLength: 1400,
-    },
-  },
-  {
-    name: "My Fifth Campaign",
-    id: "192833395485",
-    propertyId: "48498498454",
+    id: "192833395489",
+    propertyId: "48498498459",
     duration: 14,
     startDate: new Date(),
     config: {
