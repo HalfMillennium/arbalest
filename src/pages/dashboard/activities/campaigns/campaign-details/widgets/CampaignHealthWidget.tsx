@@ -129,7 +129,6 @@ const CampaignStatChunk = ({
 }) => {
   const [isValueHovered, setIsValueHovered] = useState(false);
   const theme = useTheme();
-  const isXLScreen = useMediaQuery(theme.breakpoints.up("xl"));
   return (
     <div className="flex flex-col m-2 md:mr-6 justify-center items-center">
       <div className="flex -mb-1 items-center text-black">
@@ -138,7 +137,7 @@ const CampaignStatChunk = ({
         </div>
         <Typography
           fontFamily="Radio Canada Big"
-          fontSize={isXLScreen ? 16 : 12}
+          fontSize={12}
           className="pl-1 bg-latte-x-light rounded-lg -ml-1 px-2"
         >
           {label}
@@ -151,6 +150,16 @@ const CampaignStatChunk = ({
           fontFamily={"Roboto Mono"}
           fontSize={36}
           fontWeight={500}
+          sx={{
+            ":hover": {
+              cursor: "pointer",
+              textShadow: `
+                -1px -1px 0 #fff,  
+                1px -1px 0 #fff,
+                -1px  1px 0 #fff,
+                1px  1px 0 #fff`,
+            },
+          }}
         >
           {value}
         </Typography>
