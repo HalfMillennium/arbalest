@@ -12,6 +12,7 @@ interface InputOptions {
   showSaveChangesButton: boolean;
   isRequired?: boolean;
   style?: "fill" | "underline";
+  CustomButtonGroup?: React.ReactNode;
 }
 SimpleTextInput.defaultProps = {
   type: "text",
@@ -29,6 +30,7 @@ export function SimpleTextInput(props: InputOptions) {
     isRequired,
     ref,
     style,
+    CustomButtonGroup,
   } = props;
   const [currentValue, setCurrentValue] = useState(initialValue);
   const [currentValueInternal, setCurrentValueInternal] =
@@ -86,6 +88,7 @@ export function SimpleTextInput(props: InputOptions) {
       </div>
       {showSaveChangesButton && (
         <div className="pt-2 text-black w-full flex justify-end">
+          <div>{CustomButtonGroup}</div>
           <Button
             variant="outlined"
             color="inherit"

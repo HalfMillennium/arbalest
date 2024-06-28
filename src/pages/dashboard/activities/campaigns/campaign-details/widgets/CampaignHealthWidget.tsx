@@ -75,7 +75,7 @@ export function CampaignHealthWidget() {
           color="text.secondary"
           fontFamily="Helvetica Neue"
         >
-          {t("campaigns.campaignsTable.campaignHealth.explanation")}
+          {t("dashboard.campaigns.campaignsTable.campaignHealth.explanation")}
         </Typography>
       </div>
       <div>

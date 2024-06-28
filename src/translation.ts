@@ -52,6 +52,21 @@ export const TRANSLATIONS = {
         },
       },
       dashboard: {
+        campaigns: {
+          campaignsTable: {
+            campaignHealth: {
+              explanation:
+                "Arbalest measures the health of your campaign based on various metrics, including the rate of unsubscribes, mailing list growth, as well as the metrics visible below.",
+            },
+            workflowStatus: {
+              explanation:
+                "Keep track of your next and most recent scheduled entries.",
+            },
+          },
+          entries: {
+            modifyMailingLists: "Modify Mailing Lists",
+          },
+        },
         analytics: {
           selectACampaign: "Select A Campaign",
           selectACampaignSubtitle:
@@ -92,16 +107,6 @@ export const TRANSLATIONS = {
               "Users will receive a monthly update digest on the first of every month at 5pm EST (GMT-5).",
             quarterly:
               "Users will receive quarterly update digests beginning 3 months after the start date, at 5pm EST (GMT-5).",
-          },
-        },
-        campaignsTable: {
-          campaignHealth: {
-            explanation:
-              "Arbalest measures the health of your campaign based on various metrics, including the rate of unsubscribes, mailing list growth, as well as the metrics visible below.",
-          },
-          workflowStatus: {
-            explanation:
-              "Keep track of your next and most recent scheduled entries.",
           },
         },
       },

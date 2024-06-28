@@ -9,6 +9,7 @@ import EmailMarkdownEditor from "./EmailMarkdownEditor";
 import { EntryEditorHeader } from "./recent-entries/EntryEditorHeader";
 import { SimpleTextInput } from "../../components/shared/SimpleTextInput";
 import { EntryDashboardTabs } from "./types";
+import { useTranslation } from "react-i18next";
 
 const MAX_SUBJECT_LINE_LENGTH = 75;
 const MAX_DEMO_ID_LENGTH = 25;
@@ -16,6 +17,7 @@ const MAX_DEMO_ID_LENGTH = 25;
 function EditEntriesActivity(props: {
   setTab: (tab: EntryDashboardTabs) => void;
 }) {
+  const { t } = useTranslation();
   const subjectLineTextAreaRef = createRef<HTMLInputElement>();
   const mailingListIdTextAreaRef = createRef<HTMLInputElement>();
   const [subjectLine, setSubjectLine] = useState("");
@@ -82,6 +84,11 @@ function EditEntriesActivity(props: {
               initialValue={"#1293109"}
               setValue={setMailingListId}
               label="Mailing List ID"
+              CustomButtonGroup={
+                <Button variant="outlined" color="inherit">
+                  {t("dashboard.campaigns.")}
+                </Button>
+              }
             />
           </div>
         </div>

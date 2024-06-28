@@ -54,7 +54,7 @@ export function WorkflowStatusWidget(props: {
           color="text.secondary"
           fontFamily="Helvetica Neue"
         >
-          {t("campaigns.campaignsTable.workflowStatus.explanation")}
+          {t("dashboard.campaigns.campaignsTable.workflowStatus.explanation")}
         </Typography>
       </div>
       <div className="flex w-full">
