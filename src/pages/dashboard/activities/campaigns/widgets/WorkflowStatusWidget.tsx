@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Typography } from "@mui/material";
 import { Cloud } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
-import { CampaignEntry } from "../../../../../../types/campaigns";
+import { CampaignEntry } from "../../../../../types/campaigns";
 
 /** Provides overview on current release schedule of email dispatcher (e.g. most recent dispatch, next dispatch date) */
 export function WorkflowStatusWidget(props: {
@@ -11,7 +11,7 @@ export function WorkflowStatusWidget(props: {
 }) {
   const { t } = useTranslation();
   return (
-    <div className="bg-gradient-to-r from-dark-lavender/5 to-dark-lavender/10 px-3 mb-3 mr-3 mt-3 rounded-md hover:shadow-sm">
+    <div className="bg-gradient-to-r from-dark-lavender/5 to-dark-lavender/10 px-3 mr-3 mt-3 rounded-sm hover:shadow-sm">
       <div className="flex">
         <div className="flex justify-center items-center">
           <div>
@@ -21,14 +21,14 @@ export function WorkflowStatusWidget(props: {
               fontWeight="medium"
               fontFamily="Helvetica Neue"
             >
-              Workflow Status
+              {}
             </Typography>
           </div>
           <div className="flex justify-center items-center ml-1">
             <Cloud />
           </div>
         </div>
-        <div className="pl-6 pt-3">
+        <div className="pl-6">
           <Button
             color="inherit"
             sx={{

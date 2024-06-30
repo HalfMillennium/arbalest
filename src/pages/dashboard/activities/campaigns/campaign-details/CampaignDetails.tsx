@@ -2,7 +2,7 @@ import {
   CampaignHealthWidget,
   WorkflowStatusWidget,
   MailingListWidget,
-} from "./widgets";
+} from "../widgets";
 
 export function CampaignDetails() {
   return (

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { BarChart } from "./shared/BarChart";
+import { LineChart } from "./shared/LineChart";
 import { generateExampleData } from "./utils";
 import { Typography } from "@mui/material";
 import {
   SelectMenuOption,
   SimpleSelect,
 } from "../../../../components/shared/SimpleSelect";
+import { DynamicSelect } from "../../../../components/shared/DynamicSelect";
 import { EXAMPLE_CAMPAIGNS } from "../../../entries-dashboard/utils";
 import {
   ChartMetricOptionsEnum,
@@ -80,20 +81,20 @@ export default function Analytics() {
         <div className="flex flex-col w-2/3 h-2/3">
           <div className="flex justify-end w-full">
             <div className="w-1/4">
-              <SimpleSelect
-                label={t("dashboard.analytics.charts.selectAMetric")}
-                tooltip18nKey={t(
-                  "dashboard.analytics.charts.selectAMetricInfo"
-                )}
+              <DynamicSelect
+                label={t("dashboard.analytics.charts.displayedMetric")}
                 options={chartMetricOptions}
                 initialValue={chartMetricOptions[0].id}
+                displayValue={ChartMetricOptionsRecord[currentChartMetric]}
                 setValue={(value: string) =>
                   setCurrentChartMetric(value as ChartMetricOptionsEnum)
                 }
               />
             </div>
           </div>
-          <BarChart data={chartData} />
+          <div className="border-solid border-2 border-gray-100 rounded-md p-4 ml-10 my-10 h-full">
+            <LineChart data={chartData} />
+          </div>
         </div>
       </div>
     </div>

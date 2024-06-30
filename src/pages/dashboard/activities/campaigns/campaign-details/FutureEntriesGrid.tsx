@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { CampaignEntry } from "../../../../../../types/campaigns";
+import { CampaignEntry } from "../../../../../types/campaigns";
 import { Typography } from "@mui/material";
 
 export function FutureEntriesGrid(props: { campaignEntries: CampaignEntry[] }) {

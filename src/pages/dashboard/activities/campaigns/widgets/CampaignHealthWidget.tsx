@@ -17,34 +17,26 @@ import { CircularProgress } from "@mui/material";
 import {
   DashboardActivity,
   ResourceTypesRecord,
-} from "../../../../../../store/dashboard/dashboardSlice";
+} from "../../../../../store/dashboard/dashboardSlice";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { SimpleTableWidget } from "../../../../../components/shared/SimpleTableWidget";
 
 /** Provides overview of engagement rate vs. duration of campaign, as well as campaign result if current rate is maintained for duration of campaign */
 export function CampaignHealthWidget() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   return (
-    <div className="bg-gradient-to-r from-dark-lavender/20 to-dark-lavender/40 px-3 pb-3 mb-3 mr-3 mt-3 rounded-sm hover:shadow-sm">
-      <div className="flex">
-        <div className="flex justify-center items-center">
-          <div>
-            <Typography
-              variant="h5"
-              component="div"
-              fontWeight="medium"
-              fontFamily="Helvetica Neue"
-            >
-              Campaign Health
-            </Typography>
-          </div>
-          <div className="flex justify-center items-center ml-1">
-            <HealthAndSafety />
-          </div>
-        </div>
-        <div className="pl-6 pt-3">
+    <div className="bg-gradient-to-r from-dark-lavender/20 to-dark-lavender/40 mr-3 rounded-sm hover:shadow-sm">
+      <SimpleTableWidget
+        title18nKey={"dashboard.campaigns.campaignsTable.campaignHealth.title"}
+        subtitle18nKey={
+          "dashboard.campaigns.campaignsTable.campaignHealth.explanation"
+        }
+        TitleIcon={<HealthAndSafety />}
+        WidgetComponent={<HealthSummaryTable />}
+        ActionButton={
           <Button
             color="inherit"
             sx={{
@@ -70,20 +62,8 @@ export function CampaignHealthWidget() {
               {t("dashboard.campaigns.viewAnalytics")}
             </Typography>
           </Button>
-        </div>
-      </div>
-      <div className="mb-1">
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          fontFamily="Helvetica Neue"
-        >
-          {t("dashboard.campaigns.campaignsTable.campaignHealth.explanation")}
-        </Typography>
-      </div>
-      <div>
-        <HealthSummaryTable />
-      </div>
+        }
+      />
     </div>
   );
 

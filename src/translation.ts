@@ -56,12 +56,20 @@ export const TRANSLATIONS = {
           viewAnalytics: "View Analytics",
           campaignsTable: {
             campaignHealth: {
+              title: "Campaign Health",
               explanation:
                 "Arbalest measures the health of your campaign based on various metrics, including the rate of unsubscribes, mailing list growth, as well as the metrics visible below.",
             },
             workflowStatus: {
+              title: "Workflow Status",
               explanation:
                 "Keep track of your next and most recent scheduled entries.",
+            },
+            mailingList: {
+              title: "Mailing List",
+              editSettings: "Edit Settings",
+              explanation:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
           },
           entries: {
@@ -73,8 +81,8 @@ export const TRANSLATIONS = {
           selectACampaignSubtitle:
             "View relevant statistics for the campaign of your choosing.",
           charts: {
-            selectAMetric: "Select A Metric",
-            selectAMetricInfo:
+            displayedMetric: "Displayed Metric",
+            displayedMetricInfo:
               "This will determine the specific data displayed on the charts, allowing you to tailor the analytics view to your needs.",
           },
         },

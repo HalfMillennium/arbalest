@@ -5,8 +5,8 @@ import { Typography } from "@mui/material";
 export function MailingListWidget() {
   return (
     <div className="p-3 mb-3 ml-3 mt-3 rounded-md">
-      <Typography variant="h5" component="div">
-        Demographic
+      <Typography variant="h5" component="div" fontFamily={"Helvetica Neue"}>
+        Mailing List
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

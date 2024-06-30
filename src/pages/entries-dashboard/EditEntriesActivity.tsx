@@ -89,6 +89,7 @@ function EditEntriesActivity(props: {
                   variant="outlined"
                   color="inherit"
                   sx={{
+                    backgroundColor: "@apply",
                     ":hover": {
                       backgroundColor: "#212121",
                       color: "white",
