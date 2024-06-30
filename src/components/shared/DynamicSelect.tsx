@@ -59,7 +59,9 @@ export function DynamicSelect(props: {
             className="flex items-center gap-2 px-3 py-2 rounded-md text-soft-black font-medium text-sm w-full"
           >
             <div className="w-full">
-              <Typography variant="body2">{displayValue}</Typography>
+              <Typography variant="body2" fontFamily="Radio Canada Big">
+                {displayValue}
+              </Typography>
             </div>
             <motion.div variants={iconVariants}>
               <FiChevronDown />
@@ -78,6 +80,7 @@ export function DynamicSelect(props: {
               id={option.id}
               setOpen={setOpen}
               setValue={handleValueChange}
+              isSelected={valueInternal === option.id}
               title={option.title}
             />
           ))}
@@ -105,9 +108,11 @@ const Option = ({
   id,
   setOpen,
   setValue,
+  isSelected,
 }: SelectMenuOption & {
   setOpen: (open: boolean) => void;
   setValue: (valueId: string) => void;
+  isSelected: boolean;
 }) => {
   return (
     <motion.li
@@ -117,7 +122,10 @@ const Option = ({
         setValue(id);
       }}
       style={{ zIndex: 9999 }}
-      className="flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-slate-100 text-slate-700 transition-colors cursor-pointer"
+      className={
+        "flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-dusk-violet/10 text-soft-black transition-colors cursor-pointer " +
+        (isSelected ? "bg-dusk-violet/10" : "")
+      }
     >
       <span>{title}</span>
     </motion.li>
