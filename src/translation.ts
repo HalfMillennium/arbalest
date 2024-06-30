@@ -84,6 +84,7 @@ export const TRANSLATIONS = {
             displayedMetric: "Displayed Metric",
             displayedMetricInfo:
               "This will determine the specific data displayed on the charts, allowing you to tailor the analytics view to your needs.",
+            selectTimeframe: "Date Range",
           },
         },
       },

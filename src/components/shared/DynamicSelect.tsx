@@ -123,7 +123,7 @@ const Option = ({
       }}
       style={{ zIndex: 9999 }}
       className={
-        "flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-dusk-violet/10 text-soft-black transition-colors cursor-pointer " +
+        "flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded-md hover:bg-dusk-violet/10 text-soft-black transition-colors cursor-pointer " +
         (isSelected ? "bg-dusk-violet/10" : "")
       }
     >

@@ -24,7 +24,9 @@ export function DashboardActivityContent({
 
   /** Lazy load Analytics and Assistants activities */
   const Analytics = lazy(() => import("../activities/analytics/Analytics"));
-  const Assistants = lazy(() => import("../activities/assistants/Assistants"));
+  const MailingLists = lazy(
+    () => import("../activities/mailingLists/MailingLists")
+  );
 
   useEffect(() => {
     if (userPropertySelected == false) {
@@ -55,8 +57,8 @@ export function DashboardActivityContent({
                 {currentActivity === DashboardActivity.ANALYTICS && (
                   <Analytics />
                 )}
-                {currentActivity === DashboardActivity.ASSISTANTS && (
-                  <Assistants />
+                {currentActivity === DashboardActivity.MAILING_LISTS && (
+                  <MailingLists />
                 )}
                 {currentActivity === DashboardActivity.ENTRIES && (
                   <EntriesHome />

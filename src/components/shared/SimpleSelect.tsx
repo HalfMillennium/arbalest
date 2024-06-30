@@ -79,11 +79,38 @@ export function SimpleSelect(props: {
       <Select
         labelId="dispatch-rate"
         className="w-full"
+        color="info"
+        sx={{
+          borderRadius: "0.5rem",
+          borderColor: "#212121", // Set default border color
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#212121", // Ensure border color is consistent
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#212121", // Hover state
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#212121", // Focus state
+          },
+          "&.Mui-active .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#212121", // Active state
+          },
+        }}
         value={valueInternal}
         onChange={handleValueChange}
       >
         {options.map((option) => (
-          <MenuItem key={option.id} value={option.id}>
+          <MenuItem
+            key={option.id}
+            value={option.id}
+            sx={{
+              borderRadius: "0.5rem",
+              margin: "0.5rem",
+              ":hover": {
+                backgroundColor: "rgba(41,44,82,0.1)",
+              },
+            }}
+          >
             <RichMenuItem option={option} />
           </MenuItem>
         ))}

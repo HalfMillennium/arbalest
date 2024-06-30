@@ -12,7 +12,12 @@ import {
   ChartMetricOptionsEnum,
   ChartMetricOptionsRecord,
 } from "../../../../types/campaign_analytics";
+import {
+  TimeFrameOptionsEnum,
+  TimeFrameOptionsRecord,
+} from "../../../../types/campaign_analytics";
 import { useTranslation } from "react-i18next";
+import MUISelect from "../../../../components/shared/MUISelect";
 
 const campaignOptions: SelectMenuOption[] = EXAMPLE_CAMPAIGNS.map(
   (campaignInfo) => {
@@ -32,11 +37,25 @@ const chartMetricOptions: SelectMenuOption[] = Object.keys(
     title: ChartMetricOptionsRecord[option],
   };
 });
+
+const timeFrameOptions: SelectMenuOption[] = Object.keys(
+  TimeFrameOptionsRecord
+).map((timeframe) => {
+  const option = timeframe as TimeFrameOptionsEnum;
+  return {
+    id: option,
+    title: TimeFrameOptionsRecord[option],
+  };
+});
+
 export default function Analytics() {
   const [currentCampaign, setCurrentCampaign] = useState(campaignOptions[0]);
   /** Note: "Chart metric" only has to do with the type of data displayed, and not directly to chart type/context */
   const [currentChartMetric, setCurrentChartMetric] = useState(
     ChartMetricOptionsEnum.OPEN_RATE
+  );
+  const [currentTimeFrame, setCurrentTimeFrame] = useState(
+    TimeFrameOptionsEnum.LAST_7_DAYS
   );
   const [chartData, setChartData] = useState(generateExampleData());
 
@@ -80,7 +99,18 @@ export default function Analytics() {
         </div>
         <div className="flex flex-col w-2/3 h-2/3">
           <div className="flex justify-end w-full">
-            <div className="w-1/4">
+            <div className="w-1/4 mt-4 mr-4">
+              <DynamicSelect
+                label={t("dashboard.analytics.charts.selectTimeframe")}
+                options={timeFrameOptions}
+                initialValue={timeFrameOptions[0].id}
+                displayValue={TimeFrameOptionsRecord[currentTimeFrame]}
+                setValue={(value: string) =>
+                  setCurrentTimeFrame(value as TimeFrameOptionsEnum)
+                }
+              />
+            </div>
+            <div className="w-1/4 mt-4">
               <DynamicSelect
                 label={t("dashboard.analytics.charts.displayedMetric")}
                 options={chartMetricOptions}
@@ -93,7 +123,7 @@ export default function Analytics() {
             </div>
           </div>
           <div className="border-solid border-2 border-gray-100 rounded-md p-4 ml-10 my-10 h-full">
-            <LineChart data={chartData} />
+            <LineChart data={chartData} shouldFadeIn={true} />
           </div>
         </div>
       </div>

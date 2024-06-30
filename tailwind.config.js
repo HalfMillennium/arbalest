@@ -42,6 +42,7 @@ module.exports = {
         'dark-lavender-15': "#F1F1F1",
         'dark-lavender-5': '#F8F7F1',
         'dusk-violet': "#292c52",
+        'dusk-violet-light': "#9ca2ff",
         'latte': "#ffe09e",
         'latte-light': "#FFF3CB",
         'latte-x-light': "#FFFDF0",

@@ -24,8 +24,8 @@ function setActivityFromParams(
     case "campaigns":
       dispatch(setCurrentActivity(DashboardActivity.CAMPAIGNS));
       break;
-    case "assistants":
-      dispatch(setCurrentActivity(DashboardActivity.ASSISTANTS));
+    case "mailingLists":
+      dispatch(setCurrentActivity(DashboardActivity.MAILING_LISTS));
       break;
     case "analytics":
       dispatch(setCurrentActivity(DashboardActivity.ANALYTICS));
@@ -148,8 +148,8 @@ export function DashboardHome() {
         </ListItem>
         <ListItem>
           <DrawerCard
-            activity={DashboardActivity.ASSISTANTS}
-            body="Manage your virtual email director, curator and writer."
+            activity={DashboardActivity.MAILING_LISTS}
+            body="Manage campaign mailing lists and configure custom demographics."
           />
         </ListItem>
         <ListItem>

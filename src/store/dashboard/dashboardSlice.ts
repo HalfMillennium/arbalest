@@ -4,15 +4,16 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export enum DashboardActivity {
   CAMPAIGNS = "Campaigns",
   ANALYTICS = "Analytics",
-  /** Refers to AI communications director, AI email curator and automated dispatcher - where users edit property config */
-  ASSISTANTS = "Assistants",
+  // /** Refers to AI communications director, AI email curator and automated dispatcher - where users edit property config */
+  // ASSISTANTS = "Assistants",
+  MAILING_LISTS = "Mailing Lists",
   ENTRIES = "Entries",
 }
 
 export const ResourceTypesRecord: Record<DashboardActivity, string> = {
   [DashboardActivity.CAMPAIGNS]: "campaigns",
   [DashboardActivity.ANALYTICS]: "analytics",
-  [DashboardActivity.ASSISTANTS]: "assistants",
+  [DashboardActivity.MAILING_LISTS]: "mailingLists",
   [DashboardActivity.ENTRIES]: "entries",
 };
 
