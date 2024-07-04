@@ -12,10 +12,12 @@ export function DynamicSelect(props: {
   infoText18nKey?: string | undefined;
   initialValue?: string;
   displayValue: string;
+  Icon?: React.ReactNode;
   setValue: (itemId: string) => void;
 }) {
   const {
     label,
+    Icon,
     options,
     isRequired,
     infoText18nKey,
@@ -33,6 +35,7 @@ export function DynamicSelect(props: {
     <div className="flex flex-col">
       <div className="flex flex-col">
         <div className="text-black flex">
+          <div className="flex">{Icon}</div>
           <Typography
             variant="h6"
             fontFamily="Radio Canada Big"

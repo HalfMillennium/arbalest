@@ -31,7 +31,7 @@ export function CreateCampaignDrawer(props: {
     dayjs().add(1, "day")
   );
   const [endDate, setEndDate] = useState<Dayjs | null>(dayjs().add(1, "month"));
-  const [isFixedDuration, setIsFixedDuration] = useState(false);
+  const [isUnboundedDuration, setIsUnboundedDuration] = useState(true);
 
   const handleScanRateChange = (event: SelectChangeEvent) => {
     setScanRate(event.target.value);
@@ -54,8 +54,8 @@ export function CreateCampaignDrawer(props: {
   const scanRateOptions = useScanRates();
   const dispatchRateOptions = useDispatchRates();
 
-  const handleSetIsFixedDuration = (isFixedDuration: boolean) => {
-    setIsFixedDuration(isFixedDuration);
+  const handleSetIsUnboundedDuration = (isFixedDuration: boolean) => {
+    setIsUnboundedDuration(isFixedDuration);
   };
   return (
     <Drawer open={open} onClose={setDrawerClose}>
@@ -105,7 +105,9 @@ export function CreateCampaignDrawer(props: {
           />
         </div>
         <div>
-          <DurationModeToggler setIsFixedDuration={handleSetIsFixedDuration} />
+          <DurationModeToggler
+            setIsUnboundedDuration={handleSetIsUnboundedDuration}
+          />
         </div>
         <div>
           <div className="flex w-full mt-4rem">
@@ -128,7 +130,7 @@ export function CreateCampaignDrawer(props: {
                 onChange={(newValue) => setStartDate(newValue)}
               />
             </div>
-            {isFixedDuration && (
+            {!isUnboundedDuration && (
               <>
                 <div className="flex justify-center items-center mx-4 text-black/20">
                   <AccessTime />
@@ -156,26 +158,36 @@ export function CreateCampaignDrawer(props: {
             )}
           </div>
         </div>
-        <SimpleSelect
-          label="Set Scan Rate"
-          isRequired={true}
-          options={scanRateOptions}
-          tooltip18nKey={"campaigns.createCampaignDrawer.scanRateTooltip"}
-          infoText18nKey={"campaigns.createCampaignDrawer.scanRateExplanation"}
-          initialValue="weekly"
-          setValue={setScanRate}
-        />
-        <SimpleSelect
-          label="Set Dispatch Rate"
-          isRequired={true}
-          options={dispatchRateOptions}
-          tooltip18nKey={"campaigns.createCampaignDrawer.dispatchRateTooltip"}
-          infoText18nKey={
-            "campaigns.createCampaignDrawer.dispatchRateExplanation"
-          }
-          initialValue="weekly"
-          setValue={setDispatchRate}
-        />
+        <div className="flex flex-col">
+          <div className="flex">
+            <SimpleSelect
+              label="Set Scan Rate"
+              isRequired={true}
+              options={scanRateOptions}
+              tooltip18nKey={"campaigns.createCampaignDrawer.scanRateTooltip"}
+              infoText18nKey={
+                "campaigns.createCampaignDrawer.scanRateExplanation"
+              }
+              initialValue="weekly"
+              setValue={setScanRate}
+            />
+          </div>
+          <div className="flex">
+            <SimpleSelect
+              label="Set Dispatch Rate"
+              isRequired={true}
+              options={dispatchRateOptions}
+              tooltip18nKey={
+                "campaigns.createCampaignDrawer.dispatchRateTooltip"
+              }
+              infoText18nKey={
+                "campaigns.createCampaignDrawer.dispatchRateExplanation"
+              }
+              initialValue="weekly"
+              setValue={setDispatchRate}
+            />
+          </div>
+        </div>
       </div>
     </Drawer>
   );

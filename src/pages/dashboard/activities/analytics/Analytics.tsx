@@ -17,7 +17,6 @@ import {
   TimeFrameOptionsRecord,
 } from "../../../../types/campaign_analytics";
 import { useTranslation } from "react-i18next";
-import MUISelect from "../../../../components/shared/MUISelect";
 
 const campaignOptions: SelectMenuOption[] = EXAMPLE_CAMPAIGNS.map(
   (campaignInfo) => {

@@ -1,17 +1,21 @@
 import { Typography } from "@mui/material";
 import { AllInclusive, DateRange } from "@mui/icons-material";
 import { useState } from "react";
+import { SimpleSwitchToggler } from "../shared/SimpleSwitchToggler";
 
 export function DurationModeToggler(props: {
-  setIsFixedDuration: (isFixedDuration: boolean) => void;
+  setIsUnboundedDuration: (isFixedDuration: boolean) => void;
 }) {
-  const { setIsFixedDuration } = props;
-  const [isFixedDurationInternal, setIsFixedDurationInternal] = useState(false);
+  const { setIsUnboundedDuration } = props;
+  const [isUnboundedDuration, setIsUnboundedDurationInternal] = useState(false);
 
-  const handleSelectOption = (durationMode: boolean) => {
-    setIsFixedDurationInternal(durationMode);
-    setIsFixedDuration(durationMode);
+  const handleIsUnboundedDuration = (durationMode: boolean) => {
+    setIsUnboundedDurationInternal(durationMode);
+    setIsUnboundedDuration(durationMode);
   };
+
+  const unboundedIcon = <AllInclusive fontSize="medium" />;
+  const fixedIcon = <DateRange fontSize="medium" />;
 
   return (
     <div className="flex flex-col justify-center space-x-4 mt-5">
@@ -20,50 +24,11 @@ export function DurationModeToggler(props: {
           Duration
         </Typography>
       </div>
-      <div className="flex">
-        <div>
-          <button
-            className={`px-4 py-2 font-semibold rounded-sm focus:outline-none ${
-              isFixedDurationInternal
-                ? "bg-gray-100 text-gray-800"
-                : "bg-dark-lavender text-white"
-            }`}
-            onClick={() => handleSelectOption(false)}
-          >
-            <div className="flex">
-              <AllInclusive fontSize="medium" />
-              <Typography
-                className="pl-2"
-                fontFamily="Radio Canada Big"
-                fontWeight={500}
-              >
-                Unbounded
-              </Typography>
-            </div>
-          </button>
-        </div>
-        <div className="ml-5">
-          <button
-            className={`px-4 py-2 font-semibold rounded-sm focus:outline-none ${
-              !isFixedDurationInternal
-                ? "bg-gray-100 text-gray-800"
-                : "bg-dark-lavender text-white"
-            }`}
-            onClick={() => handleSelectOption(true)}
-          >
-            <div className="flex">
-              <DateRange fontSize="medium" />
-              <Typography
-                className="pl-2"
-                fontFamily="Radio Canada Big"
-                fontWeight={500}
-              >
-                Fixed Timeframe
-              </Typography>
-            </div>
-          </button>
-        </div>
-      </div>
+      <SimpleSwitchToggler
+        handleIsSelectOptionA={handleIsUnboundedDuration}
+        optionA={{ title: "Unbounded", Icon: unboundedIcon }}
+        optionB={{ title: "Fixed", Icon: fixedIcon }}
+      />
     </div>
   );
 }

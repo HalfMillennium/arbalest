@@ -44,9 +44,9 @@ export function SimpleSelect(props: {
     setValue(updatedValue);
   };
   return (
-    <div className="mt-7 flex flex-col">
+    <div className="mt-7 flex flex-col w-36rem xl:w-48rem">
       <div className="flex flex-col">
-        <div className="text-black flex mb-1">
+        <div className="text-black flex mb-1 w-32rem xl:w-36rem">
           <Typography
             variant="button"
             fontFamily="Helvetica Neue"
@@ -81,23 +81,29 @@ export function SimpleSelect(props: {
         className="w-full"
         color="info"
         sx={{
-          borderRadius: "0.5rem",
-          borderColor: "#212121", // Set default border color
+          borderRadius: "0.5rem", // More rounded corners
+          backgroundColor: "#ffffff", // Light background color
+          color: "#212121", // Dark text color for contrast
           "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#212121", // Ensure border color is consistent
+            borderColor: "#e0e0e0", // Lighter border color
           },
           "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#212121", // Hover state
+            borderColor: "#e0e0e0", // Slightly darker on hover
           },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#212121", // Focus state
-          },
-          "&.Mui-active .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#212121", // Active state
+            borderColor: "#e0e0e0", // Distinct focus state
           },
         }}
         value={valueInternal}
         onChange={handleValueChange}
+        MenuProps={{
+          PaperProps: {
+            elevation: 0, // Removes the drop shadow beneath the menu items
+            sx: {
+              borderRadius: "0.4rem", // Applies rounded corners to the menu
+            },
+          },
+        }}
       >
         {options.map((option) => (
           <MenuItem
@@ -135,6 +141,7 @@ export function SimpleSelect(props: {
 const RichMenuItem = (props: { option: SelectMenuOption }) => {
   const { option } = props;
   const subtitle = option?.subtitle;
+
   return (
     <div className="flex flex-col">
       <div className="p-1">
@@ -148,7 +155,7 @@ const RichMenuItem = (props: { option: SelectMenuOption }) => {
       </div>
       {subtitle && (
         <div className="p-1">
-          <Typography variant="body2" fontFamily="Helvetica Neue">
+          <Typography variant="body1" fontFamily="Helvetica Neue">
             {subtitle}
           </Typography>
         </div>
