@@ -44,9 +44,9 @@ export function SimpleSelect(props: {
     setValue(updatedValue);
   };
   return (
-    <div className="mt-7 flex flex-col w-36rem xl:w-48rem">
+    <div className="mt-7 flex flex-col min-w-36rem">
       <div className="flex flex-col">
-        <div className="text-black flex mb-1 w-32rem xl:w-36rem">
+        <div className="text-black flex mb-1">
           <Typography
             variant="button"
             fontFamily="Helvetica Neue"
